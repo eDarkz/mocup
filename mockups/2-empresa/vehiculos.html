@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Flota de Vehículos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .vehicles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; }
+        .vehicle-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; }
+        .vehicle-image { height: 120px; background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, var(--color-bg-secondary) 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .vehicle-body { padding: 20px; }
+        .vehicle-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+        .vehicle-name { font-size: 1.25rem; font-weight: 700; }
+        .vehicle-plate { font-size: 0.85rem; color: var(--color-text-muted); }
+        .vehicle-status { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; padding: 4px 12px; border-radius: 20px; }
+        .vehicle-status.active { background: var(--color-success-bg); color: var(--color-success); }
+        .vehicle-status.parked { background: var(--color-bg-tertiary); color: var(--color-text-muted); }
+        .vehicle-status.maintenance { background: var(--color-warning-bg); color: var(--color-warning); }
+        .vehicle-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0; padding: 16px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+        .vehicle-info-item { text-align: center; }
+        .vehicle-info-item span { display: block; font-size: 0.75rem; color: var(--color-text-muted); }
+        .vehicle-info-item strong { font-size: 1rem; }
+        .vehicle-driver { display: flex; align-items: center; gap: 12px; }
+        .driver-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; }
+        .driver-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .driver-info strong { display: block; font-size: 0.9rem; }
+        .driver-info span { font-size: 0.8rem; color: var(--color-text-muted); }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Recursos</div>
+                    <a href="personal.html" class="nav-item"><span class="nav-item-icon">👥</span> Personal</a>
+                    <a href="vehiculos.html" class="nav-item active"><span class="nav-item-icon">🚐</span> Vehículos</a>
+                    <a href="inventario.html" class="nav-item"><span class="nav-item-icon">📦</span> Inventario</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">🚐 Flota de Vehículos</h1>
+                    <p class="page-subtitle">Gestiona tus unidades de transporte y tracking GPS</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">🗺️ Ver en Mapa</button>
+                    <button class="btn btn-primary">+ Nuevo Vehículo</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card green"><div class="stat-value">3</div><div class="stat-label">En Ruta</div></div>
+                <div class="stat-card blue"><div class="stat-value">1</div><div class="stat-label">En Base</div></div>
+                <div class="stat-card yellow"><div class="stat-value">1</div><div class="stat-label">Mantenimiento</div></div>
+                <div class="stat-card"><div class="stat-value">2,340 km</div><div class="stat-label">Recorrido Mensual</div></div>
+            </div>
+            <div class="vehicles-grid">
+                <div class="vehicle-card">
+                    <div class="vehicle-image">🚐</div>
+                    <div class="vehicle-body">
+                        <div class="vehicle-header">
+                            <div><div class="vehicle-name">Unidad 01</div><div class="vehicle-plate">ABC-123-MX</div></div>
+                            <div class="vehicle-status active"><span class="status-dot online"></span> En ruta</div>
+                        </div>
+                        <div class="vehicle-info">
+                            <div class="vehicle-info-item"><span>Velocidad</span><strong>45 km/h</strong></div>
+                            <div class="vehicle-info-item"><span>Combustible</span><strong>75%</strong></div>
+                            <div class="vehicle-info-item"><span>Km hoy</span><strong>67 km</strong></div>
+                            <div class="vehicle-info-item"><span>Próx. servicio</span><strong>850 km</strong></div>
+                        </div>
+                        <div class="vehicle-driver">
+                            <div class="driver-avatar"><img src="https://i.pravatar.cc/40?img=12" alt=""></div>
+                            <div class="driver-info"><strong>Carlos Ramírez</strong><span>📍 Rumbo a Hotel Marriott</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <div class="vehicle-image">🚐</div>
+                    <div class="vehicle-body">
+                        <div class="vehicle-header">
+                            <div><div class="vehicle-name">Unidad 02</div><div class="vehicle-plate">DEF-456-MX</div></div>
+                            <div class="vehicle-status active"><span class="status-dot online"></span> En ruta</div>
+                        </div>
+                        <div class="vehicle-info">
+                            <div class="vehicle-info-item"><span>Velocidad</span><strong>0 km/h</strong></div>
+                            <div class="vehicle-info-item"><span>Combustible</span><strong>60%</strong></div>
+                            <div class="vehicle-info-item"><span>Km hoy</span><strong>45 km</strong></div>
+                            <div class="vehicle-info-item"><span>Próx. servicio</span><strong>1,200 km</strong></div>
+                        </div>
+                        <div class="vehicle-driver">
+                            <div class="driver-avatar"><img src="https://i.pravatar.cc/40?img=5" alt=""></div>
+                            <div class="driver-info"><strong>María Sánchez</strong><span>📍 En Casa González (trabajando)</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <div class="vehicle-image">🚐</div>
+                    <div class="vehicle-body">
+                        <div class="vehicle-header">
+                            <div><div class="vehicle-name">Unidad 03</div><div class="vehicle-plate">GHI-789-MX</div></div>
+                            <div class="vehicle-status parked"><span class="status-dot offline"></span> En base</div>
+                        </div>
+                        <div class="vehicle-info">
+                            <div class="vehicle-info-item"><span>Velocidad</span><strong>--</strong></div>
+                            <div class="vehicle-info-item"><span>Combustible</span><strong>90%</strong></div>
+                            <div class="vehicle-info-item"><span>Km hoy</span><strong>0 km</strong></div>
+                            <div class="vehicle-info-item"><span>Próx. servicio</span><strong>2,100 km</strong></div>
+                        </div>
+                        <div class="vehicle-driver">
+                            <div class="driver-avatar"><img src="https://i.pravatar.cc/40?img=8" alt=""></div>
+                            <div class="driver-info"><strong>Pedro Martínez</strong><span>💤 Día libre</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <div class="vehicle-image" style="background: rgba(245, 158, 11, 0.1);">🔧</div>
+                    <div class="vehicle-body">
+                        <div class="vehicle-header">
+                            <div><div class="vehicle-name">Unidad 04</div><div class="vehicle-plate">JKL-012-MX</div></div>
+                            <div class="vehicle-status maintenance">🔧 Mantenimiento</div>
+                        </div>
+                        <div class="vehicle-info">
+                            <div class="vehicle-info-item"><span>Tipo</span><strong>Servicio</strong></div>
+                            <div class="vehicle-info-item"><span>Taller</span><strong>AutoFix SA</strong></div>
+                            <div class="vehicle-info-item"><span>Entrada</span><strong>05/02</strong></div>
+                            <div class="vehicle-info-item"><span>Est. salida</span><strong>08/02</strong></div>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--color-warning);">⚠️ Cambio de frenos y afinación</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

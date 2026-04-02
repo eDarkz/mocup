@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Portal Cliente: Tendencias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .trend-chart { background: var(--color-bg-tertiary); border-radius: 12px; padding: 24px; height: 250px; display: flex; align-items: flex-end; justify-content: space-around; gap: 12px; }
+        .trend-bar { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .trend-bar .bar { width: 40px; border-radius: 8px 8px 0 0; transition: height 0.3s; }
+        .trend-bar .label { font-size: 0.75rem; color: var(--color-text-muted); }
+        .trend-bar .value { font-size: 0.8rem; font-weight: 600; }
+        .zone-heatmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .zone-cell { padding: 16px; border-radius: 8px; text-align: center; cursor: pointer; }
+        .zone-cell.high { background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.3); }
+        .zone-cell.medium { background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.3); }
+        .zone-cell.low { background: rgba(16,185,129,0.2); border: 1px solid rgba(16,185,129,0.3); }
+        .zone-cell.none { background: var(--color-bg-tertiary); border: 1px solid var(--color-border); }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏨</span> Hotel Marriott</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="calendario-cliente.html" class="nav-item"><span class="nav-item-icon">📅</span> Calendario</a>
+                <a href="historial.html" class="nav-item"><span class="nav-item-icon">📋</span> Historial</a>
+                <a href="tendencias.html" class="nav-item active"><span class="nav-item-icon">📈</span> Tendencias</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📈 Tendencias y Análisis</h1><p class="page-subtitle">Análisis de actividad por zona, plaga y período</p></div>
+                <select class="form-input form-select" style="width:150px;"><option>Últimos 6 meses</option><option>Último año</option><option>2025</option></select>
+            </div>
+            <div class="grid grid-2 mb-lg">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">🐛 Hallazgos por Mes</h3></div>
+                    <div class="card-body">
+                        <div class="trend-chart">
+                            <div class="trend-bar"><div class="bar" style="height:120px;background:#10b981;"></div><div class="value">12</div><div class="label">Sep</div></div>
+                            <div class="trend-bar"><div class="bar" style="height:80px;background:#10b981;"></div><div class="value">8</div><div class="label">Oct</div></div>
+                            <div class="trend-bar"><div class="bar" style="height:60px;background:#10b981;"></div><div class="value">6</div><div class="label">Nov</div></div>
+                            <div class="trend-bar"><div class="bar" style="height:40px;background:#10b981;"></div><div class="value">4</div><div class="label">Dic</div></div>
+                            <div class="trend-bar"><div class="bar" style="height:50px;background:#f59e0b;"></div><div class="value">5</div><div class="label">Ene</div></div>
+                            <div class="trend-bar"><div class="bar" style="height:30px;background:#10b981;"></div><div class="value">3</div><div class="label">Feb</div></div>
+                        </div>
+                        <p style="text-align:center;color:#10b981;margin-top:16px;font-weight:600;">📉 Tendencia descendente (-75%)</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">🎯 Distribución por Plaga</h3></div>
+                    <div class="card-body">
+                        <div style="margin-bottom:16px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🪳 Cucaracha Alemana</span><strong>45%</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:12px;border-radius:6px;"><div style="background:linear-gradient(90deg,#ef4444,#f59e0b);height:100%;width:45%;border-radius:6px;"></div></div>
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🐀 Ratón</span><strong>25%</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:12px;border-radius:6px;"><div style="background:#3b82f6;height:100%;width:25%;border-radius:6px;"></div></div>
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🐜 Hormiga</span><strong>20%</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:12px;border-radius:6px;"><div style="background:#8b5cf6;height:100%;width:20%;border-radius:6px;"></div></div>
+                        </div>
+                        <div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🪰 Otros</span><strong>10%</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:12px;border-radius:6px;"><div style="background:#6b7280;height:100%;width:10%;border-radius:6px;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">🗺️ Mapa de Calor por Zona</h3><span style="font-size:0.85rem;color:var(--color-text-muted);">Últimos 6 meses</span></div>
+                <div class="card-body">
+                    <div class="zone-heatmap">
+                        <div class="zone-cell high"><strong>Cocina</strong><div style="font-size:0.8rem;margin-top:4px;">18 hallazgos</div></div>
+                        <div class="zone-cell medium"><strong>Bodega</strong><div style="font-size:0.8rem;margin-top:4px;">8 hallazgos</div></div>
+                        <div class="zone-cell low"><strong>Recepción</strong><div style="font-size:0.8rem;margin-top:4px;">3 hallazgos</div></div>
+                        <div class="zone-cell none"><strong>Lobby</strong><div style="font-size:0.8rem;margin-top:4px;">0 hallazgos</div></div>
+                        <div class="zone-cell medium"><strong>Restaurante</strong><div style="font-size:0.8rem;margin-top:4px;">7 hallazgos</div></div>
+                        <div class="zone-cell low"><strong>Pasillos</strong><div style="font-size:0.8rem;margin-top:4px;">2 hallazgos</div></div>
+                        <div class="zone-cell none"><strong>Habitaciones</strong><div style="font-size:0.8rem;margin-top:4px;">0 hallazgos</div></div>
+                        <div class="zone-cell low"><strong>Exteriores</strong><div style="font-size:0.8rem;margin-top:4px;">4 hallazgos</div></div>
+                    </div>
+                    <div style="display:flex;justify-content:center;gap:24px;margin-top:16px;font-size:0.85rem;">
+                        <span><span style="display:inline-block;width:12px;height:12px;background:rgba(239,68,68,0.5);border-radius:2px;margin-right:4px;"></span>Alto (&gt;10)</span>
+                        <span><span style="display:inline-block;width:12px;height:12px;background:rgba(245,158,11,0.5);border-radius:2px;margin-right:4px;"></span>Medio (5-10)</span>
+                        <span><span style="display:inline-block;width:12px;height:12px;background:rgba(16,185,129,0.5);border-radius:2px;margin-right:4px;"></span>Bajo (1-4)</span>
+                        <span><span style="display:inline-block;width:12px;height:12px;background:var(--color-bg-tertiary);border-radius:2px;margin-right:4px;"></span>Ninguno</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

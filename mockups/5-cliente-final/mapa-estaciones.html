@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Portal Cliente: Mapa de Estaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .site-map { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 16px; height: 500px; position: relative; overflow: hidden; }
+        .floor-selector { position: absolute; top: 16px; left: 16px; display: flex; flex-direction: column; gap: 4px; z-index: 10; }
+        .floor-btn { padding: 8px 16px; background: rgba(0,0,0,0.7); border: 1px solid var(--color-border); border-radius: 8px; color: white; cursor: pointer; font-size: 0.9rem; }
+        .floor-btn.active { background: var(--color-accent-primary); border-color: var(--color-accent-primary); }
+        .station-marker { position: absolute; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 600; cursor: pointer; border: 2px solid white; }
+        .station-marker.cebadero { background: #8b5cf6; }
+        .station-marker.trampa { background: #f59e0b; }
+        .station-marker.lampara { background: #3b82f6; }
+        .station-popup { position: absolute; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; width: 260px; z-index: 20; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .legend-panel { position: absolute; bottom: 16px; right: 16px; background: rgba(0,0,0,0.8); padding: 12px 16px; border-radius: 8px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; font-size: 0.85rem; }
+        .legend-dot { width: 16px; height: 16px; border-radius: 50%; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏨</span> Hotel Marriott</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="mapa-estaciones.html" class="nav-item active"><span class="nav-item-icon">🗺️</span> Mapa Estaciones</a>
+                <a href="certificados.html" class="nav-item"><span class="nav-item-icon">📜</span> Certificados</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🗺️ Mapa de Estaciones</h1><p class="page-subtitle">Ubicación de todos los dispositivos de control en su establecimiento</p></div>
+                <button class="btn btn-secondary">📥 Descargar Plano PDF</button>
+            </div>
+            <div class="site-map">
+                <div class="floor-selector">
+                    <button class="floor-btn">Exterior</button>
+                    <button class="floor-btn active">Planta Baja</button>
+                    <button class="floor-btn">Piso 1</button>
+                    <button class="floor-btn">Piso 2</button>
+                    <button class="floor-btn">Azotea</button>
+                </div>
+                <!-- Station markers -->
+                <div class="station-marker cebadero" style="top:20%;left:25%;">C1</div>
+                <div class="station-marker cebadero" style="top:25%;left:40%;">C2</div>
+                <div class="station-marker cebadero" style="top:20%;left:55%;">C3</div>
+                <div class="station-marker cebadero" style="top:25%;left:70%;">C4</div>
+                <div class="station-marker trampa" style="top:40%;left:30%;">T1</div>
+                <div class="station-marker trampa" style="top:45%;left:50%;">T2</div>
+                <div class="station-marker trampa" style="top:42%;left:65%;">T3</div>
+                <div class="station-marker lampara" style="top:55%;left:35%;">L1</div>
+                <div class="station-marker lampara" style="top:60%;left:55%;">L2</div>
+                <div class="station-marker cebadero" style="top:70%;left:25%;">C5</div>
+                <div class="station-marker cebadero" style="top:75%;left:45%;">C6</div>
+                <div class="station-marker cebadero" style="top:70%;left:65%;">C7</div>
+                <div class="station-marker trampa" style="top:65%;left:80%;">T4</div>
+                <!-- Popup example -->
+                <div class="station-popup" style="top:28%;left:42%;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                        <strong>🐀 Cebadero C2</strong>
+                        <span class="badge badge-success">OK</span>
+                    </div>
+                    <div style="font-size:0.85rem;color:var(--color-text-muted);margin-bottom:12px;">Cocina - Junto a refrigerador</div>
+                    <div style="background:var(--color-bg-tertiary);padding:8px;border-radius:6px;font-size:0.8rem;">
+                        <div style="margin-bottom:4px;">📅 Última revisión: Feb 2, 2026</div>
+                        <div style="margin-bottom:4px;">👤 Técnico: Carlos R.</div>
+                        <div>📊 Estado: Sin actividad</div>
+                    </div>
+                </div>
+                <div class="legend-panel">
+                    <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6;"></div> Cebadero roedores (7)</div>
+                    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> Trampa mecánica (4)</div>
+                    <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;"></div> Lámpara UV (2)</div>
+                </div>
+            </div>
+            <div class="grid grid-3 mt-lg">
+                <div class="card" style="text-align:center;padding:20px;">
+                    <div style="font-size:2rem;margin-bottom:8px;">🐀</div>
+                    <div style="font-size:1.5rem;font-weight:700;">7</div>
+                    <div style="color:var(--color-text-muted);">Cebaderos</div>
+                </div>
+                <div class="card" style="text-align:center;padding:20px;">
+                    <div style="font-size:2rem;margin-bottom:8px;">🪤</div>
+                    <div style="font-size:1.5rem;font-weight:700;">4</div>
+                    <div style="color:var(--color-text-muted);">Trampas Mecánicas</div>
+                </div>
+                <div class="card" style="text-align:center;padding:20px;">
+                    <div style="font-size:2rem;margin-bottom:8px;">💡</div>
+                    <div style="font-size:1.5rem;font-weight:700;">2</div>
+                    <div style="color:var(--color-text-muted);">Lámparas UV</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

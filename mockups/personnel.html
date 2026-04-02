@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Personal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="personnel.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="company-dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="map.html" class="nav-item"><span class="nav-item-icon">🗺️</span> Mapa GPS</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="#" class="nav-item active"><span class="nav-item-icon">👥</span> Personal</a>
+                    <a href="reports.html" class="nav-item"><span class="nav-item-icon">📈</span> Reportes</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar">JL</div>
+                    <div class="user-info"><div class="user-name">Juan López</div><div class="user-role">Administrador</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">👥 Gestión de Personal</h1>
+                    <p class="page-subtitle">Administra agentes, supervisores y su asignación a propiedades</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📥 Exportar</button>
+                    <button class="btn btn-primary">+ Nuevo Agente</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card blue"><div class="stat-icon">👤</div><div class="stat-value">12</div><div class="stat-label">Agentes Activos</div></div>
+                <div class="stat-card green"><div class="stat-icon">🏨</div><div class="stat-value">5</div><div class="stat-label">Agentes Fijos Hotel</div></div>
+                <div class="stat-card yellow"><div class="stat-icon">🔄</div><div class="stat-value">4</div><div class="stat-label">Multipropiedad</div></div>
+                <div class="stat-card red"><div class="stat-icon">🏠</div><div class="stat-value">3</div><div class="stat-label">Casas y Negocios</div></div>
+            </div>
+            <div class="tabs">
+                <button class="tab active">Todos (12)</button>
+                <button class="tab">🏨 Fijos Hotel (5)</button>
+                <button class="tab">🔄 Multipropiedad (4)</button>
+                <button class="tab">🏠 Casas/Negocios (3)</button>
+                <button class="tab">👔 Supervisores (2)</button>
+            </div>
+            <div class="personnel-grid">
+                <!-- Agente Fijo Hotel -->
+                <div class="personnel-card">
+                    <div class="personnel-header">
+                        <div class="personnel-avatar"><img src="https://i.pravatar.cc/80?img=12" alt="Carlos"></div>
+                        <div class="personnel-badges">
+                            <span class="badge badge-primary">Agente</span>
+                            <span class="badge badge-info">Fijo Hotel</span>
+                        </div>
+                    </div>
+                    <div class="personnel-info">
+                        <h3>Carlos Ramírez</h3>
+                        <p class="personnel-role">Técnico en Fumigación</p>
+                        <div class="personnel-status online"><span class="status-dot online"></span> En servicio</div>
+                    </div>
+                    <div class="personnel-assignment">
+                        <span class="assignment-label">Asignación Fija:</span>
+                        <div class="assignment-location"><span>🏨</span> Hotel Marriott Centro</div>
+                    </div>
+                    <div class="personnel-stats">
+                        <div class="personnel-stat"><span class="stat-value">156</span><span class="stat-label">Fumigaciones</span></div>
+                        <div class="personnel-stat"><span class="stat-value">98%</span><span class="stat-label">Eficiencia</span></div>
+                    </div>
+                    <div class="personnel-actions">
+                        <button class="btn btn-ghost btn-sm">📍 Ubicar</button>
+                        <button class="btn btn-secondary btn-sm">Ver Perfil</button>
+                    </div>
+                </div>
+                <!-- Agente Multipropiedad -->
+                <div class="personnel-card">
+                    <div class="personnel-header">
+                        <div class="personnel-avatar"><img src="https://i.pravatar.cc/80?img=5" alt="María"></div>
+                        <div class="personnel-badges">
+                            <span class="badge badge-primary">Agente</span>
+                            <span class="badge badge-warning">Multipropiedad</span>
+                        </div>
+                    </div>
+                    <div class="personnel-info">
+                        <h3>María Sánchez</h3>
+                        <p class="personnel-role">Técnico Senior</p>
+                        <div class="personnel-status online"><span class="status-dot online"></span> En ruta</div>
+                    </div>
+                    <div class="personnel-assignment">
+                        <span class="assignment-label">Propiedades Asignadas:</span>
+                        <div class="assignment-tags">
+                            <span class="assignment-tag">🏨 Hilton</span>
+                            <span class="assignment-tag">🏨 Fiesta Inn</span>
+                            <span class="assignment-tag">🏪 Rest. La Parilla</span>
+                            <span class="assignment-tag more">+3</span>
+                        </div>
+                    </div>
+                    <div class="personnel-stats">
+                        <div class="personnel-stat"><span class="stat-value">234</span><span class="stat-label">Fumigaciones</span></div>
+                        <div class="personnel-stat"><span class="stat-value">95%</span><span class="stat-label">Eficiencia</span></div>
+                    </div>
+                    <div class="personnel-actions">
+                        <button class="btn btn-ghost btn-sm">📍 Ubicar</button>
+                        <button class="btn btn-secondary btn-sm">Ver Perfil</button>
+                    </div>
+                </div>
+                <!-- Agente Casas y Negocios -->
+                <div class="personnel-card">
+                    <div class="personnel-header">
+                        <div class="personnel-avatar"><img src="https://i.pravatar.cc/80?img=8" alt="Pedro"></div>
+                        <div class="personnel-badges">
+                            <span class="badge badge-primary">Agente</span>
+                            <span class="badge badge-success">Casas/Negocios</span>
+                        </div>
+                    </div>
+                    <div class="personnel-info">
+                        <h3>Pedro Martínez</h3>
+                        <p class="personnel-role">Técnico en Fumigación</p>
+                        <div class="personnel-status offline"><span class="status-dot offline"></span> Descanso</div>
+                    </div>
+                    <div class="personnel-assignment">
+                        <span class="assignment-label">Zona de Trabajo:</span>
+                        <div class="assignment-location"><span>📍</span> Zona Norte - Casas y Negocios</div>
+                    </div>
+                    <div class="personnel-stats">
+                        <div class="personnel-stat"><span class="stat-value">189</span><span class="stat-label">Fumigaciones</span></div>
+                        <div class="personnel-stat"><span class="stat-value">92%</span><span class="stat-label">Eficiencia</span></div>
+                    </div>
+                    <div class="personnel-actions">
+                        <button class="btn btn-ghost btn-sm">📍 Ubicar</button>
+                        <button class="btn btn-secondary btn-sm">Ver Perfil</button>
+                    </div>
+                </div>
+                <!-- Supervisor -->
+                <div class="personnel-card supervisor">
+                    <div class="personnel-header">
+                        <div class="personnel-avatar"><img src="https://i.pravatar.cc/80?img=3" alt="Ana"></div>
+                        <div class="personnel-badges">
+                            <span class="badge badge-danger">Supervisor</span>
+                        </div>
+                    </div>
+                    <div class="personnel-info">
+                        <h3>Ana García</h3>
+                        <p class="personnel-role">Supervisora de Zona</p>
+                        <div class="personnel-status online"><span class="status-dot online"></span> Activa</div>
+                    </div>
+                    <div class="personnel-assignment">
+                        <span class="assignment-label">Supervisa:</span>
+                        <div class="assignment-tags">
+                            <span class="assignment-tag">👤 Carlos R.</span>
+                            <span class="assignment-tag">👤 María S.</span>
+                            <span class="assignment-tag">👤 Pedro M.</span>
+                        </div>
+                    </div>
+                    <div class="personnel-stats">
+                        <div class="personnel-stat"><span class="stat-value">6</span><span class="stat-label">Agentes</span></div>
+                        <div class="personnel-stat"><span class="stat-value">45</span><span class="stat-label">Propiedades</span></div>
+                    </div>
+                    <div class="personnel-actions">
+                        <button class="btn btn-ghost btn-sm">📊 Dashboard</button>
+                        <button class="btn btn-secondary btn-sm">Ver Perfil</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

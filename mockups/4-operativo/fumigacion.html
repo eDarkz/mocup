@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Registrar Fumigación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { background: var(--color-bg-primary); }
+        .mobile-app { max-width: 420px; margin: 0 auto; min-height: 100vh; background: var(--color-bg-secondary); }
+        .mobile-header-simple { padding: 16px 20px; background: var(--color-bg-card); border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: 12px; }
+        .back-btn { width: 40px; height: 40px; border-radius: 10px; background: var(--color-bg-tertiary); border: none; color: var(--color-text-primary); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
+        .header-title { font-size: 1.1rem; font-weight: 600; }
+        .form-section { padding: 20px; }
+        .form-section-title { font-size: 0.85rem; font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; margin-bottom: 12px; }
+        .location-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+        .location-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .location-card p { font-size: 0.85rem; color: var(--color-text-muted); }
+        .checkbox-list { display: flex; flex-direction: column; gap: 8px; }
+        .mobile-checkbox { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 10px; }
+        .mobile-checkbox input { width: 20px; height: 20px; }
+        .mobile-checkbox.checked { border-color: var(--color-accent-primary); background: rgba(59, 130, 246, 0.1); }
+        .photo-section { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .photo-add { aspect-ratio: 1; background: var(--color-bg-card); border: 2px dashed var(--color-border); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 0.8rem; color: var(--color-text-muted); }
+        .photo-add span { font-size: 2rem; }
+        .photo-thumb { aspect-ratio: 1; background: var(--color-bg-tertiary); border-radius: 12px; overflow: hidden; position: relative; }
+        .photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-delete { position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; background: rgba(0,0,0,0.6); border-radius: 50%; color: white; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+        .submit-section { padding: 20px; padding-bottom: 100px; }
+        .mobile-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 420px; background: var(--color-bg-card); border-top: 1px solid var(--color-border); padding: 12px 20px; display: flex; justify-content: space-around; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 0.7rem; color: var(--color-text-muted); text-decoration: none; }
+        .nav-item.active { color: var(--color-accent-primary); }
+        .nav-icon { font-size: 1.3rem; }
+    </style>
+</head>
+<body>
+    <div class="mobile-app">
+        <div class="mobile-header-simple">
+            <a href="inicio.html" class="back-btn">←</a>
+            <div class="header-title">📝 Registrar Fumigación</div>
+        </div>
+        <div class="form-section">
+            <div class="form-section-title">📍 Locación</div>
+            <div class="location-card">
+                <h3>🏨 Hotel Marriott - Restaurante</h3>
+                <p>Fumigación quincenal cocina y restaurante</p>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-section-title">🪳 Plagas Tratadas</div>
+            <div class="checkbox-list">
+                <label class="mobile-checkbox checked"><input type="checkbox" checked> Cucarachas</label>
+                <label class="mobile-checkbox"><input type="checkbox"> Roedores</label>
+                <label class="mobile-checkbox"><input type="checkbox"> Moscas</label>
+                <label class="mobile-checkbox"><input type="checkbox"> Hormigas</label>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-section-title">💊 Tratamientos Aplicados</div>
+            <div class="checkbox-list">
+                <label class="mobile-checkbox checked"><input type="checkbox" checked> Gel para cucarachas</label>
+                <label class="mobile-checkbox checked"><input type="checkbox" checked> Aspersión</label>
+                <label class="mobile-checkbox"><input type="checkbox"> Nebulización</label>
+                <label class="mobile-checkbox"><input type="checkbox"> Cebos</label>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-section-title">📸 Evidencia Fotográfica</div>
+            <div class="photo-section">
+                <div class="photo-thumb">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=150&h=150&fit=crop" alt="">
+                    <span class="photo-delete">×</span>
+                </div>
+                <div class="photo-thumb">
+                    <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=150&h=150&fit=crop" alt="">
+                    <span class="photo-delete">×</span>
+                </div>
+                <a href="fotos.html" class="photo-add"><span>📷</span>Agregar</a>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-section-title">📝 Observaciones</div>
+            <textarea class="form-input" rows="3" placeholder="Notas adicionales sobre el servicio...">Se aplicó gel en esquinas y debajo de equipos. Cliente presente durante el servicio.</textarea>
+        </div>
+        <div class="submit-section">
+            <a href="firma.html" class="btn btn-primary w-full" style="padding: 16px; font-size: 1rem;">✍️ Continuar a Firma</a>
+            <button class="btn btn-ghost w-full mt-md">💾 Guardar Borrador</button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="inicio.html" class="nav-item"><span class="nav-icon">🏠</span>Inicio</a>
+            <a href="fumigacion.html" class="nav-item active"><span class="nav-icon">📝</span>Registrar</a>
+            <a href="escaneo-qr.html" class="nav-item"><span class="nav-icon">📱</span>Escanear</a>
+            <a href="historial.html" class="nav-item"><span class="nav-icon">📜</span>Historial</a>
+        </nav>
+    </div>
+</body>
+</html>

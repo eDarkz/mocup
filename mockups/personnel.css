@@ -1,0 +1,25 @@
+.personnel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--spacing-lg); }
+.personnel-card { background: var(--color-bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--spacing-lg); transition: all var(--transition-base); }
+.personnel-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl), var(--shadow-glow); }
+.personnel-card.supervisor { border-color: rgba(239, 68, 68, 0.3); }
+.personnel-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-md); }
+.personnel-avatar { width: 64px; height: 64px; border-radius: var(--radius-full); overflow: hidden; border: 3px solid var(--color-accent-primary); }
+.personnel-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.personnel-badges { display: flex; flex-direction: column; gap: var(--spacing-xs); align-items: flex-end; }
+.personnel-info { margin-bottom: var(--spacing-md); }
+.personnel-info h3 { font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--spacing-xs); }
+.personnel-role { font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--spacing-sm); }
+.personnel-status { display: inline-flex; align-items: center; gap: var(--spacing-xs); font-size: var(--font-size-xs); padding: var(--spacing-xs) var(--spacing-sm); background: var(--color-bg-tertiary); border-radius: var(--radius-full); }
+.personnel-status.online { color: var(--color-success); }
+.personnel-status.offline { color: var(--color-text-muted); }
+.personnel-assignment { margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--color-bg-tertiary); border-radius: var(--radius-md); }
+.assignment-label { font-size: var(--font-size-xs); color: var(--color-text-muted); display: block; margin-bottom: var(--spacing-sm); }
+.assignment-location { font-size: var(--font-size-sm); font-weight: 500; display: flex; align-items: center; gap: var(--spacing-sm); }
+.assignment-tags { display: flex; flex-wrap: wrap; gap: var(--spacing-xs); }
+.assignment-tag { font-size: var(--font-size-xs); padding: 2px 8px; background: rgba(59, 130, 246, 0.15); color: var(--color-accent-secondary); border-radius: var(--radius-full); }
+.assignment-tag.more { background: var(--color-bg-card); color: var(--color-text-muted); }
+.personnel-stats { display: flex; gap: var(--spacing-lg); margin-bottom: var(--spacing-md); }
+.personnel-stat { text-align: center; }
+.personnel-stat .stat-value { display: block; font-size: var(--font-size-xl); font-weight: 700; color: var(--color-accent-primary); }
+.personnel-stat .stat-label { font-size: var(--font-size-xs); color: var(--color-text-muted); }
+.personnel-actions { display: flex; gap: var(--spacing-sm); }

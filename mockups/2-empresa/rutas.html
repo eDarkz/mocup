@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Optimización de Rutas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .route-map { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 16px; height: 400px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .map-placeholder { color: var(--color-text-muted); text-align: center; }
+        .route-stop { position: absolute; width: 32px; height: 32px; background: var(--color-accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.8rem; border: 3px solid white; }
+        .route-line { position: absolute; height: 3px; background: linear-gradient(90deg, #3b82f6, #10b981); }
+        .stop-card { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--color-bg-tertiary); border-radius: 10px; margin-bottom: 8px; cursor: grab; }
+        .stop-number { width: 28px; height: 28px; background: var(--color-accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.8rem; }
+        .stop-info { flex: 1; }
+        .stop-time { font-size: 0.8rem; color: var(--color-text-muted); }
+        .stop-actions { display: flex; gap: 4px; }
+        .optimization-banner { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="calendario.html" class="nav-item"><span class="nav-item-icon">📅</span> Calendario</a>
+                <a href="rutas.html" class="nav-item active"><span class="nav-item-icon">🛣️</span> Rutas</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🛣️ Optimización de Rutas</h1><p class="page-subtitle">Sugerencias automáticas de orden por cercanía y ventanas de atención</p></div>
+                <div class="page-actions">
+                    <select class="form-input form-select"><option>Hoy - Feb 7</option><option>Mañana - Feb 8</option></select>
+                    <select class="form-input form-select"><option>Carlos Ramírez</option><option>María Sánchez</option><option>Juan Pérez</option></select>
+                </div>
+            </div>
+            <div class="optimization-banner">
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <span style="font-size:2rem;">🚀</span>
+                    <div><strong>Ruta optimizada disponible</strong><p style="margin:0;font-size:0.85rem;color:var(--color-text-muted);">Ahorra 45 min y 12 km reordenando las visitas</p></div>
+                </div>
+                <button class="btn btn-success">Aplicar Optimización</button>
+            </div>
+            <div class="grid grid-2">
+                <div>
+                    <h3 class="mb-md">📍 Paradas del Día (Drag para reordenar)</h3>
+                    <div class="stop-card">
+                        <span style="cursor:grab;">⋮⋮</span>
+                        <div class="stop-number">1</div>
+                        <div class="stop-info"><strong>Hotel Marriott Reforma</strong><div class="stop-time">🕐 8:00 - 10:00 | 📍 Paseo de la Reforma 325</div></div>
+                        <div><span class="badge badge-success">Ventana OK</span></div>
+                    </div>
+                    <div class="stop-card">
+                        <span style="cursor:grab;">⋮⋮</span>
+                        <div class="stop-number">2</div>
+                        <div class="stop-info"><strong>Oficinas Corporativas ABC</strong><div class="stop-time">🕐 10:30 - 12:00 | 📍 Insurgentes Sur 1602</div></div>
+                        <div><span class="badge badge-success">Ventana OK</span></div>
+                    </div>
+                    <div class="stop-card" style="border-left: 3px solid #f59e0b;">
+                        <span style="cursor:grab;">⋮⋮</span>
+                        <div class="stop-number" style="background:#f59e0b;">3</div>
+                        <div class="stop-info"><strong>Restaurante El Sol</strong><div class="stop-time">🕐 14:00 - 15:00 | 📍 Polanco, Miguel Hidalgo</div></div>
+                        <div><span class="badge badge-warning">Desvío 8km</span></div>
+                    </div>
+                    <div class="stop-card">
+                        <span style="cursor:grab;">⋮⋮</span>
+                        <div class="stop-number">4</div>
+                        <div class="stop-info"><strong>Residencial Las Lomas</strong><div class="stop-time">🕐 16:00 - 17:30 | 📍 Lomas de Chapultepec</div></div>
+                        <div><span class="badge badge-success">Ventana OK</span></div>
+                    </div>
+                    <div class="card mt-lg" style="padding:16px;">
+                        <h4>📊 Resumen de Ruta</h4>
+                        <div class="grid grid-3 mt-md">
+                            <div style="text-align:center;"><div style="font-size:1.5rem;font-weight:700;">4</div><div style="font-size:0.8rem;color:var(--color-text-muted);">Paradas</div></div>
+                            <div style="text-align:center;"><div style="font-size:1.5rem;font-weight:700;">47 km</div><div style="font-size:0.8rem;color:var(--color-text-muted);">Distancia Total</div></div>
+                            <div style="text-align:center;"><div style="font-size:1.5rem;font-weight:700;">5.5 hrs</div><div style="font-size:0.8rem;color:var(--color-text-muted);">Tiempo Estimado</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="route-map">
+                        <div class="map-placeholder">
+                            <div style="font-size:3rem;margin-bottom:12px;">🗺️</div>
+                            <p>Mapa con ruta optimizada</p>
+                            <p style="font-size:0.8rem;">(Integración Google Maps / Mapbox)</p>
+                        </div>
+                        <div class="route-stop" style="top:20%;left:30%;">1</div>
+                        <div class="route-stop" style="top:40%;left:50%;">2</div>
+                        <div class="route-stop" style="top:35%;left:70%;">3</div>
+                        <div class="route-stop" style="top:60%;left:60%;">4</div>
+                    </div>
+                    <div style="margin-top:16px;display:flex;gap:8px;">
+                        <button class="btn btn-secondary" style="flex:1;">📱 Enviar a Waze</button>
+                        <button class="btn btn-secondary" style="flex:1;">🗺️ Abrir en Maps</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

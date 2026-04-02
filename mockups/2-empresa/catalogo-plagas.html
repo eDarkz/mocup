@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Catálogo de Plagas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .pest-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; transition: all 0.2s; }
+        .pest-card:hover { border-color: var(--color-accent-primary); }
+        .pest-image { height: 120px; background: var(--color-bg-tertiary); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+        .pest-content { padding: 16px; }
+        .pest-name { font-weight: 700; margin-bottom: 4px; }
+        .pest-scientific { font-size: 0.8rem; font-style: italic; color: var(--color-text-muted); margin-bottom: 12px; }
+        .pest-protocols { display: flex; flex-wrap: wrap; gap: 4px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="catalogo-plagas.html" class="nav-item active"><span class="nav-item-icon">🐛</span> Catálogo Plagas</a>
+                <a href="catalogo-quimicos.html" class="nav-item"><span class="nav-item-icon">🧪</span> Catálogo Químicos</a>
+                <a href="checklists.html" class="nav-item"><span class="nav-item-icon">✅</span> Checklists</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🐛 Catálogo de Plagas</h1><p class="page-subtitle">Biblioteca técnica con protocolos de tratamiento por plaga</p></div>
+                <button class="btn btn-primary">+ Agregar Plaga</button>
+            </div>
+            <div class="tabs mb-lg"><button class="tab active">Todas</button><button class="tab">Insectos</button><button class="tab">Roedores</button><button class="tab">Aves</button><button class="tab">Otros</button></div>
+            <div class="grid grid-4">
+                <div class="pest-card">
+                    <div class="pest-image">🪳</div>
+                    <div class="pest-content">
+                        <div class="pest-name">Cucaracha Americana</div>
+                        <div class="pest-scientific">Periplaneta americana</div>
+                        <div class="pest-protocols">
+                            <span class="badge badge-success">Gel</span>
+                            <span class="badge badge-primary">Aspersión</span>
+                            <span class="badge">Nebulización</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pest-card">
+                    <div class="pest-image">🪳</div>
+                    <div class="pest-content">
+                        <div class="pest-name">Cucaracha Alemana</div>
+                        <div class="pest-scientific">Blattella germanica</div>
+                        <div class="pest-protocols">
+                            <span class="badge badge-success">Gel (preferido)</span>
+                            <span class="badge">Cebo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pest-card">
+                    <div class="pest-image">🐀</div>
+                    <div class="pest-content">
+                        <div class="pest-name">Rata de Alcantarilla</div>
+                        <div class="pest-scientific">Rattus norvegicus</div>
+                        <div class="pest-protocols">
+                            <span class="badge badge-success">Cebadero</span>
+                            <span class="badge">Trampa mecánica</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pest-card">
+                    <div class="pest-image">🐁</div>
+                    <div class="pest-content">
+                        <div class="pest-name">Ratón Doméstico</div>
+                        <div class="pest-scientific">Mus musculus</div>
+                        <div class="pest-protocols">
+                            <span class="badge badge-success">Trampa adhesiva</span>
+                            <span class="badge">Cebo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pest-card">
+                    <div class="pest-image">🐜</div>
+                    <div class="pest-content">
+                        <div class="pest-name">Hormiga Carpintera</div>
+                        <div class="pest-scientific">Camponotus spp.</div>
+                        <div class="pest-protocols">
+                            <span class="badge badge-success">Cebo granulado</span>
+                            <span class="badge">Inyección</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pest-card">
+                    <div class="pest-image">🦟</div>
+                    <div class="pest-content">
+                        <div class="pest-name">Mosquito Aedes</div>
+                        <div class="pest-scientific">Aedes aegypti</div>
+                        <div class="pest-protocols">
+                            <span class="badge badge-success">Nebulización ULV</span>
+                            <span class="badge">Larvicida</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pest-card">
+                    <div class="pest-image">🪰</div>
+                    <div class="pest-content">
+                        <div class="pest-name">Mosca Doméstica</div>
+                        <div class="pest-scientific">Musca domestica</div>
+                        <div class="pest-protocols">
+                            <span class="badge badge-success">Trampa UV</span>
+                            <span class="badge">Cebo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pest-card">
+                    <div class="pest-image">🐦</div>
+                    <div class="pest-content">
+                        <div class="pest-name">Paloma</div>
+                        <div class="pest-scientific">Columba livia</div>
+                        <div class="pest-protocols">
+                            <span class="badge badge-success">Pinchos</span>
+                            <span class="badge">Red</span>
+                            <span class="badge">Repelente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

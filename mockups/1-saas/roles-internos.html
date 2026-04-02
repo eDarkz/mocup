@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Roles Internos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <a href="roles-internos.html" class="nav-item active"><span class="nav-item-icon">👥</span> Roles Internos</a>
+                <a href="alertas-seguridad.html" class="nav-item"><span class="nav-item-icon">🚨</span> Alertas Seguridad</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">👥 Roles Internos del SaaS</h1><p class="page-subtitle">Gestión de permisos para el equipo interno: soporte, billing, auditor, devops</p></div>
+                <button class="btn btn-primary">+ Nuevo Admin</button>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="card" style="padding:20px;text-align:center;"><div style="font-size:2rem;margin-bottom:8px;">👑</div><div style="font-weight:700;">Super Admin</div><div style="font-size:0.85rem;color:var(--color-text-muted);">Acceso total</div><div style="margin-top:8px;"><span class="badge badge-primary">2 usuarios</span></div></div>
+                <div class="card" style="padding:20px;text-align:center;"><div style="font-size:2rem;margin-bottom:8px;">🎧</div><div style="font-weight:700;">Soporte</div><div style="font-size:0.85rem;color:var(--color-text-muted);">Tickets + Impersonación</div><div style="margin-top:8px;"><span class="badge badge-primary">4 usuarios</span></div></div>
+                <div class="card" style="padding:20px;text-align:center;"><div style="font-size:2rem;margin-bottom:8px;">💳</div><div style="font-weight:700;">Billing</div><div style="font-size:0.85rem;color:var(--color-text-muted);">Pagos + Suscripciones</div><div style="margin-top:8px;"><span class="badge badge-primary">2 usuarios</span></div></div>
+                <div class="card" style="padding:20px;text-align:center;"><div style="font-size:2rem;margin-bottom:8px;">🔧</div><div style="font-weight:700;">DevOps</div><div style="font-size:0.85rem;color:var(--color-text-muted);">Técnico + Backups</div><div style="margin-top:8px;"><span class="badge badge-primary">1 usuario</span></div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">👤 Equipo Interno</h3></div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Usuario</th><th>Email</th><th>Rol</th><th>2FA</th><th>Último acceso</th><th>Acciones</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Carlos Mendez</strong></td><td>carlos@fumicontrol.com</td><td><span class="badge" style="background:rgba(139,92,246,0.15);color:#a78bfa;">Super Admin</span></td><td><span class="badge badge-success">✓ Activo</span></td><td>Hace 5 min</td><td><button class="btn btn-ghost btn-sm">Editar</button></td></tr>
+                            <tr><td><strong>Laura García</strong></td><td>laura@fumicontrol.com</td><td><span class="badge" style="background:rgba(139,92,246,0.15);color:#a78bfa;">Super Admin</span></td><td><span class="badge badge-success">✓ Activo</span></td><td>Hace 2 hrs</td><td><button class="btn btn-ghost btn-sm">Editar</button></td></tr>
+                            <tr><td><strong>Ana Ruiz</strong></td><td>ana@fumicontrol.com</td><td><span class="badge" style="background:rgba(59,130,246,0.15);color:#60a5fa;">Soporte</span></td><td><span class="badge badge-success">✓ Activo</span></td><td>Hace 30 min</td><td><button class="btn btn-ghost btn-sm">Editar</button></td></tr>
+                            <tr><td><strong>Pedro Vega</strong></td><td>pedro@fumicontrol.com</td><td><span class="badge" style="background:rgba(16,185,129,0.15);color:#34d399;">Billing</span></td><td><span class="badge badge-warning">Pendiente</span></td><td>Ayer</td><td><button class="btn btn-ghost btn-sm">Editar</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

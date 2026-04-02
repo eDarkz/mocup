@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Monitor Multi-Vista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .monitor-grid {
+            display: grid;
+            gap: 16px;
+            height: calc(100vh - 180px);
+        }
+        .monitor-grid.grid-2x2 { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+        .monitor-grid.grid-3x2 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); }
+        .monitor-grid.grid-4x2 { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); }
+        .monitor-cell {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+        .monitor-cell:hover {
+            border-color: var(--color-accent-primary);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+        .monitor-cell.expanded {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            border-radius: 20px;
+        }
+        .cell-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: var(--color-bg-tertiary);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .cell-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cell-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            position: relative;
+        }
+        .cell-avatar.empresa { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .cell-avatar.supervisor { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .cell-avatar.operativo { background: linear-gradient(135deg, #10b981, #059669); }
+        .cell-avatar.cliente { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .cell-avatar .live-dot {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border: 2px solid var(--color-bg-tertiary);
+            border-radius: 50%;
+        }
+        .cell-info h4 { font-size: 0.85rem; font-weight: 600; margin: 0; }
+        .cell-info p { font-size: 0.7rem; color: var(--color-text-muted); margin: 0; }
+        .cell-badge {
+            font-size: 0.6rem;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .cell-badge.empresa { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .cell-badge.supervisor { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+        .cell-badge.operativo { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        .cell-badge.cliente { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+        .cell-actions {
+            display: flex;
+            gap: 4px;
+        }
+        .cell-action {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+        .cell-action:hover {
+            background: var(--color-accent-primary);
+            border-color: var(--color-accent-primary);
+            color: white;
+        }
+        .cell-frame {
+            flex: 1;
+            position: relative;
+        }
+        .cell-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform-origin: top left;
+        }
+        .cell-frame.mobile .cell-iframe {
+            transform: scale(0.6);
+            width: 166.67%;
+            height: 166.67%;
+        }
+        .cell-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 12px;
+            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cell-path {
+            font-size: 0.65rem;
+            color: white;
+            opacity: 0.9;
+        }
+        .cell-time {
+            font-size: 0.6rem;
+            color: white;
+            opacity: 0.7;
+        }
+        .grid-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .grid-selector {
+            display: flex;
+            gap: 8px;
+        }
+        .grid-option {
+            padding: 8px 12px;
+            background: var(--color-bg-tertiary);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .grid-option:hover, .grid-option.active {
+            background: var(--color-accent-primary);
+            border-color: var(--color-accent-primary);
+            color: white;
+        }
+        .filter-quick {
+            display: flex;
+            gap: 8px;
+        }
+        .filter-btn {
+            padding: 6px 12px;
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--color-accent-primary);
+            color: var(--color-accent-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Panel</span>Super Administrador</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="vista-tiempo-real.html" class="nav-item"><span class="nav-item-icon">👁️</span> Vista Individual</a>
+                    <a href="monitor-multivista.html" class="nav-item active"><span class="nav-item-icon">📺</span> Multi-Vista</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="empresas.html" class="nav-item"><span class="nav-item-icon">🏢</span> Empresas</a>
+                    <a href="suscripciones.html" class="nav-item"><span class="nav-item-icon">💳</span> Suscripciones</a>
+                    <a href="soporte.html" class="nav-item"><span class="nav-item-icon">🎧</span> Soporte</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">📺 Monitor Multi-Vista</h1>
+                    <p class="page-subtitle">Visualiza múltiples usuarios simultáneamente en tiempo real</p>
+                </div>
+                <div class="grid-controls">
+                    <div class="filter-quick">
+                        <button class="filter-btn active">Todos</button>
+                        <button class="filter-btn">🏢 Empresa</button>
+                        <button class="filter-btn">👔 Supervisor</button>
+                        <button class="filter-btn">👷 Operativo</button>
+                        <button class="filter-btn">🏨 Cliente</button>
+                    </div>
+                    <div class="grid-selector">
+                        <button class="grid-option">2×2</button>
+                        <button class="grid-option active">3×2</button>
+                        <button class="grid-option">4×2</button>
+                    </div>
+                    <div class="live-indicator"><div class="live-dot"></div> EN VIVO</div>
+                </div>
+            </div>
+            <div class="monitor-grid grid-3x2">
+                <!-- Cell 1: Admin Empresa -->
+                <div class="monitor-cell">
+                    <div class="cell-header">
+                        <div class="cell-user">
+                            <div class="cell-avatar empresa">JL<div class="live-dot"></div></div>
+                            <div class="cell-info"><h4>Juan López</h4><p>López S.A. • Dashboard</p></div>
+                        </div>
+                        <span class="cell-badge empresa">Empresa</span>
+                        <div class="cell-actions">
+                            <button class="cell-action" title="Pantalla completa">⬜</button>
+                            <button class="cell-action" title="Ver detalle">👁️</button>
+                        </div>
+                    </div>
+                    <div class="cell-frame">
+                        <iframe src="../2-empresa/dashboard.html" class="cell-iframe"></iframe>
+                        <div class="cell-overlay">
+                            <span class="cell-path">📍 /empresa/dashboard</span>
+                            <span class="cell-time">🕐 5s</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cell 2: Supervisor -->
+                <div class="monitor-cell">
+                    <div class="cell-header">
+                        <div class="cell-user">
+                            <div class="cell-avatar supervisor">AG<div class="live-dot"></div></div>
+                            <div class="cell-info"><h4>Ana García</h4><p>López S.A. • Asignaciones</p></div>
+                        </div>
+                        <span class="cell-badge supervisor">Supervisor</span>
+                        <div class="cell-actions">
+                            <button class="cell-action">⬜</button>
+                            <button class="cell-action">👁️</button>
+                        </div>
+                    </div>
+                    <div class="cell-frame">
+                        <iframe src="../3-supervision/asignaciones.html" class="cell-iframe"></iframe>
+                        <div class="cell-overlay">
+                            <span class="cell-path">📍 /supervision/asignaciones</span>
+                            <span class="cell-time">🕐 12s</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cell 3: Operativo Mobile -->
+                <div class="monitor-cell">
+                    <div class="cell-header">
+                        <div class="cell-user">
+                            <div class="cell-avatar operativo">CR<div class="live-dot"></div></div>
+                            <div class="cell-info"><h4>Carlos Ramírez</h4><p>López S.A. • App Móvil</p></div>
+                        </div>
+                        <span class="cell-badge operativo">Operativo</span>
+                        <div class="cell-actions">
+                            <button class="cell-action">⬜</button>
+                            <button class="cell-action">👁️</button>
+                        </div>
+                    </div>
+                    <div class="cell-frame mobile">
+                        <iframe src="../4-operativo/inicio.html" class="cell-iframe"></iframe>
+                        <div class="cell-overlay">
+                            <span class="cell-path">📱 /app/inicio</span>
+                            <span class="cell-time">🕐 3s</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cell 4: Cliente Hotel -->
+                <div class="monitor-cell">
+                    <div class="cell-header">
+                        <div class="cell-user">
+                            <div class="cell-avatar cliente">🏨<div class="live-dot"></div></div>
+                            <div class="cell-info"><h4>Hotel Marriott</h4><p>Portal Cliente</p></div>
+                        </div>
+                        <span class="cell-badge cliente">Cliente</span>
+                        <div class="cell-actions">
+                            <button class="cell-action">⬜</button>
+                            <button class="cell-action">👁️</button>
+                        </div>
+                    </div>
+                    <div class="cell-frame">
+                        <iframe src="../5-cliente-final/dashboard.html" class="cell-iframe"></iframe>
+                        <div class="cell-overlay">
+                            <span class="cell-path">📍 /cliente/dashboard</span>
+                            <span class="cell-time">🕐 8s</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cell 5: Operativo QR -->
+                <div class="monitor-cell">
+                    <div class="cell-header">
+                        <div class="cell-user">
+                            <div class="cell-avatar operativo">MS<div class="live-dot"></div></div>
+                            <div class="cell-info"><h4>María Sánchez</h4><p>López S.A. • Escaneo</p></div>
+                        </div>
+                        <span class="cell-badge operativo">Operativo</span>
+                        <div class="cell-actions">
+                            <button class="cell-action">⬜</button>
+                            <button class="cell-action">👁️</button>
+                        </div>
+                    </div>
+                    <div class="cell-frame mobile">
+                        <iframe src="../4-operativo/escaneo-qr.html" class="cell-iframe"></iframe>
+                        <div class="cell-overlay">
+                            <span class="cell-path">📱 /app/escaneo-qr</span>
+                            <span class="cell-time">🕐 1s</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cell 6: Supervisor Aprobaciones -->
+                <div class="monitor-cell">
+                    <div class="cell-header">
+                        <div class="cell-user">
+                            <div class="cell-avatar supervisor">RV<div class="live-dot"></div></div>
+                            <div class="cell-info"><h4>Roberto Vega</h4><p>Pest Masters • Aprobaciones</p></div>
+                        </div>
+                        <span class="cell-badge supervisor">Supervisor</span>
+                        <div class="cell-actions">
+                            <button class="cell-action">⬜</button>
+                            <button class="cell-action">👁️</button>
+                        </div>
+                    </div>
+                    <div class="cell-frame">
+                        <iframe src="../3-supervision/aprobaciones.html" class="cell-iframe"></iframe>
+                        <div class="cell-overlay">
+                            <span class="cell-path">📍 /supervision/aprobaciones</span>
+                            <span class="cell-time">🕐 15s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <style>
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #10b981;
+            font-weight: 600;
+        }
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+    </style>
+</body>
+</html>

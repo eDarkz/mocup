@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fumigaciones López - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="#" class="nav-item active"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="fumigation-form.html" class="nav-item"><span class="nav-item-icon">🔫</span> Fumigaciones <span class="nav-item-badge">8</span></a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">📅</span> Calendario</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Locaciones</div>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏨</span> Hoteles <span class="nav-item-badge">12</span></a>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏠</span> Casas <span class="nav-item-badge">45</span></a>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏪</span> Negocios <span class="nav-item-badge">23</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">👥</span> Usuarios</a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">📈</span> Reportes</a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">⚙️</span> Configuración</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar">JL</div>
+                    <div class="user-info">
+                        <div class="user-name">Juan López</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Dashboard</h1>
+                    <p class="page-subtitle">Bienvenido, Juan. Aquí está el resumen de hoy.</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📅 Ver Calendario</button>
+                    <a href="fumigation-form.html" class="btn btn-primary">+ Nueva Fumigación</a>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card blue">
+                    <div class="stat-icon">🏨</div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Hoteles</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-icon">🏠</div>
+                    <div class="stat-value">45</div>
+                    <div class="stat-label">Casas</div>
+                </div>
+                <div class="stat-card yellow">
+                    <div class="stat-icon">🏪</div>
+                    <div class="stat-value">23</div>
+                    <div class="stat-label">Negocios</div>
+                </div>
+                <div class="stat-card red">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Pendientes Hoy</div>
+                </div>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Fumigaciones de Hoy</h3>
+                        <button class="btn btn-ghost btn-sm">Ver todas →</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table class="table">
+                                <thead><tr><th>Locación</th><th>Tipo</th><th>Hora</th><th>Agente</th><th>Estado</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Hotel Marriott</strong></td><td>🏨 Hotel</td><td>09:00</td><td>Carlos R.</td><td><span class="badge badge-success">Completada</span></td></tr>
+                                    <tr><td><strong>Casa García</strong></td><td>🏠 Casa</td><td>11:00</td><td>María S.</td><td><span class="badge badge-warning">En proceso</span></td></tr>
+                                    <tr><td><strong>Rest. La Parilla</strong></td><td>🏪 Negocio</td><td>14:00</td><td>Pedro M.</td><td><span class="badge badge-info">Programada</span></td></tr>
+                                    <tr><td><strong>Hotel Hilton</strong></td><td>🏨 Hotel</td><td>16:00</td><td>Carlos R.</td><td><span class="badge badge-info">Programada</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Alertas y Notificaciones</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item"><div class="activity-icon red">!</div><div class="activity-content"><p><strong>Hotel Marriott</strong> - Cebaderas requieren revisión</p><span class="activity-time">Vence mañana</span></div></div>
+                            <div class="activity-item"><div class="activity-icon yellow">⚡</div><div class="activity-content"><p><strong>Casa Rodríguez</strong> - Fumigación programada</p><span class="activity-time">En 3 horas</span></div></div>
+                            <div class="activity-item"><div class="activity-icon blue">📋</div><div class="activity-content"><p>5 reportes pendientes de firma</p><span class="activity-time">Desde ayer</span></div></div>
+                            <div class="activity-item"><div class="activity-icon green">✓</div><div class="activity-content"><p><strong>Rest. La Fogata</strong> - Reporte aprobado</p><span class="activity-time">Hace 1 hora</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Billing Completo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <a href="billing.html" class="nav-item active"><span class="nav-item-icon">💳</span> Billing</a>
+                <a href="cupones.html" class="nav-item"><span class="nav-item-icon">🎟️</span> Cupones</a>
+                <a href="comisiones.html" class="nav-item"><span class="nav-item-icon">🤝</span> Comisiones</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">💳 Billing Completo</h1><p class="page-subtitle">Cobros, reintentos, upgrades prorrateados, facturación por consumo</p></div>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card green"><div class="stat-value">$127,450</div><div class="stat-label">MRR Actual</div></div>
+                <div class="stat-card"><div class="stat-value">24</div><div class="stat-label">Suscripciones Activas</div></div>
+                <div class="stat-card yellow"><div class="stat-value">3</div><div class="stat-label">Cobros Pendientes</div></div>
+                <div class="stat-card" style="border-color:#ef4444;"><div class="stat-value" style="color:#ef4444;">2</div><div class="stat-label">Cobros Fallidos</div></div>
+            </div>
+            <div class="grid grid-2 mb-lg">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">⚠️ Cobros Fallidos - Reintentos</h3></div>
+                    <div class="card-body">
+                        <div style="padding:12px;background:rgba(239,68,68,0.1);border-radius:10px;margin-bottom:12px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><strong>Control Total MX</strong><span class="badge badge-danger">2do intento fallido</span></div>
+                            <p style="font-size:0.85rem;color:var(--color-text-muted);margin:0;">$499 - Tarjeta rechazada • Próximo intento: 3 días</p>
+                            <div style="margin-top:8px;"><button class="btn btn-secondary btn-sm">Contactar</button><button class="btn btn-ghost btn-sm">Pausar cuenta</button></div>
+                        </div>
+                        <div style="padding:12px;background:rgba(245,158,11,0.1);border-radius:10px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><strong>Pest Masters MX</strong><span class="badge badge-warning">1er intento fallido</span></div>
+                            <p style="font-size:0.85rem;color:var(--color-text-muted);margin:0;">$999 - Fondos insuficientes • Próximo intento: 5 días</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">📈 Upgrades Pendientes</h3></div>
+                    <div class="card-body">
+                        <div style="padding:12px;background:var(--color-bg-tertiary);border-radius:10px;margin-bottom:12px;">
+                            <div style="display:flex;justify-content:space-between;"><strong>López S.A.</strong><span class="badge badge-success">Upgrade solicitado</span></div>
+                            <p style="font-size:0.85rem;color:var(--color-text-muted);">Professional → Enterprise</p>
+                            <p style="font-size:0.8rem;">Prorrateo: +$500 (15 días restantes)</p>
+                            <button class="btn btn-primary btn-sm">Aprobar Upgrade</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">📊 Facturación por Consumo</h3></div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Empresa</th><th>Plan Base</th><th>Usuarios Extra</th><th>GPS Tracking</th><th>Certificados</th><th>Total Mes</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>López S.A.</strong></td><td>$1,999</td><td>+$150 (3 extra)</td><td>+$200 (5 vehículos)</td><td>+$50 (100 cert)</td><td><strong>$2,399</strong></td></tr>
+                            <tr><td><strong>Pest Masters</strong></td><td>$999</td><td>--</td><td>+$80 (2 vehículos)</td><td>--</td><td><strong>$1,079</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

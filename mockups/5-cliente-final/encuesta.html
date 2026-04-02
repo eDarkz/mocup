@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Portal Cliente: Encuesta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .survey-container { max-width: 700px; margin: 0 auto; }
+        .survey-header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1)); border-radius: 24px; margin-bottom: 32px; }
+        .rating-scale { display: flex; justify-content: space-between; gap: 8px; margin: 16px 0; }
+        .rating-btn { flex: 1; padding: 20px 8px; background: var(--color-bg-card); border: 2px solid var(--color-border); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .rating-btn:hover { border-color: var(--color-accent-primary); }
+        .rating-btn.selected { border-color: var(--color-accent-primary); background: rgba(59,130,246,0.1); }
+        .rating-btn .number { font-size: 1.5rem; font-weight: 700; }
+        .rating-btn .label { font-size: 0.7rem; color: var(--color-text-muted); margin-top: 4px; }
+        .nps-labels { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted); margin-top: 8px; }
+        .question-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+        .star-rating { display: flex; gap: 8px; justify-content: center; margin: 16px 0; }
+        .star { font-size: 2rem; cursor: pointer; transition: transform 0.2s; }
+        .star:hover { transform: scale(1.2); }
+        .star.filled { color: #f59e0b; }
+        .star.empty { color: var(--color-border); }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏨</span> Hotel Marriott</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="comunicacion-cliente.html" class="nav-item"><span class="nav-item-icon">📬</span> Comunicación</a>
+                <a href="encuesta.html" class="nav-item active"><span class="nav-item-icon">⭐</span> Encuestas</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="survey-container">
+                <div class="survey-header">
+                    <div style="font-size:3rem;margin-bottom:16px;">⭐</div>
+                    <h1>¿Cómo fue su experiencia?</h1>
+                    <p style="color:var(--color-text-muted);margin-top:8px;">Servicio del 7 de febrero, 2026 - Fumigación Semanal</p>
+                </div>
+                <div class="question-card">
+                    <h3 style="margin-bottom:16px;">1. ¿Qué tan probable es que nos recomiende?</h3>
+                    <p style="color:var(--color-text-muted);font-size:0.9rem;">Escala NPS (Net Promoter Score)</p>
+                    <div class="rating-scale">
+                        <div class="rating-btn"><div class="number">0</div></div>
+                        <div class="rating-btn"><div class="number">1</div></div>
+                        <div class="rating-btn"><div class="number">2</div></div>
+                        <div class="rating-btn"><div class="number">3</div></div>
+                        <div class="rating-btn"><div class="number">4</div></div>
+                        <div class="rating-btn"><div class="number">5</div></div>
+                        <div class="rating-btn"><div class="number">6</div></div>
+                        <div class="rating-btn"><div class="number">7</div></div>
+                        <div class="rating-btn selected"><div class="number">8</div></div>
+                        <div class="rating-btn"><div class="number">9</div></div>
+                        <div class="rating-btn"><div class="number">10</div></div>
+                    </div>
+                    <div class="nps-labels"><span>Nada probable</span><span>Muy probable</span></div>
+                </div>
+                <div class="question-card">
+                    <h3 style="margin-bottom:16px;">2. ¿Cómo calificaría al técnico?</h3>
+                    <p style="color:var(--color-text-muted);font-size:0.9rem;margin-bottom:8px;">👤 Técnico: Carlos Ramírez</p>
+                    <div class="star-rating">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                    </div>
+                    <p style="text-align:center;color:var(--color-text-muted);">Excelente</p>
+                </div>
+                <div class="question-card">
+                    <h3 style="margin-bottom:16px;">3. ¿Cómo calificaría la puntualidad?</h3>
+                    <div class="star-rating">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star empty">★</span>
+                    </div>
+                    <p style="text-align:center;color:var(--color-text-muted);">Muy bueno</p>
+                </div>
+                <div class="question-card">
+                    <h3 style="margin-bottom:16px;">4. Comentarios adicionales (opcional)</h3>
+                    <textarea class="form-input" rows="4" placeholder="Cuéntenos más sobre su experiencia..." style="width:100%;resize:none;"></textarea>
+                </div>
+                <button class="btn btn-primary" style="width:100%;padding:16px;font-size:1.1rem;">Enviar Evaluación</button>
+                <p style="text-align:center;color:var(--color-text-muted);font-size:0.85rem;margin-top:16px;">¡Gracias por ayudarnos a mejorar! 🙏</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

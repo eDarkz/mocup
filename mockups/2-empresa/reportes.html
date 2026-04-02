@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Generador de Reportes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="reportes.html" class="nav-item active"><span class="nav-item-icon">📊</span> Reportes</a>
+                <a href="plantillas-pdf.html" class="nav-item"><span class="nav-item-icon">📄</span> Plantillas PDF</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📊 Generador de Reportes</h1><p class="page-subtitle">Reportes automáticos para auditorías y cumplimiento normativo (COFEPRIS)</p></div>
+                <button class="btn btn-primary">+ Nuevo Reporte</button>
+            </div>
+            <div class="grid grid-3 mb-xl">
+                <div class="card" style="cursor:pointer;">
+                    <div style="padding:24px;text-align:center;">
+                        <div style="font-size:3rem;margin-bottom:12px;">📋</div>
+                        <h3>Reporte de Servicio</h3>
+                        <p style="font-size:0.85rem;color:var(--color-text-muted);">Detalle de fumigación por visita</p>
+                        <button class="btn btn-primary btn-sm mt-md">Generar</button>
+                    </div>
+                </div>
+                <div class="card" style="cursor:pointer;">
+                    <div style="padding:24px;text-align:center;">
+                        <div style="font-size:3rem;margin-bottom:12px;">🏥</div>
+                        <h3>Reporte COFEPRIS</h3>
+                        <p style="font-size:0.85rem;color:var(--color-text-muted);">Formato oficial con fichas técnicas</p>
+                        <span class="badge badge-success mb-sm">Más usado</span>
+                        <button class="btn btn-primary btn-sm mt-md">Generar</button>
+                    </div>
+                </div>
+                <div class="card" style="cursor:pointer;">
+                    <div style="padding:24px;text-align:center;">
+                        <div style="font-size:3rem;margin-bottom:12px;">📈</div>
+                        <h3>Reporte Ejecutivo</h3>
+                        <p style="font-size:0.85rem;color:var(--color-text-muted);">Resumen mensual para gerentes</p>
+                        <button class="btn btn-primary btn-sm mt-md">Generar</button>
+                    </div>
+                </div>
+                <div class="card" style="cursor:pointer;">
+                    <div style="padding:24px;text-align:center;">
+                        <div style="font-size:3rem;margin-bottom:12px;">🔍</div>
+                        <h3>Reporte de Tendencias</h3>
+                        <p style="font-size:0.85rem;color:var(--color-text-muted);">Análisis de actividad por plaga/zona</p>
+                        <button class="btn btn-primary btn-sm mt-md">Generar</button>
+                    </div>
+                </div>
+                <div class="card" style="cursor:pointer;">
+                    <div style="padding:24px;text-align:center;">
+                        <div style="font-size:3rem;margin-bottom:12px;">🗺️</div>
+                        <h3>Plano de Estaciones</h3>
+                        <p style="font-size:0.85rem;color:var(--color-text-muted);">Mapa con ubicación de dispositivos</p>
+                        <button class="btn btn-primary btn-sm mt-md">Generar</button>
+                    </div>
+                </div>
+                <div class="card" style="cursor:pointer;">
+                    <div style="padding:24px;text-align:center;">
+                        <div style="font-size:3rem;margin-bottom:12px;">📦</div>
+                        <h3>Reporte de Consumo</h3>
+                        <p style="font-size:0.85rem;color:var(--color-text-muted);">Productos utilizados por período</p>
+                        <button class="btn btn-primary btn-sm mt-md">Generar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">📂 Reportes Programados</h3></div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Cliente</th><th>Tipo Reporte</th><th>Frecuencia</th><th>Próximo Envío</th><th>Destinatarios</th><th>Estado</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hotel Marriott</strong></td>
+                                <td>Reporte Ejecutivo Mensual</td>
+                                <td>1° de cada mes</td>
+                                <td>Mar 1, 2026</td>
+                                <td>gerencia@marriott.com.mx</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hilton Santa Fe</strong></td>
+                                <td>Reporte COFEPRIS</td>
+                                <td>Quincenal</td>
+                                <td>Feb 15, 2026</td>
+                                <td>calidad@hilton.com</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Todos los clientes</strong></td>
+                                <td>Certificado de Servicio</td>
+                                <td>Después de cada visita</td>
+                                <td>Automático</td>
+                                <td>Contacto principal</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

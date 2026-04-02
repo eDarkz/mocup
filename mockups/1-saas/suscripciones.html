@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Planes y Suscripciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
+        .plan-card { background: var(--color-bg-card); border: 2px solid var(--color-border); border-radius: 20px; padding: 32px; text-align: center; transition: all 0.3s; }
+        .plan-card:hover { transform: translateY(-4px); }
+        .plan-card.popular { border-color: var(--color-accent-primary); box-shadow: 0 0 40px rgba(59, 130, 246, 0.2); }
+        .plan-badge { display: inline-block; background: var(--color-accent-primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+        .plan-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+        .plan-price { font-size: 3rem; font-weight: 800; color: var(--color-accent-primary); }
+        .plan-price span { font-size: 1rem; color: var(--color-text-muted); font-weight: 400; }
+        .plan-features { margin: 24px 0; text-align: left; }
+        .plan-feature { display: flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 0.9rem; }
+        .plan-feature.included { color: var(--color-text-primary); }
+        .plan-feature.excluded { color: var(--color-text-muted); text-decoration: line-through; }
+        .plan-subscribers { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+        .billing-table { margin-top: 32px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Panel</span>Super Administrador</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="empresas.html" class="nav-item"><span class="nav-item-icon">🏢</span> Empresas</a>
+                    <a href="suscripciones.html" class="nav-item active"><span class="nav-item-icon">💳</span> Suscripciones</a>
+                    <a href="soporte.html" class="nav-item"><span class="nav-item-icon">🎧</span> Soporte</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">💳 Planes y Suscripciones</h1>
+                    <p class="page-subtitle">Gestiona los planes de servicio y la facturación</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-primary">+ Nuevo Plan</button>
+                </div>
+            </div>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">$99<span>/mes</span></div>
+                    <div class="plan-features">
+                        <div class="plan-feature included">✅ Hasta 20 locaciones</div>
+                        <div class="plan-feature included">✅ 5 usuarios</div>
+                        <div class="plan-feature included">✅ Reportes básicos</div>
+                        <div class="plan-feature included">✅ App móvil</div>
+                        <div class="plan-feature excluded">❌ GPS tracking</div>
+                        <div class="plan-feature excluded">❌ API access</div>
+                    </div>
+                    <div class="plan-subscribers">
+                        <strong>14 empresas</strong> suscritas
+                    </div>
+                </div>
+                <div class="plan-card popular">
+                    <span class="plan-badge">Más Popular</span>
+                    <div class="plan-name">Professional</div>
+                    <div class="plan-price">$249<span>/mes</span></div>
+                    <div class="plan-features">
+                        <div class="plan-feature included">✅ Hasta 100 locaciones</div>
+                        <div class="plan-feature included">✅ 15 usuarios</div>
+                        <div class="plan-feature included">✅ Reportes avanzados</div>
+                        <div class="plan-feature included">✅ App móvil</div>
+                        <div class="plan-feature included">✅ GPS tracking</div>
+                        <div class="plan-feature excluded">❌ API access</div>
+                    </div>
+                    <div class="plan-subscribers">
+                        <strong>21 empresas</strong> suscritas
+                    </div>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-price">$599<span>/mes</span></div>
+                    <div class="plan-features">
+                        <div class="plan-feature included">✅ Locaciones ilimitadas</div>
+                        <div class="plan-feature included">✅ Usuarios ilimitados</div>
+                        <div class="plan-feature included">✅ Reportes personalizados</div>
+                        <div class="plan-feature included">✅ App móvil + Whitelabel</div>
+                        <div class="plan-feature included">✅ GPS tracking avanzado</div>
+                        <div class="plan-feature included">✅ API access completo</div>
+                    </div>
+                    <div class="plan-subscribers">
+                        <strong>12 empresas</strong> suscritas
+                    </div>
+                </div>
+            </div>
+            <div class="card billing-table">
+                <div class="card-header">
+                    <h3 class="card-title">📋 Historial de Facturación</h3>
+                    <select class="form-input form-select" style="width: 150px;"><option>Este mes</option><option>Último trimestre</option></select>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Empresa</th><th>Plan</th><th>Monto</th><th>Fecha</th><th>Estado</th><th>Acciones</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Fumigaciones López S.A.</strong></td><td>Enterprise</td><td>$8,500.00</td><td>01/02/2026</td><td><span class="badge badge-success">Pagado</span></td><td><button class="btn btn-ghost btn-sm">📄 Factura</button></td></tr>
+                            <tr><td><strong>Control Total MX</strong></td><td>Enterprise</td><td>$7,200.00</td><td>01/02/2026</td><td><span class="badge badge-success">Pagado</span></td><td><button class="btn btn-ghost btn-sm">📄 Factura</button></td></tr>
+                            <tr><td><strong>Pest Masters</strong></td><td>Professional</td><td>$4,800.00</td><td>01/02/2026</td><td><span class="badge badge-warning">Pendiente</span></td><td><button class="btn btn-ghost btn-sm">📄 Factura</button><button class="btn btn-primary btn-sm">Recordar</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

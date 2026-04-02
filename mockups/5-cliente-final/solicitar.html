@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Solicitar Servicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .service-type-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+        .service-type-card { background: var(--color-bg-card); border: 2px solid var(--color-border); border-radius: 16px; padding: 24px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .service-type-card:hover, .service-type-card.selected { border-color: var(--color-accent-primary); background: rgba(59, 130, 246, 0.05); }
+        .service-type-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .service-type-name { font-weight: 600; font-size: 1.1rem; margin-bottom: 4px; }
+        .service-type-desc { font-size: 0.85rem; color: var(--color-text-muted); }
+        .urgency-options { display: flex; gap: 12px; margin-bottom: 24px; }
+        .urgency-option { flex: 1; background: var(--color-bg-card); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .urgency-option:hover, .urgency-option.selected { border-color: var(--color-accent-primary); }
+        .urgency-option.urgent.selected { border-color: var(--color-danger); background: rgba(239, 68, 68, 0.05); }
+        .urgency-icon { font-size: 1.5rem; margin-bottom: 8px; }
+        .urgency-name { font-weight: 600; }
+        .urgency-time { font-size: 0.8rem; color: var(--color-text-muted); }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar" style="background: linear-gradient(180deg, #064e3b 0%, #065f46 100%);">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Portal</span>Cliente</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Comunicación</div>
+                    <a href="solicitar.html" class="nav-item active"><span class="nav-item-icon">📞</span> Solicitar Servicio</a>
+                    <a href="chat.html" class="nav-item"><span class="nav-item-icon">💬</span> Chat</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">📞 Solicitar Servicio</h1>
+                    <p class="page-subtitle">Programa un servicio adicional o de emergencia</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body" style="padding: 32px;">
+                    <h3 style="margin-bottom: 16px;">1️⃣ Tipo de Servicio</h3>
+                    <div class="service-type-grid">
+                        <div class="service-type-card selected">
+                            <div class="service-type-icon">🪳</div>
+                            <div class="service-type-name">Fumigación</div>
+                            <div class="service-type-desc">Control de plagas en áreas específicas</div>
+                        </div>
+                        <div class="service-type-card">
+                            <div class="service-type-icon">🪤</div>
+                            <div class="service-type-name">Revisión Cebaderas</div>
+                            <div class="service-type-desc">Inspección y recarga de cebaderas</div>
+                        </div>
+                        <div class="service-type-card">
+                            <div class="service-type-icon">💡</div>
+                            <div class="service-type-name">Trampas de Luz</div>
+                            <div class="service-type-desc">Mantenimiento de trampas UV</div>
+                        </div>
+                        <div class="service-type-card">
+                            <div class="service-type-icon">🔍</div>
+                            <div class="service-type-name">Inspección General</div>
+                            <div class="service-type-desc">Evaluación completa de la propiedad</div>
+                        </div>
+                    </div>
+                    <h3 style="margin-bottom: 16px;">2️⃣ Urgencia</h3>
+                    <div class="urgency-options">
+                        <div class="urgency-option">
+                            <div class="urgency-icon">📅</div>
+                            <div class="urgency-name">Programado</div>
+                            <div class="urgency-time">2-3 días hábiles</div>
+                        </div>
+                        <div class="urgency-option selected">
+                            <div class="urgency-icon">⚡</div>
+                            <div class="urgency-name">Prioritario</div>
+                            <div class="urgency-time">24-48 horas</div>
+                        </div>
+                        <div class="urgency-option urgent">
+                            <div class="urgency-icon">🚨</div>
+                            <div class="urgency-name">Emergencia</div>
+                            <div class="urgency-time">Mismo día</div>
+                        </div>
+                    </div>
+                    <h3 style="margin-bottom: 16px;">3️⃣ Detalles</h3>
+                    <div class="form-group">
+                        <label class="form-label">Áreas a tratar</label>
+                        <select class="form-input form-select">
+                            <option>Selecciona las áreas...</option>
+                            <option>Restaurante y Cocina</option>
+                            <option>Habitaciones Piso 1-3</option>
+                            <option>Habitaciones Piso 4-6</option>
+                            <option>Áreas Comunes</option>
+                            <option>Exteriores</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Descripción del problema</label>
+                        <textarea class="form-input" rows="4" placeholder="Describe la situación, ubicación exacta y cualquier detalle relevante..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Fecha preferida (opcional)</label>
+                        <input type="date" class="form-input">
+                    </div>
+                    <button class="btn btn-primary" style="padding: 16px 32px; font-size: 1rem;">📤 Enviar Solicitud</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

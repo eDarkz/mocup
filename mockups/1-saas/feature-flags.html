@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Feature Flags</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .plan-tabs { display: flex; gap: 12px; margin-bottom: 24px; }
+        .plan-tab { padding: 12px 24px; background: var(--color-bg-card); border: 2px solid var(--color-border); border-radius: 12px; cursor: pointer; transition: all 0.2s; }
+        .plan-tab:hover { border-color: var(--color-accent-primary); }
+        .plan-tab.active { border-color: var(--color-accent-primary); background: rgba(59, 130, 246, 0.1); }
+        .plan-tab-name { font-weight: 700; font-size: 1rem; }
+        .plan-tab-price { font-size: 0.85rem; color: var(--color-text-muted); }
+        .plan-tab-count { font-size: 0.75rem; color: var(--color-accent-primary); margin-top: 4px; }
+        .feature-category { margin-bottom: 32px; }
+        .category-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border); }
+        .category-title { font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+        .feature-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; }
+        .feature-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+        .feature-name { font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .feature-name .icon { font-size: 1.1rem; }
+        .feature-desc { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px; }
+        .feature-plans { display: flex; gap: 8px; }
+        .plan-chip { padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 600; }
+        .plan-chip.starter { background: rgba(100, 116, 139, 0.15); color: #94a3b8; }
+        .plan-chip.professional { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .plan-chip.enterprise { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+        .toggle-switch { position: relative; width: 48px; height: 26px; background: var(--color-bg-tertiary); border-radius: 13px; cursor: pointer; transition: all 0.2s; }
+        .toggle-switch.active { background: var(--color-success); }
+        .toggle-switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: all 0.2s; }
+        .toggle-switch.active::after { left: 25px; }
+        .override-section { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 16px; margin-top: 12px; }
+        .override-title { font-size: 0.85rem; font-weight: 600; color: #f59e0b; margin-bottom: 12px; }
+        .override-list { display: flex; flex-direction: column; gap: 8px; }
+        .override-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--color-bg-card); border-radius: 8px; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Panel</span>Super Admin</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Operaciones</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="impersonacion.html" class="nav-item"><span class="nav-item-icon">🎭</span> Impersonación</a>
+                    <a href="feature-flags.html" class="nav-item active"><span class="nav-item-icon">🚩</span> Feature Flags</a>
+                    <a href="health-tenants.html" class="nav-item"><span class="nav-item-icon">💓</span> Health Tenants</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">🚩 Feature Flags por Plan</h1>
+                    <p class="page-subtitle">Activa/desactiva módulos según el plan de suscripción</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📥 Importar Config</button>
+                    <button class="btn btn-primary">💾 Guardar Cambios</button>
+                </div>
+            </div>
+            <!-- Plan Tabs -->
+            <div class="plan-tabs">
+                <div class="plan-tab">
+                    <div class="plan-tab-name">🌱 Starter</div>
+                    <div class="plan-tab-price">$499/mes</div>
+                    <div class="plan-tab-count">12 funciones activas</div>
+                </div>
+                <div class="plan-tab active">
+                    <div class="plan-tab-name">⚡ Professional</div>
+                    <div class="plan-tab-price">$999/mes</div>
+                    <div class="plan-tab-count">24 funciones activas</div>
+                </div>
+                <div class="plan-tab">
+                    <div class="plan-tab-name">🏆 Enterprise</div>
+                    <div class="plan-tab-price">$1,999/mes</div>
+                    <div class="plan-tab-count">38 funciones activas</div>
+                </div>
+            </div>
+            <!-- Features by Category -->
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-title">📍 Gestión de Locaciones</div>
+                    <span class="badge badge-primary">6 funciones</span>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">🏨</span> Hoteles ilimitados</div>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="feature-desc">Permite registrar hoteles sin límite de cantidad</div>
+                        <div class="feature-plans"><span class="plan-chip professional">Professional</span><span class="plan-chip enterprise">Enterprise</span></div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">🗺️</span> Mapas de estaciones</div>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="feature-desc">Planos visuales con ubicación de trampas y cebaderas</div>
+                        <div class="feature-plans"><span class="plan-chip professional">Professional</span><span class="plan-chip enterprise">Enterprise</span></div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">📱</span> QR en estaciones</div>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="feature-desc">Códigos QR para escaneo rápido de dispositivos</div>
+                        <div class="feature-plans"><span class="plan-chip starter">Starter</span><span class="plan-chip professional">Professional</span><span class="plan-chip enterprise">Enterprise</span></div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">🔧</span> Constructor de estructura</div>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="feature-desc">Configurador drag & drop de áreas del hotel</div>
+                        <div class="feature-plans"><span class="plan-chip enterprise">Enterprise</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-title">📊 Reportes y Analytics</div>
+                    <span class="badge badge-primary">8 funciones</span>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">📄</span> Reportes básicos</div>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="feature-desc">Reportes de servicio estándar en PDF</div>
+                        <div class="feature-plans"><span class="plan-chip starter">Starter</span><span class="plan-chip professional">Professional</span><span class="plan-chip enterprise">Enterprise</span></div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">📈</span> Analytics avanzado</div>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="feature-desc">Dashboards personalizables, tendencias, predicciones</div>
+                        <div class="feature-plans"><span class="plan-chip enterprise">Enterprise</span></div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">🏷️</span> White Label</div>
+                            <div class="toggle-switch"></div>
+                        </div>
+                        <div class="feature-desc">Reportes con logo y colores del cliente</div>
+                        <div class="feature-plans"><span class="plan-chip enterprise">Enterprise</span></div>
+                        <div class="override-section">
+                            <div class="override-title">⚠️ Overrides activos (2)</div>
+                            <div class="override-list">
+                                <div class="override-item"><span>Fumigaciones López S.A.</span><span class="badge badge-success">Activo</span></div>
+                                <div class="override-item"><span>Pest Masters MX</span><span class="badge badge-success">Activo</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-title">🚐 Flota y GPS</div>
+                    <span class="badge badge-primary">4 funciones</span>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">📍</span> GPS Tracking</div>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="feature-desc">Localización en tiempo real de vehículos</div>
+                        <div class="feature-plans"><span class="plan-chip professional">Professional</span><span class="plan-chip enterprise">Enterprise</span></div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-name"><span class="icon">🛣️</span> Optimización de rutas</div>
+                            <div class="toggle-switch"></div>
+                        </div>
+                        <div class="feature-desc">Sugerencias automáticas de orden de visitas</div>
+                        <div class="feature-plans"><span class="plan-chip enterprise">Enterprise</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

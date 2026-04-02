@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Portal Cliente: Calendario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calendar-mini { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; background: var(--color-border); border-radius: 12px; overflow: hidden; }
+        .cal-header { background: var(--color-accent-primary); padding: 10px; text-align: center; font-weight: 600; font-size: 0.8rem; color: white; }
+        .cal-day { background: var(--color-bg-card); padding: 8px; min-height: 60px; font-size: 0.85rem; }
+        .cal-day.other { opacity: 0.4; }
+        .cal-day.today { background: rgba(59,130,246,0.1); }
+        .cal-day .number { font-weight: 600; margin-bottom: 4px; }
+        .cal-event { font-size: 0.7rem; padding: 2px 4px; border-radius: 4px; background: rgba(16,185,129,0.2); color: #10b981; margin-top: 2px; }
+        .upcoming-service { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏨</span> Hotel Marriott</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="calendario-cliente.html" class="nav-item active"><span class="nav-item-icon">📅</span> Calendario</a>
+                <a href="historial.html" class="nav-item"><span class="nav-item-icon">📋</span> Historial</a>
+                <a href="tendencias.html" class="nav-item"><span class="nav-item-icon">📈</span> Tendencias</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📅 Calendario de Servicios</h1><p class="page-subtitle">Próximas visitas programadas y recordatorios</p></div>
+            </div>
+            <div class="grid" style="grid-template-columns: 1.5fr 1fr; gap: 24px;">
+                <div>
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <button class="btn btn-ghost btn-sm">←</button>
+                            <h3 class="card-title" style="flex:1;text-align:center;">Febrero 2026</h3>
+                            <button class="btn btn-ghost btn-sm">→</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="calendar-mini">
+                                <div class="cal-header">Dom</div><div class="cal-header">Lun</div><div class="cal-header">Mar</div><div class="cal-header">Mié</div><div class="cal-header">Jue</div><div class="cal-header">Vie</div><div class="cal-header">Sáb</div>
+                                <div class="cal-day other"><div class="number">26</div></div>
+                                <div class="cal-day other"><div class="number">27</div></div>
+                                <div class="cal-day other"><div class="number">28</div></div>
+                                <div class="cal-day other"><div class="number">29</div></div>
+                                <div class="cal-day other"><div class="number">30</div></div>
+                                <div class="cal-day other"><div class="number">31</div></div>
+                                <div class="cal-day"><div class="number">1</div></div>
+                                <div class="cal-day"><div class="number">2</div><div class="cal-event">✓ Fumigación</div></div>
+                                <div class="cal-day"><div class="number">3</div></div>
+                                <div class="cal-day"><div class="number">4</div></div>
+                                <div class="cal-day"><div class="number">5</div></div>
+                                <div class="cal-day"><div class="number">6</div></div>
+                                <div class="cal-day today"><div class="number">7</div></div>
+                                <div class="cal-day"><div class="number">8</div></div>
+                                <div class="cal-day"><div class="number">9</div><div class="cal-event">🔜 Fumigación</div></div>
+                                <div class="cal-day"><div class="number">10</div></div>
+                                <div class="cal-day"><div class="number">11</div></div>
+                                <div class="cal-day"><div class="number">12</div></div>
+                                <div class="cal-day"><div class="number">13</div></div>
+                                <div class="cal-day"><div class="number">14</div></div>
+                                <div class="cal-day"><div class="number">15</div></div>
+                                <div class="cal-day"><div class="number">16</div><div class="cal-event">🔜 Fumigación</div></div>
+                                <div class="cal-day"><div class="number">17</div></div>
+                                <div class="cal-day"><div class="number">18</div></div>
+                                <div class="cal-day"><div class="number">19</div></div>
+                                <div class="cal-day"><div class="number">20</div></div>
+                                <div class="cal-day"><div class="number">21</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="mb-md">🔜 Próximos Servicios</h3>
+                    <div class="upcoming-service" style="border-left:4px solid #3b82f6;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                            <strong>Fumigación Semanal</strong>
+                            <span class="badge badge-primary">En 2 días</span>
+                        </div>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">📅 Lunes 9 Feb, 8:00 - 10:00 AM</div>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">👤 Técnico: Carlos Ramírez</div>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">📍 Todas las áreas</div>
+                    </div>
+                    <div class="upcoming-service">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                            <strong>Fumigación Semanal</strong>
+                            <span class="badge">En 9 días</span>
+                        </div>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">📅 Lunes 16 Feb, 8:00 - 10:00 AM</div>
+                    </div>
+                    <div class="upcoming-service">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                            <strong>Inspección Trimestral</strong>
+                            <span class="badge">En 23 días</span>
+                        </div>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">📅 Lunes 2 Mar, 9:00 - 12:00 AM</div>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">📋 Revisión completa de estaciones</div>
+                    </div>
+                    <button class="btn btn-secondary" style="width:100%;margin-top:16px;">+ Solicitar Servicio Extra</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

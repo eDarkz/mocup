@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Inventario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .inventory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .inventory-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; padding: 20px; }
+        .inventory-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .inventory-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .inventory-icon.chemical { background: rgba(239, 68, 68, 0.15); }
+        .inventory-icon.trap { background: rgba(139, 92, 246, 0.15); }
+        .inventory-icon.equipment { background: rgba(59, 130, 246, 0.15); }
+        .inventory-icon.consumable { background: rgba(16, 185, 129, 0.15); }
+        .inventory-name { font-weight: 600; font-size: 1.1rem; }
+        .inventory-category { font-size: 0.8rem; color: var(--color-text-muted); }
+        .inventory-stock { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid var(--color-border); }
+        .stock-label { font-size: 0.85rem; color: var(--color-text-secondary); }
+        .stock-value { font-weight: 700; font-size: 1.25rem; }
+        .stock-value.low { color: var(--color-danger); }
+        .stock-value.medium { color: var(--color-warning); }
+        .stock-value.good { color: var(--color-success); }
+        .stock-bar { height: 6px; background: var(--color-bg-tertiary); border-radius: 3px; margin-top: 8px; overflow: hidden; }
+        .stock-bar-fill { height: 100%; border-radius: 3px; }
+        .stock-bar-fill.low { background: var(--color-danger); width: 15%; }
+        .stock-bar-fill.medium { background: var(--color-warning); width: 45%; }
+        .stock-bar-fill.good { background: var(--color-success); width: 80%; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Recursos</div>
+                    <a href="personal.html" class="nav-item"><span class="nav-item-icon">👥</span> Personal</a>
+                    <a href="vehiculos.html" class="nav-item"><span class="nav-item-icon">🚐</span> Vehículos</a>
+                    <a href="inventario.html" class="nav-item active"><span class="nav-item-icon">📦</span> Inventario</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">📦 Inventario</h1>
+                    <p class="page-subtitle">Control de productos químicos, trampas y equipos</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📥 Importar</button>
+                    <button class="btn btn-primary">+ Nuevo Producto</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card red"><div class="stat-value">3</div><div class="stat-label">Stock Crítico</div></div>
+                <div class="stat-card yellow"><div class="stat-value">8</div><div class="stat-label">Stock Bajo</div></div>
+                <div class="stat-card green"><div class="stat-value">45</div><div class="stat-label">Stock OK</div></div>
+                <div class="stat-card blue"><div class="stat-value">$12,400</div><div class="stat-label">Valor Total</div></div>
+            </div>
+            <div class="tabs mb-lg">
+                <button class="tab active">Todos (56)</button>
+                <button class="tab">🧪 Químicos (18)</button>
+                <button class="tab">🪤 Trampas (22)</button>
+                <button class="tab">🔧 Equipos (10)</button>
+                <button class="tab">📋 Consumibles (6)</button>
+            </div>
+            <div class="inventory-grid">
+                <div class="inventory-card">
+                    <div class="inventory-header">
+                        <div class="inventory-icon chemical">🧪</div>
+                        <div><div class="inventory-name">Gel para Cucarachas</div><div class="inventory-category">Químico - Gel</div></div>
+                    </div>
+                    <div class="inventory-stock">
+                        <span class="stock-label">Stock actual:</span>
+                        <span class="stock-value low">3 tubos</span>
+                    </div>
+                    <div class="stock-bar"><div class="stock-bar-fill low"></div></div>
+                    <p style="font-size: 0.8rem; color: var(--color-danger); margin-top: 8px;">⚠️ Reordenar urgente</p>
+                </div>
+                <div class="inventory-card">
+                    <div class="inventory-header">
+                        <div class="inventory-icon chemical">🧪</div>
+                        <div><div class="inventory-name">Insecticida Aspersión</div><div class="inventory-category">Químico - Líquido</div></div>
+                    </div>
+                    <div class="inventory-stock">
+                        <span class="stock-label">Stock actual:</span>
+                        <span class="stock-value medium">12 litros</span>
+                    </div>
+                    <div class="stock-bar"><div class="stock-bar-fill medium"></div></div>
+                </div>
+                <div class="inventory-card">
+                    <div class="inventory-header">
+                        <div class="inventory-icon trap">🪤</div>
+                        <div><div class="inventory-name">Cebaderas Plásticas</div><div class="inventory-category">Trampa - Roedores</div></div>
+                    </div>
+                    <div class="inventory-stock">
+                        <span class="stock-label">Stock actual:</span>
+                        <span class="stock-value good">156 unidades</span>
+                    </div>
+                    <div class="stock-bar"><div class="stock-bar-fill good"></div></div>
+                </div>
+                <div class="inventory-card">
+                    <div class="inventory-header">
+                        <div class="inventory-icon trap">💡</div>
+                        <div><div class="inventory-name">Trampas de Luz UV</div><div class="inventory-category">Trampa - Insectos voladores</div></div>
+                    </div>
+                    <div class="inventory-stock">
+                        <span class="stock-label">Stock actual:</span>
+                        <span class="stock-value good">48 unidades</span>
+                    </div>
+                    <div class="stock-bar"><div class="stock-bar-fill good"></div></div>
+                </div>
+                <div class="inventory-card">
+                    <div class="inventory-header">
+                        <div class="inventory-icon equipment">🔧</div>
+                        <div><div class="inventory-name">Nebulizador ULV</div><div class="inventory-category">Equipo - Aplicación</div></div>
+                    </div>
+                    <div class="inventory-stock">
+                        <span class="stock-label">Unidades:</span>
+                        <span class="stock-value good">5 equipos</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 8px;">✓ Último mantenimiento: 15/01/2026</p>
+                </div>
+                <div class="inventory-card">
+                    <div class="inventory-header">
+                        <div class="inventory-icon consumable">📋</div>
+                        <div><div class="inventory-name">Formatos de Reporte</div><div class="inventory-category">Consumible - Papelería</div></div>
+                    </div>
+                    <div class="inventory-stock">
+                        <span class="stock-label">Stock actual:</span>
+                        <span class="stock-value medium">45 formatos</span>
+                    </div>
+                    <div class="stock-bar"><div class="stock-bar-fill medium"></div></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

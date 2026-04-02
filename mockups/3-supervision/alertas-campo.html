@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Alertas de Campo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>👷</span> Supervisión</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="mapa-tiempo-real.html" class="nav-item"><span class="nav-item-icon">🗺️</span> Mapa en Vivo</a>
+                <a href="revision-servicios.html" class="nav-item"><span class="nav-item-icon">✅</span> Revisar Servicios</a>
+                <a href="alertas-campo.html" class="nav-item active"><span class="nav-item-icon">🚨</span> Alertas Campo</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🚨 Alertas de Campo</h1><p class="page-subtitle">Retrasos, desvíos de ruta, inactividad y problemas en tiempo real</p></div>
+                <div style="display:flex;gap:12px;">
+                    <span class="badge badge-danger" style="padding:8px 12px;font-size:0.9rem;">🔴 3 críticas</span>
+                    <span class="badge badge-warning" style="padding:8px 12px;font-size:0.9rem;">🟡 5 advertencias</span>
+                </div>
+            </div>
+            <!-- Critical Alerts -->
+            <h3 class="mb-md">🔴 Alertas Críticas</h3>
+            <div class="card mb-md" style="border-color:#ef4444;">
+                <div class="card-body">
+                    <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(239,68,68,0.1);border-radius:8px;margin-bottom:12px;">
+                        <span style="font-size:2rem;">⏱️</span>
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;"><strong>Retraso en servicio - Juan Pérez</strong><span style="color:#ef4444;font-weight:600;">Hace 25 min</span></div>
+                            <p style="margin:4px 0 0;color:var(--color-text-muted);">Debía llegar a Restaurante El Sol a las 2:00 PM. Aún no ha reportado inicio.</p>
+                        </div>
+                        <div style="display:flex;gap:8px;"><button class="btn btn-primary btn-sm">📞 Llamar</button><button class="btn btn-ghost btn-sm">📍 Ver ubicación</button></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(239,68,68,0.1);border-radius:8px;margin-bottom:12px;">
+                        <span style="font-size:2rem;">🛑</span>
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;"><strong>GPS desactivado - Carlos Ramírez</strong><span style="color:#ef4444;font-weight:600;">Hace 15 min</span></div>
+                            <p style="margin:4px 0 0;color:var(--color-text-muted);">Sin señal GPS desde 11:45 AM. Última ubicación: Av. Reforma 325.</p>
+                        </div>
+                        <div style="display:flex;gap:8px;"><button class="btn btn-primary btn-sm">📞 Llamar</button><button class="btn btn-ghost btn-sm">Última ubicación</button></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(239,68,68,0.1);border-radius:8px;">
+                        <span style="font-size:2rem;">🆘</span>
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;"><strong>Solicitud de ayuda - María Sánchez</strong><span style="color:#ef4444;font-weight:600;">Hace 5 min</span></div>
+                            <p style="margin:4px 0 0;color:var(--color-text-muted);">"Necesito apoyo - Cliente rechaza acceso a bodega, dice que no estaba programado"</p>
+                        </div>
+                        <div style="display:flex;gap:8px;"><button class="btn btn-primary btn-sm">📞 Llamar</button><button class="btn btn-warning btn-sm">Contactar Cliente</button></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Warning Alerts -->
+            <h3 class="mb-md">🟡 Advertencias</h3>
+            <div class="card">
+                <div class="card-body">
+                    <div style="display:flex;align-items:center;gap:16px;padding:12px;background:rgba(245,158,11,0.1);border-radius:8px;margin-bottom:8px;">
+                        <span style="font-size:1.5rem;">📸</span>
+                        <div style="flex:1;"><strong>Fotos incompletas</strong> - María Sánchez en Hilton (faltaron 4 fotos)</div>
+                        <span class="badge badge-warning">Hace 1h</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:12px;background:rgba(245,158,11,0.1);border-radius:8px;margin-bottom:8px;">
+                        <span style="font-size:1.5rem;">🔋</span>
+                        <div style="flex:1;"><strong>Batería baja</strong> - Dispositivo de Juan Pérez al 15%</div>
+                        <span class="badge badge-warning">Hace 30 min</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:12px;background:rgba(245,158,11,0.1);border-radius:8px;margin-bottom:8px;">
+                        <span style="font-size:1.5rem;">🛣️</span>
+                        <div style="flex:1;"><strong>Desvío de ruta</strong> - Carlos no siguió la ruta optimizada (diferencia 8km)</div>
+                        <span class="badge badge-warning">Hace 2h</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:12px;background:rgba(245,158,11,0.1);border-radius:8px;margin-bottom:8px;">
+                        <span style="font-size:1.5rem;">⏰</span>
+                        <div style="flex:1;"><strong>Servicio largo</strong> - Carlos lleva 90 min en Marriott (estimado: 60 min)</div>
+                        <span class="badge badge-warning">Ahora</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:12px;background:rgba(245,158,11,0.1);border-radius:8px;">
+                        <span style="font-size:1.5rem;">📶</span>
+                        <div style="flex:1;"><strong>Conexión intermitente</strong> - Juan Pérez con señal débil</div>
+                        <span class="badge badge-warning">Hace 45 min</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

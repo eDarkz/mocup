@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Health Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .health-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
+        .tenant-health-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; }
+        .health-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--color-border); }
+        .health-tenant { display: flex; align-items: center; gap: 12px; }
+        .health-logo { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; }
+        .health-name { font-weight: 700; }
+        .health-plan { font-size: 0.8rem; color: var(--color-text-muted); }
+        .health-status { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; }
+        .health-status.healthy { color: #10b981; }
+        .health-status.warning { color: #f59e0b; }
+        .health-status.critical { color: #ef4444; }
+        .health-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .health-dot.healthy { background: #10b981; }
+        .health-dot.warning { background: #f59e0b; }
+        .health-dot.critical { background: #ef4444; }
+        .health-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--color-border); }
+        .health-metric { background: var(--color-bg-card); padding: 16px; text-align: center; }
+        .health-metric-value { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+        .health-metric-label { font-size: 0.75rem; color: var(--color-text-muted); }
+        .health-bars { padding: 16px 20px; }
+        .health-bar-item { margin-bottom: 12px; }
+        .health-bar-header { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 6px; }
+        .health-bar-track { height: 6px; background: var(--color-bg-tertiary); border-radius: 3px; overflow: hidden; }
+        .health-bar-fill { height: 100%; border-radius: 3px; }
+        .health-bar-fill.green { background: #10b981; }
+        .health-bar-fill.yellow { background: #f59e0b; }
+        .health-bar-fill.red { background: #ef4444; }
+        .churn-risk { padding: 16px; background: rgba(239, 68, 68, 0.1); border-top: 1px solid rgba(239, 68, 68, 0.2); }
+        .churn-title { font-size: 0.85rem; font-weight: 600; color: #ef4444; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="health-tenants.html" class="nav-item active"><span class="nav-item-icon">💓</span> Health Tenants</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <h1 class="page-title">💓 Health Dashboard por Tenant</h1>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card green"><div class="stat-value">18</div><div class="stat-label">Healthy</div></div>
+                <div class="stat-card yellow"><div class="stat-value">4</div><div class="stat-label">Warning</div></div>
+                <div class="stat-card" style="border-color: #ef4444;"><div class="stat-value" style="color: #ef4444;">2</div><div class="stat-label">Critical</div></div>
+                <div class="stat-card"><div class="stat-value">99.7%</div><div class="stat-label">Uptime</div></div>
+            </div>
+            <div class="health-grid">
+                <div class="tenant-health-card">
+                    <div class="health-header">
+                        <div class="health-tenant"><div class="health-logo">FL</div><div><div class="health-name">Fumigaciones López</div><div class="health-plan">Enterprise</div></div></div>
+                        <div class="health-status healthy"><div class="health-dot healthy"></div> Healthy</div>
+                    </div>
+                    <div class="health-metrics">
+                        <div class="health-metric"><div class="health-metric-value">12.4k</div><div class="health-metric-label">Visitas/Mes</div></div>
+                        <div class="health-metric"><div class="health-metric-value">22</div><div class="health-metric-label">Usuarios</div></div>
+                        <div class="health-metric"><div class="health-metric-value">145ms</div><div class="health-metric-label">Latencia</div></div>
+                    </div>
+                    <div class="health-bars">
+                        <div class="health-bar-item"><div class="health-bar-header"><span>Almacenamiento</span><span>23%</span></div><div class="health-bar-track"><div class="health-bar-fill green" style="width: 23%;"></div></div></div>
+                        <div class="health-bar-item"><div class="health-bar-header"><span>Tasa error</span><span>0.02%</span></div><div class="health-bar-track"><div class="health-bar-fill green" style="width: 2%;"></div></div></div>
+                    </div>
+                </div>
+                <div class="tenant-health-card">
+                    <div class="health-header">
+                        <div class="health-tenant"><div class="health-logo" style="background: #ef4444;">CT</div><div><div class="health-name">Control Total MX</div><div class="health-plan">Starter</div></div></div>
+                        <div class="health-status critical"><div class="health-dot critical"></div> Critical</div>
+                    </div>
+                    <div class="health-metrics">
+                        <div class="health-metric"><div class="health-metric-value" style="color:#ef4444;">124</div><div class="health-metric-label">Visitas/Mes</div></div>
+                        <div class="health-metric"><div class="health-metric-value" style="color:#ef4444;">1</div><div class="health-metric-label">Usuarios</div></div>
+                        <div class="health-metric"><div class="health-metric-value">18d</div><div class="health-metric-label">Sin Login</div></div>
+                    </div>
+                    <div class="churn-risk">
+                        <div class="churn-title">🚨 Alto Riesgo de Abandono</div>
+                        <p style="font-size: 0.8rem; color: var(--color-text-muted);">Sin actividad 18 días • Cobro fallido • 0 servicios</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

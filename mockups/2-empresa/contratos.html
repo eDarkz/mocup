@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Contratos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="cotizaciones.html" class="nav-item"><span class="nav-item-icon">📋</span> Cotizaciones</a>
+                <a href="contratos.html" class="nav-item active"><span class="nav-item-icon">📄</span> Contratos</a>
+                <a href="ordenes-servicio.html" class="nav-item"><span class="nav-item-icon">🔧</span> Órdenes Servicio</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📄 Contratos</h1><p class="page-subtitle">Contratos activos con frecuencia, alcance y renovaciones</p></div>
+                <button class="btn btn-primary">+ Nuevo Contrato</button>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card green"><div class="stat-value">67</div><div class="stat-label">Contratos Activos</div></div>
+                <div class="stat-card"><div class="stat-value">$847,500</div><div class="stat-label">MRR Contratos</div></div>
+                <div class="stat-card yellow"><div class="stat-value">5</div><div class="stat-label">Por Renovar (30d)</div></div>
+                <div class="stat-card" style="border-color:#ef4444;"><div class="stat-value" style="color:#ef4444;">2</div><div class="stat-label">Vencidos</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">📑 Lista de Contratos</h3>
+                    <input type="text" class="form-input" placeholder="Buscar cliente..." style="width:250px;">
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Contrato</th><th>Cliente</th><th>Frecuencia</th><th>Alcance</th><th>Monto</th><th>Vigencia</th><th>Estado</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>CTR-2025-045</strong></td>
+                                <td><strong>Hotel Marriott Reforma</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">156 habitaciones, 12 áreas</span></td>
+                                <td>Semanal</td>
+                                <td>Fumigación general + Trampas + Monitoreo</td>
+                                <td><strong>$18,500/mes</strong></td>
+                                <td>Dic 2025 - Dic 2026</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CTR-2025-032</strong></td>
+                                <td><strong>Hilton Santa Fe</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">200 habitaciones</span></td>
+                                <td>Quincenal</td>
+                                <td>Fumigación + Inspección UV</td>
+                                <td><strong>$12,000/mes</strong></td>
+                                <td>Mar 2025 - Mar 2026</td>
+                                <td><span class="badge badge-warning">Renovar (28d)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CTR-2024-089</strong></td>
+                                <td><strong>Rest. El Sol</strong></td>
+                                <td>Mensual</td>
+                                <td>Fumigación cocina + comedor</td>
+                                <td><strong>$3,500/mes</strong></td>
+                                <td>Ene 2024 - Ene 2026</td>
+                                <td><span class="badge badge-danger">Vencido</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

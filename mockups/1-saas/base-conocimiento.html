@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Base de Conocimiento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <a href="soporte.html" class="nav-item"><span class="nav-item-icon">🎧</span> Tickets</a>
+                <a href="base-conocimiento.html" class="nav-item active"><span class="nav-item-icon">📚</span> Base Conocimiento</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📚 Base de Conocimiento</h1><p class="page-subtitle">Artículos de ayuda y diagnóstico guiado para reducir tickets</p></div>
+                <button class="btn btn-primary">+ Nuevo Artículo</button>
+            </div>
+            <div style="background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:16px;padding:32px;margin-bottom:24px;text-align:center;">
+                <h2 style="margin-bottom:16px;">🔍 ¿En qué podemos ayudarte?</h2>
+                <input type="text" class="form-input" placeholder="Buscar artículos, guías, soluciones..." style="max-width:500px;margin:0 auto;">
+            </div>
+            <div class="grid grid-3 mb-lg">
+                <div class="card" style="text-align:center;padding:24px;cursor:pointer;">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">🚀</div>
+                    <h3>Primeros Pasos</h3>
+                    <p style="font-size:0.85rem;color:var(--color-text-muted);">12 artículos</p>
+                </div>
+                <div class="card" style="text-align:center;padding:24px;cursor:pointer;">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">📱</div>
+                    <h3>App Móvil</h3>
+                    <p style="font-size:0.85rem;color:var(--color-text-muted);">18 artículos</p>
+                </div>
+                <div class="card" style="text-align:center;padding:24px;cursor:pointer;">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">📊</div>
+                    <h3>Reportes</h3>
+                    <p style="font-size:0.85rem;color:var(--color-text-muted);">9 artículos</p>
+                </div>
+                <div class="card" style="text-align:center;padding:24px;cursor:pointer;">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">💳</div>
+                    <h3>Facturación</h3>
+                    <p style="font-size:0.85rem;color:var(--color-text-muted);">7 artículos</p>
+                </div>
+                <div class="card" style="text-align:center;padding:24px;cursor:pointer;">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">🔧</div>
+                    <h3>Solución de Problemas</h3>
+                    <p style="font-size:0.85rem;color:var(--color-text-muted);">24 artículos</p>
+                </div>
+                <div class="card" style="text-align:center;padding:24px;cursor:pointer;">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">🎯</div>
+                    <h3>Diagnóstico Guiado</h3>
+                    <p style="font-size:0.85rem;color:var(--color-text-muted);">Asistente interactivo</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">🔥 Artículos Populares</h3></div>
+                <div class="card-body">
+                    <div style="padding:12px;border-bottom:1px solid var(--color-border);display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:1.25rem;">📱</span>
+                        <div style="flex:1;"><strong>¿Cómo sincronizar la app cuando no hay internet?</strong><p style="margin:0;font-size:0.8rem;color:var(--color-text-muted);">Modo offline y resolución de conflictos</p></div>
+                        <span class="badge">1,234 vistas</span>
+                    </div>
+                    <div style="padding:12px;border-bottom:1px solid var(--color-border);display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:1.25rem;">📄</span>
+                        <div style="flex:1;"><strong>Generar reportes mensuales automáticos</strong><p style="margin:0;font-size:0.8rem;color:var(--color-text-muted);">Configurar envío programado a clientes</p></div>
+                        <span class="badge">987 vistas</span>
+                    </div>
+                    <div style="padding:12px;display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:1.25rem;">🏨</span>
+                        <div style="flex:1;"><strong>Configurar estructura de hotel completa</strong><p style="margin:0;font-size:0.8rem;color:var(--color-text-muted);">Pisos, habitaciones, áreas comunes, estaciones</p></div>
+                        <span class="badge">756 vistas</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

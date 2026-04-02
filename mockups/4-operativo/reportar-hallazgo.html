@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FumiControl - App Móvil: Reportar Hallazgo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { background: var(--color-bg-primary); }
+        .mobile-frame { max-width: 390px; margin: 20px auto; background: var(--color-bg-secondary); border-radius: 40px; padding: 20px; min-height: 800px; box-shadow: 0 0 0 12px #1a1a2e, 0 20px 60px rgba(0,0,0,0.5); }
+        .photo-capture { aspect-ratio: 4/3; background: var(--color-bg-tertiary); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 16px; border: 2px dashed var(--color-border); cursor: pointer; }
+        .photo-preview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+        .photo-thumb { aspect-ratio: 1; background: var(--color-bg-tertiary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; position: relative; }
+        .photo-thumb .delete { position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; background: #ef4444; border-radius: 50%; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
+        .pest-selector { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+        .pest-option { padding: 12px 8px; background: var(--color-bg-card); border: 2px solid var(--color-border); border-radius: 12px; text-align: center; cursor: pointer; }
+        .pest-option.selected { border-color: var(--color-accent-primary); background: rgba(59,130,246,0.1); }
+        .pest-option .icon { font-size: 1.5rem; margin-bottom: 4px; }
+        .pest-option .label { font-size: 0.75rem; }
+        .severity-selector { display: flex; gap: 8px; margin-bottom: 16px; }
+        .severity-btn { flex: 1; padding: 12px; border-radius: 12px; text-align: center; cursor: pointer; border: 2px solid var(--color-border); background: var(--color-bg-card); }
+        .severity-btn.low { border-color: #10b981; color: #10b981; }
+        .severity-btn.medium { border-color: #f59e0b; color: #f59e0b; }
+        .severity-btn.high { border-color: #ef4444; color: #ef4444; }
+        .severity-btn.selected { color: white; }
+        .severity-btn.low.selected { background: #10b981; }
+        .severity-btn.medium.selected { background: #f59e0b; }
+        .severity-btn.high.selected { background: #ef4444; }
+    </style>
+</head>
+<body>
+    <div class="mobile-frame">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0 16px;">
+            <button class="btn btn-ghost btn-sm">← Atrás</button>
+            <strong>Reportar Hallazgo</strong>
+            <span style="width:60px;"></span>
+        </div>
+        <div class="photo-capture">
+            <span style="font-size:3rem;margin-bottom:8px;">📸</span>
+            <span style="color:var(--color-text-muted);">Toca para tomar foto</span>
+        </div>
+        <div class="photo-preview">
+            <div class="photo-thumb">📷<div class="delete">×</div></div>
+            <div class="photo-thumb">📷<div class="delete">×</div></div>
+            <div class="photo-thumb" style="border:2px dashed var(--color-border);background:transparent;font-size:1.2rem;">+</div>
+            <div class="photo-thumb" style="border:2px dashed var(--color-border);background:transparent;font-size:1.2rem;opacity:0.5;">+</div>
+        </div>
+        <h4 style="margin-bottom:8px;">🐛 Tipo de Plaga</h4>
+        <div class="pest-selector">
+            <div class="pest-option selected"><div class="icon">🪳</div><div class="label">Cucaracha</div></div>
+            <div class="pest-option"><div class="icon">🐀</div><div class="label">Roedor</div></div>
+            <div class="pest-option"><div class="icon">🐜</div><div class="label">Hormiga</div></div>
+            <div class="pest-option"><div class="icon">🪰</div><div class="label">Mosca</div></div>
+            <div class="pest-option"><div class="icon">🦟</div><div class="label">Mosquito</div></div>
+            <div class="pest-option"><div class="icon">🕷️</div><div class="label">Araña</div></div>
+            <div class="pest-option"><div class="icon">🐦</div><div class="label">Ave</div></div>
+            <div class="pest-option"><div class="icon">❓</div><div class="label">Otro</div></div>
+        </div>
+        <h4 style="margin-bottom:8px;">⚠️ Severidad</h4>
+        <div class="severity-selector">
+            <div class="severity-btn low">Baja</div>
+            <div class="severity-btn medium selected">Media</div>
+            <div class="severity-btn high">Alta</div>
+        </div>
+        <h4 style="margin-bottom:8px;">📍 Ubicación Específica</h4>
+        <select class="form-input form-select mb-md" style="width:100%;">
+            <option>Cocina - Junto al refrigerador</option>
+            <option>Cocina - Área de lavado</option>
+            <option>Bodega - Estante 3</option>
+        </select>
+        <h4 style="margin-bottom:8px;">📝 Notas Adicionales</h4>
+        <textarea class="form-input" rows="3" placeholder="Describe el hallazgo..." style="width:100%;resize:none;"></textarea>
+        <button class="btn btn-primary" style="width:100%;margin-top:16px;">✓ Guardar Hallazgo</button>
+    </div>
+</body>
+</html>

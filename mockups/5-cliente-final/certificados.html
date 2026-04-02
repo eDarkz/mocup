@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Certificados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .certificates-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; }
+        .certificate-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; overflow: hidden; }
+        .certificate-header { padding: 24px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-align: center; }
+        .certificate-icon { font-size: 3rem; margin-bottom: 12px; }
+        .certificate-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+        .certificate-subtitle { opacity: 0.9; font-size: 0.9rem; }
+        .certificate-body { padding: 24px; }
+        .certificate-info { margin-bottom: 16px; }
+        .certificate-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; }
+        .certificate-row:last-child { border-bottom: none; }
+        .certificate-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--color-success-bg); color: var(--color-success); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .certificate-actions { display: flex; gap: 12px; margin-top: 16px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar" style="background: linear-gradient(180deg, #064e3b 0%, #065f46 100%);">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Portal</span>Cliente</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Mi Servicio</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="historial.html" class="nav-item"><span class="nav-item-icon">📜</span> Historial</a>
+                    <a href="reportes.html" class="nav-item"><span class="nav-item-icon">📄</span> Reportes</a>
+                    <a href="certificados.html" class="nav-item active"><span class="nav-item-icon">📜</span> Certificados</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">📜 Certificados</h1>
+                    <p class="page-subtitle">Descarga tus certificados de control de plagas para auditorías</p>
+                </div>
+            </div>
+            <div class="grid grid-3 mb-xl">
+                <div class="stat-card green"><div class="stat-value">4</div><div class="stat-label">Certificados Activos</div></div>
+                <div class="stat-card blue"><div class="stat-value">12</div><div class="stat-label">Certificados 2026</div></div>
+                <div class="stat-card"><div class="stat-value">COFEPRIS</div><div class="stat-label">Normativa</div></div>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">📜</div>
+                        <div class="certificate-title">Certificado Mensual</div>
+                        <div class="certificate-subtitle">Febrero 2026</div>
+                    </div>
+                    <div class="certificate-body">
+                        <div class="certificate-info">
+                            <div class="certificate-row"><span>Período:</span><strong>01-28 Feb 2026</strong></div>
+                            <div class="certificate-row"><span>Servicios:</span><strong>4 realizados</strong></div>
+                            <div class="certificate-row"><span>Áreas cubiertas:</span><strong>100%</strong></div>
+                            <div class="certificate-row"><span>Expedido:</span><strong>07/02/2026</strong></div>
+                        </div>
+                        <div class="certificate-badge">✓ Válido y Vigente</div>
+                        <div class="certificate-actions">
+                            <button class="btn btn-primary" style="flex: 1;">📥 Descargar PDF</button>
+                            <button class="btn btn-secondary">📧</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">📜</div>
+                        <div class="certificate-title">Certificado Mensual</div>
+                        <div class="certificate-subtitle">Enero 2026</div>
+                    </div>
+                    <div class="certificate-body">
+                        <div class="certificate-info">
+                            <div class="certificate-row"><span>Período:</span><strong>01-31 Ene 2026</strong></div>
+                            <div class="certificate-row"><span>Servicios:</span><strong>4 realizados</strong></div>
+                            <div class="certificate-row"><span>Áreas cubiertas:</span><strong>100%</strong></div>
+                            <div class="certificate-row"><span>Expedido:</span><strong>01/02/2026</strong></div>
+                        </div>
+                        <div class="certificate-badge">✓ Válido y Vigente</div>
+                        <div class="certificate-actions">
+                            <button class="btn btn-primary" style="flex: 1;">📥 Descargar PDF</button>
+                            <button class="btn btn-secondary">📧</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-header" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                        <div class="certificate-icon">🏆</div>
+                        <div class="certificate-title">Certificado Anual</div>
+                        <div class="certificate-subtitle">2025</div>
+                    </div>
+                    <div class="certificate-body">
+                        <div class="certificate-info">
+                            <div class="certificate-row"><span>Período:</span><strong>Año 2025 completo</strong></div>
+                            <div class="certificate-row"><span>Servicios:</span><strong>48 realizados</strong></div>
+                            <div class="certificate-row"><span>Cumplimiento:</span><strong>98%</strong></div>
+                            <div class="certificate-row"><span>Expedido:</span><strong>15/01/2026</strong></div>
+                        </div>
+                        <div class="certificate-badge">✓ Válido y Vigente</div>
+                        <div class="certificate-actions">
+                            <button class="btn btn-primary" style="flex: 1;">📥 Descargar PDF</button>
+                            <button class="btn btn-secondary">📧</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

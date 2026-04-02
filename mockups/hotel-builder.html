@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Constructor de Hotel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="hotel-builder.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="company-dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Locaciones</div>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏨</span> Hoteles</a>
+                    <a href="#" class="nav-item active"><span class="nav-item-icon">🔧</span> Constructor</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar">JL</div>
+                    <div class="user-info"><div class="user-name">Juan López</div><div class="user-role">Administrador</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="locations.html">Hoteles</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="hotel-detail.html">Hotel Marriott</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Constructor de Estructura</span>
+            </div>
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">🔧 Constructor de Estructura</h1>
+                    <p class="page-subtitle">Configura las áreas y elementos del Hotel Marriott Centro</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">Vista Previa</button>
+                    <button class="btn btn-primary">💾 Guardar Cambios</button>
+                </div>
+            </div>
+            <div class="builder-layout">
+                <div class="builder-palette">
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">🧱 Elementos Disponibles</h3></div>
+                        <div class="card-body">
+                            <p class="palette-hint">Arrastra elementos al área de construcción</p>
+                            <div class="palette-section">
+                                <h4>Habitaciones</h4>
+                                <div class="palette-items">
+                                    <div class="palette-item" draggable="true"><span>🛏️</span> Habitación Individual</div>
+                                    <div class="palette-item" draggable="true"><span>🛏️</span> Habitación Doble</div>
+                                    <div class="palette-item" draggable="true"><span>👑</span> Suite</div>
+                                    <div class="palette-item" draggable="true"><span>🏢</span> Piso Completo</div>
+                                </div>
+                            </div>
+                            <div class="palette-section">
+                                <h4>Restaurantes & Cocinas</h4>
+                                <div class="palette-items">
+                                    <div class="palette-item" draggable="true"><span>🍽️</span> Restaurante</div>
+                                    <div class="palette-item" draggable="true"><span>🍳</span> Cocina</div>
+                                    <div class="palette-item" draggable="true"><span>☕</span> Cafetería</div>
+                                    <div class="palette-item" draggable="true"><span>🍸</span> Bar</div>
+                                    <div class="palette-item" draggable="true"><span>🎂</span> Pastelería</div>
+                                </div>
+                            </div>
+                            <div class="palette-section">
+                                <h4>Áreas Comunes</h4>
+                                <div class="palette-items">
+                                    <div class="palette-item" draggable="true"><span>🚪</span> Lobby</div>
+                                    <div class="palette-item" draggable="true"><span>🏊</span> Piscina</div>
+                                    <div class="palette-item" draggable="true"><span>🏋️</span> Gimnasio</div>
+                                    <div class="palette-item" draggable="true"><span>💆</span> Spa</div>
+                                    <div class="palette-item" draggable="true"><span>🎰</span> Casino</div>
+                                    <div class="palette-item" draggable="true"><span>🎤</span> Salón de Eventos</div>
+                                    <div class="palette-item" draggable="true"><span>📚</span> Sala de Juntas</div>
+                                </div>
+                            </div>
+                            <div class="palette-section">
+                                <h4>Servicios & Operaciones</h4>
+                                <div class="palette-items">
+                                    <div class="palette-item" draggable="true"><span>🧺</span> Lavandería</div>
+                                    <div class="palette-item" draggable="true"><span>🗄️</span> Almacén</div>
+                                    <div class="palette-item" draggable="true"><span>🔧</span> Taller</div>
+                                    <div class="palette-item" draggable="true"><span>🏢</span> Oficinas Admin</div>
+                                    <div class="palette-item" draggable="true"><span>🅿️</span> Estacionamiento</div>
+                                    <div class="palette-item" draggable="true"><span>🚛</span> Área de Carga</div>
+                                    <div class="palette-item" draggable="true"><span>🗑️</span> Área de Basura</div>
+                                </div>
+                            </div>
+                            <div class="palette-section">
+                                <h4>Dispositivos de Control</h4>
+                                <div class="palette-items">
+                                    <div class="palette-item" draggable="true"><span>🪤</span> Cebadera</div>
+                                    <div class="palette-item" draggable="true"><span>💡</span> Trampa de Luz</div>
+                                    <div class="palette-item" draggable="true"><span>📡</span> Sensor IoT</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="builder-canvas">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">📐 Estructura del Hotel</h3>
+                            <div class="canvas-actions">
+                                <button class="btn btn-ghost btn-sm">↶ Deshacer</button>
+                                <button class="btn btn-ghost btn-sm">↷ Rehacer</button>
+                            </div>
+                        </div>
+                        <div class="card-body canvas-body">
+                            <div class="structure-tree">
+                                <!-- Habitaciones -->
+                                <div class="structure-group">
+                                    <div class="structure-group-header">
+                                        <span class="group-icon">🛏️</span>
+                                        <span class="group-name">Habitaciones</span>
+                                        <span class="group-count">120 unidades</span>
+                                        <button class="btn btn-ghost btn-sm">+</button>
+                                    </div>
+                                    <div class="structure-items">
+                                        <div class="structure-item"><span>🏢</span> Piso 1 (Hab. 101-120) <span class="item-count">20</span><button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🏢</span> Piso 2 (Hab. 201-220) <span class="item-count">20</span><button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🏢</span> Piso 3 (Hab. 301-320) <span class="item-count">20</span><button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🏢</span> Piso 4 (Hab. 401-420) <span class="item-count">20</span><button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🏢</span> Piso 5 (Hab. 501-520) <span class="item-count">20</span><button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>👑</span> Piso 6 - Suites (601-620) <span class="item-count">20</span><button class="btn-icon-mini">⚙️</button></div>
+                                    </div>
+                                </div>
+                                <!-- Restaurantes -->
+                                <div class="structure-group">
+                                    <div class="structure-group-header">
+                                        <span class="group-icon">🍽️</span>
+                                        <span class="group-name">Restaurantes & Bares</span>
+                                        <span class="group-count">4 áreas</span>
+                                        <button class="btn btn-ghost btn-sm">+</button>
+                                    </div>
+                                    <div class="structure-items">
+                                        <div class="structure-item"><span>🍽️</span> Restaurante Buffet Principal<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🍽️</span> Restaurante Gourmet<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>☕</span> Cafetería del Lobby<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🍸</span> Bar de la Piscina<button class="btn-icon-mini">⚙️</button></div>
+                                    </div>
+                                </div>
+                                <!-- Cocinas -->
+                                <div class="structure-group">
+                                    <div class="structure-group-header">
+                                        <span class="group-icon">🍳</span>
+                                        <span class="group-name">Cocinas</span>
+                                        <span class="group-count">3 áreas</span>
+                                        <button class="btn btn-ghost btn-sm">+</button>
+                                    </div>
+                                    <div class="structure-items">
+                                        <div class="structure-item"><span>🍳</span> Cocina Principal<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🍳</span> Cocina de Banquetes<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🎂</span> Pastelería<button class="btn-icon-mini">⚙️</button></div>
+                                    </div>
+                                </div>
+                                <!-- Áreas Comunes -->
+                                <div class="structure-group">
+                                    <div class="structure-group-header">
+                                        <span class="group-icon">🚪</span>
+                                        <span class="group-name">Áreas Comunes</span>
+                                        <span class="group-count">8 áreas</span>
+                                        <button class="btn btn-ghost btn-sm">+</button>
+                                    </div>
+                                    <div class="structure-items">
+                                        <div class="structure-item"><span>🚪</span> Lobby Principal<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🏊</span> Área de Piscina<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🏋️</span> Gimnasio<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>💆</span> Spa & Wellness<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🎤</span> Salón de Eventos A<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🎤</span> Salón de Eventos B<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>📚</span> Sala de Juntas 1<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>📚</span> Sala de Juntas 2<button class="btn-icon-mini">⚙️</button></div>
+                                    </div>
+                                </div>
+                                <!-- Servicios -->
+                                <div class="structure-group">
+                                    <div class="structure-group-header">
+                                        <span class="group-icon">🔧</span>
+                                        <span class="group-name">Servicios & Operaciones</span>
+                                        <span class="group-count">6 áreas</span>
+                                        <button class="btn btn-ghost btn-sm">+</button>
+                                    </div>
+                                    <div class="structure-items">
+                                        <div class="structure-item"><span>🧺</span> Lavandería Industrial<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🗄️</span> Almacén General<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🔧</span> Taller de Mantenimiento<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🏢</span> Oficinas Administrativas<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🅿️</span> Estacionamiento Subterráneo<button class="btn-icon-mini">⚙️</button></div>
+                                        <div class="structure-item"><span>🗑️</span> Área de Residuos<button class="btn-icon-mini">⚙️</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="builder-config">
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">⚙️ Configuración</h3></div>
+                        <div class="card-body">
+                            <div class="config-section">
+                                <h4>Elemento Seleccionado</h4>
+                                <div class="selected-element">
+                                    <span class="element-icon">🍳</span>
+                                    <span class="element-name">Cocina Principal</span>
+                                </div>
+                            </div>
+                            <div class="config-section">
+                                <h4>Dispositivos</h4>
+                                <div class="device-counter">
+                                    <label>🪤 Cebaderas</label>
+                                    <div class="counter-control">
+                                        <button>-</button>
+                                        <span>8</span>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                                <div class="device-counter">
+                                    <label>💡 Trampas de Luz</label>
+                                    <div class="counter-control">
+                                        <button>-</button>
+                                        <span>4</span>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="config-section">
+                                <h4>Frecuencia de Fumigación</h4>
+                                <select class="form-input form-select">
+                                    <option>Semanal</option>
+                                    <option selected>Quincenal</option>
+                                    <option>Mensual</option>
+                                </select>
+                            </div>
+                            <div class="config-section">
+                                <h4>Prioridad</h4>
+                                <div class="priority-buttons">
+                                    <button class="priority-btn low">Baja</button>
+                                    <button class="priority-btn medium">Media</button>
+                                    <button class="priority-btn high active">Alta</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

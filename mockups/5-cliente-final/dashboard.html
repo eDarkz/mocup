@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Portal del Cliente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .client-header { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 32px; border-radius: 0 0 24px 24px; margin: -24px -24px 24px -24px; }
+        .client-logo { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .client-logo-icon { width: 60px; height: 60px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .client-name { font-size: 1.5rem; font-weight: 700; }
+        .client-subtitle { opacity: 0.9; font-size: 0.9rem; }
+        .protection-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; margin-top: 16px; }
+        .next-service { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; padding: 20px; margin-bottom: 24px; }
+        .next-service-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .next-service-date { font-size: 1.25rem; font-weight: 700; color: var(--color-accent-primary); }
+        .service-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .service-detail { text-align: center; }
+        .service-detail-value { font-size: 1.25rem; font-weight: 700; }
+        .service-detail-label { font-size: 0.8rem; color: var(--color-text-muted); }
+        .quick-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+        .quick-action { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; padding: 20px; text-align: center; text-decoration: none; color: inherit; transition: all 0.2s; }
+        .quick-action:hover { border-color: var(--color-accent-primary); transform: translateY(-2px); }
+        .quick-action-icon { font-size: 2rem; margin-bottom: 8px; }
+        .quick-action-label { font-weight: 600; font-size: 0.9rem; }
+        .recent-activity { background: var(--color-bg-card); border-radius: 16px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar" style="background: linear-gradient(180deg, #064e3b 0%, #065f46 100%);">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Portal</span>Cliente</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Mi Servicio</div>
+                    <a href="dashboard.html" class="nav-item active"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="historial.html" class="nav-item"><span class="nav-item-icon">📜</span> Historial</a>
+                    <a href="reportes.html" class="nav-item"><span class="nav-item-icon">📄</span> Reportes</a>
+                    <a href="certificados.html" class="nav-item"><span class="nav-item-icon">📜</span> Certificados</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Comunicación</div>
+                    <a href="solicitar.html" class="nav-item"><span class="nav-item-icon">📞</span> Solicitar Servicio</a>
+                    <a href="chat.html" class="nav-item"><span class="nav-item-icon">💬</span> Chat</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">🏨</div>
+                    <div class="user-info"><div class="user-name">Hotel Marriott</div><div class="user-role">Cliente Premium</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="client-header">
+                <div class="client-logo">
+                    <div class="client-logo-icon">🏨</div>
+                    <div>
+                        <div class="client-name">Hotel Marriott Centro</div>
+                        <div class="client-subtitle">Bienvenido a tu portal de control de plagas</div>
+                    </div>
+                </div>
+                <div class="protection-badge">🛡️ Protección Activa • Contrato Anual hasta Dic 2026</div>
+            </div>
+            <!-- Next Service -->
+            <div class="next-service">
+                <div class="next-service-header">
+                    <div>
+                        <h3 style="margin-bottom: 4px;">📅 Próximo Servicio Programado</h3>
+                        <div class="next-service-date">Lunes 10 de Febrero, 2026 • 08:00 AM</div>
+                    </div>
+                    <button class="btn btn-secondary">📝 Reagendar</button>
+                </div>
+                <div class="service-details">
+                    <div class="service-detail"><div class="service-detail-value">Pisos 4-6</div><div class="service-detail-label">Áreas</div></div>
+                    <div class="service-detail"><div class="service-detail-value">Carlos R.</div><div class="service-detail-label">Técnico Asignado</div></div>
+                    <div class="service-detail"><div class="service-detail-value">2 horas</div><div class="service-detail-label">Duración Est.</div></div>
+                </div>
+            </div>
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <a href="solicitar.html" class="quick-action">
+                    <div class="quick-action-icon">🆘</div>
+                    <div class="quick-action-label">Solicitar Servicio Extra</div>
+                </a>
+                <a href="reportes.html" class="quick-action">
+                    <div class="quick-action-icon">📄</div>
+                    <div class="quick-action-label">Ver Reportes</div>
+                </a>
+                <a href="certificados.html" class="quick-action">
+                    <div class="quick-action-icon">📜</div>
+                    <div class="quick-action-label">Certificados</div>
+                </a>
+                <a href="chat.html" class="quick-action">
+                    <div class="quick-action-icon">💬</div>
+                    <div class="quick-action-label">Contactar Soporte</div>
+                </a>
+            </div>
+            <!-- Stats -->
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card green"><div class="stat-value">12</div><div class="stat-label">Servicios Este Año</div></div>
+                <div class="stat-card blue"><div class="stat-value">24</div><div class="stat-label">Cebaderas Instaladas</div></div>
+                <div class="stat-card yellow"><div class="stat-value">6</div><div class="stat-label">Trampas de Luz</div></div>
+                <div class="stat-card"><div class="stat-value">100%</div><div class="stat-label">Cumplimiento</div></div>
+            </div>
+            <!-- Recent Activity -->
+            <div class="card recent-activity">
+                <div class="card-header">
+                    <h3 class="card-title">📋 Actividad Reciente</h3>
+                    <a href="historial.html" class="btn btn-ghost btn-sm">Ver todo</a>
+                </div>
+                <div class="card-body">
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon green">✓</div>
+                            <div class="activity-content"><strong>Fumigación completada</strong><p>Pisos 1-3 • Habitaciones • Carlos Ramírez</p></div>
+                            <div class="activity-time">Hoy 10:00</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon blue">📄</div>
+                            <div class="activity-content"><strong>Reporte disponible</strong><p>Fumigación Restaurante - Febrero 2026</p></div>
+                            <div class="activity-time">Ayer</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon yellow">🪤</div>
+                            <div class="activity-content"><strong>Revisión de cebaderas</strong><p>24 cebaderas revisadas • Sin consumo detectado</p></div>
+                            <div class="activity-time">05/02</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

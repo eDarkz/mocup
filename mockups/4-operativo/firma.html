@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Firma Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { background: var(--color-bg-primary); }
+        .mobile-app { max-width: 420px; margin: 0 auto; min-height: 100vh; background: var(--color-bg-secondary); }
+        .mobile-header-simple { padding: 16px 20px; background: var(--color-bg-card); border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: 12px; }
+        .back-btn { width: 40px; height: 40px; border-radius: 10px; background: var(--color-bg-tertiary); border: none; color: var(--color-text-primary); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .header-title { font-size: 1.1rem; font-weight: 600; }
+        .signature-content { padding: 20px; }
+        .report-summary { background: var(--color-bg-card); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+        .report-summary h3 { font-size: 1rem; margin-bottom: 12px; }
+        .summary-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; }
+        .summary-row:last-child { border-bottom: none; }
+        .summary-row span:last-child { font-weight: 600; }
+        .signature-section { background: var(--color-bg-card); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+        .signature-section h4 { font-size: 0.9rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .signature-pad { aspect-ratio: 2/1; background: white; border-radius: 12px; border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; position: relative; }
+        .signature-placeholder { color: #999; font-size: 0.9rem; }
+        .signature-drawn { position: absolute; font-family: 'Brush Script MT', cursive; font-size: 2.5rem; color: #333; }
+        .signature-actions { display: flex; gap: 8px; }
+        .submit-section { padding: 20px; padding-bottom: 40px; }
+        .success-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 100; }
+        .success-content { background: var(--color-bg-card); border-radius: 24px; padding: 40px; text-align: center; max-width: 320px; }
+        .success-icon { font-size: 4rem; margin-bottom: 16px; }
+        .success-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+        .success-text { color: var(--color-text-muted); margin-bottom: 24px; }
+    </style>
+</head>
+<body>
+    <div class="mobile-app">
+        <div class="mobile-header-simple">
+            <a href="fumigacion.html" class="back-btn">←</a>
+            <div class="header-title">✍️ Firma Digital</div>
+        </div>
+        <div class="signature-content">
+            <div class="report-summary">
+                <h3>📄 Resumen del Reporte</h3>
+                <div class="summary-row"><span>Locación:</span><span>Hotel Marriott - Restaurante</span></div>
+                <div class="summary-row"><span>Fecha:</span><span>07/02/2026</span></div>
+                <div class="summary-row"><span>Hora:</span><span>10:30 - 11:30</span></div>
+                <div class="summary-row"><span>Plaga:</span><span>Cucarachas</span></div>
+                <div class="summary-row"><span>Tratamiento:</span><span>Gel + Aspersión</span></div>
+                <div class="summary-row"><span>Fotos:</span><span>2 adjuntas</span></div>
+            </div>
+            <div class="signature-section">
+                <h4>👤 Firma del Técnico</h4>
+                <div class="signature-pad">
+                    <span class="signature-drawn">Carlos Ramírez</span>
+                </div>
+                <div class="signature-actions">
+                    <button class="btn btn-ghost btn-sm">🗑️ Limpiar</button>
+                </div>
+            </div>
+            <div class="signature-section">
+                <h4>🏨 Firma del Cliente (Opcional)</h4>
+                <div class="signature-pad">
+                    <span class="signature-placeholder">Toque para firmar</span>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--color-text-muted);">El cliente puede firmar aquí o se enviará para firma digital posterior.</p>
+            </div>
+        </div>
+        <div class="submit-section">
+            <button class="btn btn-primary w-full" style="padding: 16px; font-size: 1rem;" onclick="document.getElementById('successModal').style.display='flex'">✓ Enviar Reporte</button>
+        </div>
+        <!-- Success Modal -->
+        <div class="success-modal" id="successModal" style="display: none;">
+            <div class="success-content">
+                <div class="success-icon">✅</div>
+                <div class="success-title">¡Reporte Enviado!</div>
+                <div class="success-text">El reporte ha sido enviado exitosamente al supervisor para su revisión.</div>
+                <a href="inicio.html" class="btn btn-primary w-full">Volver al Inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

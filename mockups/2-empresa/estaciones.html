@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Gestión de Estaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .map-container { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 16px; height: 500px; position: relative; overflow: hidden; }
+        .map-legend { position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,0.8); padding: 12px; border-radius: 8px; font-size: 0.8rem; }
+        .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .station-pin { position: absolute; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; cursor: pointer; transition: transform 0.2s; border: 2px solid white; }
+        .station-pin:hover { transform: scale(1.3); z-index: 10; }
+        .station-pin.ok { background: #10b981; }
+        .station-pin.activity { background: #f59e0b; }
+        .station-pin.alert { background: #ef4444; animation: pulse 1s infinite; }
+        .station-pin.pending { background: #6b7280; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); } 50% { box-shadow: 0 0 0 8px rgba(239,68,68,0); } }
+        .station-popup { position: absolute; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; width: 280px; z-index: 100; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="estaciones.html" class="nav-item active"><span class="nav-item-icon">📍</span> Estaciones</a>
+                <a href="mapa-sitio.html" class="nav-item"><span class="nav-item-icon">🗺️</span> Mapa de Sitio</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📍 Gestión de Estaciones</h1><p class="page-subtitle">Trampas, cebaderos, lámparas UV - Mapa interactivo por sitio</p></div>
+                <div class="page-actions">
+                    <select class="form-input form-select"><option>Hotel Marriott Reforma</option><option>Hilton Santa Fe</option><option>Rest. El Sol</option></select>
+                    <button class="btn btn-primary">+ Nueva Estación</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card green"><div class="stat-value">42</div><div class="stat-label">Estaciones OK</div></div>
+                <div class="stat-card yellow"><div class="stat-value">8</div><div class="stat-label">Con Actividad</div></div>
+                <div class="stat-card" style="border-color:#ef4444;"><div class="stat-value" style="color:#ef4444;">3</div><div class="stat-label">Alertas</div></div>
+                <div class="stat-card"><div class="stat-value">5</div><div class="stat-label">Pend. Revisión</div></div>
+            </div>
+            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 20px;">
+                <div class="map-container">
+                    <div style="position:absolute;top:16px;left:16px;background:rgba(0,0,0,0.7);padding:8px 12px;border-radius:8px;">
+                        <strong>Planta Baja - Hotel Marriott</strong>
+                    </div>
+                    <!-- Station pins -->
+                    <div class="station-pin ok" style="top:20%;left:15%;">C1</div>
+                    <div class="station-pin ok" style="top:20%;left:35%;">C2</div>
+                    <div class="station-pin activity" style="top:30%;left:50%;">C3</div>
+                    <div class="station-pin ok" style="top:45%;left:20%;">T1</div>
+                    <div class="station-pin alert" style="top:50%;left:40%;">T2</div>
+                    <div class="station-pin ok" style="top:55%;left:60%;">T3</div>
+                    <div class="station-pin ok" style="top:70%;left:25%;">L1</div>
+                    <div class="station-pin pending" style="top:75%;left:55%;">L2</div>
+                    <div class="station-pin alert" style="top:65%;left:75%;">C4</div>
+                    <div class="station-pin ok" style="top:35%;left:80%;">T4</div>
+                    <div class="map-legend">
+                        <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> Sin actividad</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> Actividad detectada</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#ef4444;"></div> Alerta (revisar)</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#6b7280;"></div> Pendiente revisión</div>
+                    </div>
+                    <!-- Sample popup -->
+                    <div class="station-popup" style="top: 55%; left: 45%;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
+                            <strong>🐀 Cebadero T2</strong>
+                            <span class="badge badge-danger">Alerta</span>
+                        </div>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);margin-bottom:8px;">Cocina Principal - Junto a refrigerador</div>
+                        <div style="background:var(--color-bg-tertiary);padding:8px;border-radius:6px;font-size:0.8rem;margin-bottom:12px;">
+                            <div>⚠️ Consumo alto de cebo (80%)</div>
+                            <div>🕐 Última revisión: hace 12 días</div>
+                            <div>👤 Revisó: Carlos R.</div>
+                        </div>
+                        <button class="btn btn-primary btn-sm" style="width:100%;">Programar Revisión</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="card mb-md">
+                        <div class="card-header"><h3 class="card-title">🚨 Alertas Activas</h3></div>
+                        <div class="card-body">
+                            <div style="padding:10px;background:rgba(239,68,68,0.1);border-radius:8px;margin-bottom:8px;font-size:0.85rem;">
+                                <strong>T2 - Cebadero</strong><br>Consumo anormal de cebo (80%)
+                            </div>
+                            <div style="padding:10px;background:rgba(239,68,68,0.1);border-radius:8px;margin-bottom:8px;font-size:0.85rem;">
+                                <strong>C4 - Cebadero</strong><br>Sin revisar hace 15 días
+                            </div>
+                            <div style="padding:10px;background:rgba(245,158,11,0.1);border-radius:8px;font-size:0.85rem;">
+                                <strong>C3 - Cebadero</strong><br>Actividad detectada (3 capturas)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">📊 Resumen</h3></div>
+                        <div class="card-body">
+                            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--color-border);"><span>🐀 Cebaderos</span><strong>24</strong></div>
+                            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--color-border);"><span>🪤 Trampas mecánicas</span><strong>18</strong></div>
+                            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--color-border);"><span>💡 Lámparas UV</span><strong>8</strong></div>
+                            <div style="display:flex;justify-content:space-between;padding:8px 0;"><span>📋 Trampas adhesivas</span><strong>8</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

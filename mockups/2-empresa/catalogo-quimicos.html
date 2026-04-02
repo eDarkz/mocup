@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Catálogo de Químicos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="catalogo-plagas.html" class="nav-item"><span class="nav-item-icon">🐛</span> Catálogo Plagas</a>
+                <a href="catalogo-quimicos.html" class="nav-item active"><span class="nav-item-icon">🧪</span> Catálogo Químicos</a>
+                <a href="checklists.html" class="nav-item"><span class="nav-item-icon">✅</span> Checklists</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🧪 Catálogo de Químicos</h1><p class="page-subtitle">Productos, dosis, restricciones por área y fichas SDS</p></div>
+                <button class="btn btn-primary">+ Agregar Producto</button>
+            </div>
+            <div class="tabs mb-lg"><button class="tab active">Todos</button><button class="tab">Insecticidas</button><button class="tab">Rodenticidas</button><button class="tab">Larvicidas</button><button class="tab">Repelentes</button></div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Producto</th><th>Principio Activo</th><th>Dosis</th><th>Plagas</th><th>Restricciones</th><th>Stock</th><th>SDS</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>MaxForce FC Gel</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Bayer</span></td>
+                                <td>Fipronil 0.01%</td>
+                                <td>3-5 gotas/m²</td>
+                                <td><span class="badge">Cucarachas</span></td>
+                                <td><span class="badge badge-success">✓ Cocinas</span><span class="badge badge-success">✓ Habitaciones</span></td>
+                                <td>45 tubos</td>
+                                <td><button class="btn btn-ghost btn-sm">📄 Ver SDS</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Demand CS</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Syngenta</span></td>
+                                <td>Lambda-cihalotrina 9.7%</td>
+                                <td>25ml/10L agua</td>
+                                <td><span class="badge">Cucarachas</span><span class="badge">Hormigas</span><span class="badge">Arañas</span></td>
+                                <td><span class="badge badge-danger">✗ Cocinas activas</span><span class="badge badge-warning">⚠️ Albercas</span></td>
+                                <td>12 litros</td>
+                                <td><button class="btn btn-ghost btn-sm">📄 Ver SDS</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contrac Blox</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Bell Labs</span></td>
+                                <td>Bromadiolona 0.005%</td>
+                                <td>1 bloque/estación</td>
+                                <td><span class="badge">Ratas</span><span class="badge">Ratones</span></td>
+                                <td><span class="badge badge-danger">✗ Acceso niños</span><span class="badge badge-warning">⚠️ Solo exteriores</span></td>
+                                <td style="color:#ef4444;"><strong>8 bloques</strong><br><span style="font-size:0.7rem;">⚠️ Stock bajo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">📄 Ver SDS</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aqua K-Othrine</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Bayer</span></td>
+                                <td>Deltametrina 2.5%</td>
+                                <td>10ml/10L (ULV)</td>
+                                <td><span class="badge">Mosquitos</span><span class="badge">Moscas</span></td>
+                                <td><span class="badge badge-success">✓ Nebulización</span></td>
+                                <td>20 litros</td>
+                                <td><button class="btn btn-ghost btn-sm">📄 Ver SDS</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mt-lg">
+                <div class="card-header"><h3 class="card-title">⚠️ Alertas de Inventario</h3></div>
+                <div class="card-body">
+                    <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(239,68,68,0.1);border-radius:8px;margin-bottom:8px;">
+                        <span>🚨</span><div style="flex:1;"><strong>Contrac Blox</strong> - Stock crítico (8 unidades)</div><button class="btn btn-primary btn-sm">Reordenar</button>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(245,158,11,0.1);border-radius:8px;">
+                        <span>⚠️</span><div style="flex:1;"><strong>Demand CS Lote #2024-089</strong> - Vence en 45 días</div><button class="btn btn-ghost btn-sm">Ver lote</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

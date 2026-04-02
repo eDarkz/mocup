@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Impersonación Segura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .impersonation-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: -24px -24px 24px -24px;
+            border-radius: 16px 16px 0 0;
+        }
+        .impersonation-info { display: flex; align-items: center; gap: 12px; }
+        .impersonation-icon { font-size: 1.5rem; }
+        .impersonation-text strong { display: block; }
+        .impersonation-text span { font-size: 0.85rem; opacity: 0.9; }
+        .tenant-card {
+            background: var(--color-bg-card);
+            border: 2px solid var(--color-border);
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tenant-card:hover { border-color: var(--color-accent-primary); transform: translateY(-2px); }
+        .tenant-card.selected { border-color: var(--color-accent-primary); background: rgba(59, 130, 246, 0.05); }
+        .tenant-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .tenant-logo { width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
+        .tenant-name { font-size: 1.1rem; font-weight: 700; }
+        .tenant-plan { font-size: 0.8rem; padding: 4px 8px; border-radius: 6px; background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+        .tenant-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; padding: 12px; background: var(--color-bg-tertiary); border-radius: 10px; }
+        .tenant-stat { text-align: center; }
+        .tenant-stat-value { font-weight: 700; font-size: 1.1rem; }
+        .tenant-stat-label { font-size: 0.7rem; color: var(--color-text-muted); }
+        .tenant-users { display: flex; gap: 8px; flex-wrap: wrap; }
+        .user-chip { display: flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--color-bg-tertiary); border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
+        .user-chip:hover { background: var(--color-accent-primary); color: white; }
+        .user-chip-avatar { width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: white; }
+        .audit-log { margin-top: 24px; }
+        .audit-item { display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: var(--color-bg-tertiary); border-radius: 10px; margin-bottom: 8px; }
+        .audit-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .audit-icon.enter { background: rgba(239, 68, 68, 0.15); }
+        .audit-icon.exit { background: rgba(16, 185, 129, 0.15); }
+        .audit-details { flex: 1; }
+        .audit-details strong { display: block; font-size: 0.9rem; }
+        .audit-details span { font-size: 0.8rem; color: var(--color-text-muted); }
+        .audit-meta { text-align: right; font-size: 0.75rem; color: var(--color-text-muted); }
+        .reason-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+        .reason-content { background: var(--color-bg-card); border-radius: 20px; padding: 32px; width: 100%; max-width: 500px; }
+        .reason-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+        .reason-subtitle { color: var(--color-text-muted); margin-bottom: 24px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Panel</span>Super Admin</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Operaciones</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="impersonacion.html" class="nav-item active"><span class="nav-item-icon">🎭</span> Impersonación</a>
+                    <a href="vista-tiempo-real.html" class="nav-item"><span class="nav-item-icon">👁️</span> Vista Tiempo Real</a>
+                    <a href="feature-flags.html" class="nav-item"><span class="nav-item-icon">🚩</span> Feature Flags</a>
+                    <a href="health-tenants.html" class="nav-item"><span class="nav-item-icon">💓</span> Health Tenants</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Seguridad</div>
+                    <a href="auditoria.html" class="nav-item"><span class="nav-item-icon">📜</span> Auditoría Global</a>
+                    <a href="roles-internos.html" class="nav-item"><span class="nav-item-icon">👥</span> Roles Internos</a>
+                    <a href="alertas-seguridad.html" class="nav-item"><span class="nav-item-icon">🚨</span> Alertas Seguridad</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">🎭 Impersonación Segura</h1>
+                    <p class="page-subtitle">Accede como cualquier usuario para soporte con registro completo de auditoría</p>
+                </div>
+                <div class="page-actions">
+                    <input type="text" class="form-input" placeholder="🔍 Buscar empresa o usuario..." style="width: 300px;">
+                </div>
+            </div>
+            <!-- Warning -->
+            <div class="alert alert-warning mb-lg" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.5rem;">⚠️</span>
+                <div>
+                    <strong>Acceso con Auditoría</strong>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--color-text-muted);">Todas las acciones realizadas durante la impersonación quedan registradas. Debes especificar un motivo antes de entrar.</p>
+                </div>
+            </div>
+            <!-- Tenant Grid -->
+            <h3 class="mb-md">🏢 Selecciona Empresa</h3>
+            <div class="grid grid-2 mb-xl">
+                <div class="tenant-card selected">
+                    <div class="tenant-header">
+                        <div class="tenant-logo">FL</div>
+                        <div style="flex: 1;">
+                            <div class="tenant-name">Fumigaciones López S.A.</div>
+                            <span class="tenant-plan">Plan Enterprise</span>
+                        </div>
+                        <span class="badge badge-success">● Online</span>
+                    </div>
+                    <div class="tenant-stats">
+                        <div class="tenant-stat"><div class="tenant-stat-value">24</div><div class="tenant-stat-label">Usuarios</div></div>
+                        <div class="tenant-stat"><div class="tenant-stat-value">156</div><div class="tenant-stat-label">Clientes</div></div>
+                        <div class="tenant-stat"><div class="tenant-stat-value">2.4k</div><div class="tenant-stat-label">Servicios/Mes</div></div>
+                        <div class="tenant-stat"><div class="tenant-stat-value">98%</div><div class="tenant-stat-label">Uptime</div></div>
+                    </div>
+                    <div class="tenant-users">
+                        <div class="user-chip"><div class="user-chip-avatar" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">JL</div> Juan López (Admin)</div>
+                        <div class="user-chip"><div class="user-chip-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">AG</div> Ana García (Supervisor)</div>
+                        <div class="user-chip"><div class="user-chip-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">CR</div> Carlos R. (Operativo)</div>
+                        <div class="user-chip">+21 más</div>
+                    </div>
+                </div>
+                <div class="tenant-card">
+                    <div class="tenant-header">
+                        <div class="tenant-logo" style="background: linear-gradient(135deg, #10b981, #059669);">PM</div>
+                        <div style="flex: 1;">
+                            <div class="tenant-name">Pest Masters MX</div>
+                            <span class="tenant-plan" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">Plan Professional</span>
+                        </div>
+                        <span class="badge badge-success">● Online</span>
+                    </div>
+                    <div class="tenant-stats">
+                        <div class="tenant-stat"><div class="tenant-stat-value">12</div><div class="tenant-stat-label">Usuarios</div></div>
+                        <div class="tenant-stat"><div class="tenant-stat-value">89</div><div class="tenant-stat-label">Clientes</div></div>
+                        <div class="tenant-stat"><div class="tenant-stat-value">980</div><div class="tenant-stat-label">Servicios/Mes</div></div>
+                        <div class="tenant-stat"><div class="tenant-stat-value">97%</div><div class="tenant-stat-label">Uptime</div></div>
+                    </div>
+                    <div class="tenant-users">
+                        <div class="user-chip"><div class="user-chip-avatar" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">MR</div> Miguel Ruiz (Admin)</div>
+                        <div class="user-chip"><div class="user-chip-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">RV</div> Roberto V. (Supervisor)</div>
+                        <div class="user-chip">+10 más</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Audit Log -->
+            <div class="card audit-log">
+                <div class="card-header">
+                    <h3 class="card-title">📜 Historial de Impersonaciones</h3>
+                    <button class="btn btn-ghost btn-sm">Exportar Log</button>
+                </div>
+                <div class="card-body">
+                    <div class="audit-item">
+                        <div class="audit-icon exit">🚪</div>
+                        <div class="audit-details">
+                            <strong>Salió de sesión: Juan López @ Fumigaciones López</strong>
+                            <span>Duración: 12 min • Acciones: 8 páginas visitadas, 0 cambios</span>
+                        </div>
+                        <div class="audit-meta">
+                            <div>Hoy 13:45</div>
+                            <div>Por: Admin Carlos</div>
+                            <div>IP: 189.203.xx.xx</div>
+                        </div>
+                    </div>
+                    <div class="audit-item">
+                        <div class="audit-icon enter">🎭</div>
+                        <div class="audit-details">
+                            <strong>Entró como: Juan López @ Fumigaciones López</strong>
+                            <span>Motivo: Ticket #4521 - Error al generar reporte mensual</span>
+                        </div>
+                        <div class="audit-meta">
+                            <div>Hoy 13:33</div>
+                            <div>Por: Admin Carlos</div>
+                            <div>IP: 189.203.xx.xx</div>
+                        </div>
+                    </div>
+                    <div class="audit-item">
+                        <div class="audit-icon exit">🚪</div>
+                        <div class="audit-details">
+                            <strong>Salió de sesión: María S. @ Pest Masters</strong>
+                            <span>Duración: 5 min • Acciones: 3 páginas, 1 configuración cambiada</span>
+                        </div>
+                        <div class="audit-meta">
+                            <div>Ayer 16:20</div>
+                            <div>Por: Admin Laura</div>
+                            <div>IP: 201.175.xx.xx</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Reason Modal (shown on click) -->
+            <div class="reason-modal" id="reasonModal" style="display: none;">
+                <div class="reason-content">
+                    <div class="reason-title">🎭 Confirmar Impersonación</div>
+                    <div class="reason-subtitle">Entrarás como <strong>Juan López</strong> de <strong>Fumigaciones López S.A.</strong></div>
+                    <div class="form-group">
+                        <label class="form-label">Motivo de acceso *</label>
+                        <select class="form-input form-select">
+                            <option>Selecciona un motivo...</option>
+                            <option>Soporte técnico - Ticket relacionado</option>
+                            <option>Verificación de configuración</option>
+                            <option>Demostración de funcionalidad</option>
+                            <option>Auditoría de seguridad</option>
+                            <option>Otro (especificar)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ticket o referencia (opcional)</label>
+                        <input type="text" class="form-input" placeholder="Ej: #4521">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Notas adicionales</label>
+                        <textarea class="form-input" rows="2" placeholder="Describe brevemente qué vas a revisar..."></textarea>
+                    </div>
+                    <div style="display: flex; gap: 12px; margin-top: 24px;">
+                        <button class="btn btn-ghost" style="flex: 1;" onclick="document.getElementById('reasonModal').style.display='none'">Cancelar</button>
+                        <button class="btn btn-primary" style="flex: 1;">🎭 Entrar como Usuario</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.querySelectorAll('.user-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.getElementById('reasonModal').style.display = 'flex';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Órdenes de Servicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="cotizaciones.html" class="nav-item"><span class="nav-item-icon">📋</span> Cotizaciones</a>
+                <a href="contratos.html" class="nav-item"><span class="nav-item-icon">📄</span> Contratos</a>
+                <a href="ordenes-servicio.html" class="nav-item active"><span class="nav-item-icon">🔧</span> Órdenes Servicio</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🔧 Órdenes de Servicio</h1><p class="page-subtitle">Work orders generadas desde contratos - lo que ejecuta el operativo</p></div>
+                <button class="btn btn-primary">+ Nueva Orden</button>
+            </div>
+            <div class="grid grid-5 mb-lg">
+                <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">Programadas Hoy</div></div>
+                <div class="stat-card blue"><div class="stat-value">3</div><div class="stat-label">En Proceso</div></div>
+                <div class="stat-card green"><div class="stat-value">5</div><div class="stat-label">Completadas</div></div>
+                <div class="stat-card yellow"><div class="stat-value">2</div><div class="stat-label">Pendiente Firma</div></div>
+                <div class="stat-card" style="border-color:#ef4444;"><div class="stat-value" style="color:#ef4444;">1</div><div class="stat-label">Emergencia</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">📋 Órdenes del Día</h3>
+                    <div class="tabs" style="margin:0;"><button class="tab active">Hoy</button><button class="tab">Esta Semana</button><button class="tab">Todas</button></div>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Orden</th><th>Tipo</th><th>Cliente</th><th>Técnico</th><th>Horario</th><th>Estado</th><th></th></tr></thead>
+                        <tbody>
+                            <tr style="background:rgba(239, 68, 68, 0.1);">
+                                <td><strong>OS-2026-0234</strong><br><span class="badge badge-danger">EMERGENCIA</span></td>
+                                <td>🚨 Fumigación Urgente</td>
+                                <td>Rest. La Capital<br><span style="font-size:0.75rem;color:var(--color-text-muted);">Plaga de cucarachas</span></td>
+                                <td>Carlos R.</td>
+                                <td>ASAP</td>
+                                <td><span class="badge badge-warning">En camino</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Ver</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>OS-2026-0233</strong></td>
+                                <td>🏨 Fumigación Programada</td>
+                                <td>Hotel Marriott</td>
+                                <td>María S.</td>
+                                <td>8:00 - 10:00</td>
+                                <td><span class="badge badge-success">Completada</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Ver</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>OS-2026-0232</strong></td>
+                                <td>🔍 Inspección Trampas</td>
+                                <td>Hilton Santa Fe</td>
+                                <td>Juan P.</td>
+                                <td>10:30 - 12:00</td>
+                                <td><span class="badge badge-primary">En proceso</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Ver</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>OS-2026-0231</strong></td>
+                                <td>🏠 Fumigación Residencial</td>
+                                <td>Casa Pérez - Lomas</td>
+                                <td>Carlos R.</td>
+                                <td>14:00 - 15:30</td>
+                                <td><span class="badge" style="background:var(--color-bg-tertiary);">Programada</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Ver</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>OS-2026-0230</strong><br><span style="font-size:0.7rem;color:var(--color-text-muted);">EXTRA - Fuera de contrato</span></td>
+                                <td>⭐ Servicio Extra</td>
+                                <td>Marriott - Bodega</td>
+                                <td>Sin asignar</td>
+                                <td>Por definir</td>
+                                <td><span class="badge badge-warning">Pend. Aprobación</span></td>
+                                <td><button class="btn btn-primary btn-sm">Asignar</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

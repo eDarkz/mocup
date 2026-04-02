@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Gestión de Empresas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Panel</span>Super Administrador</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="analytics.html" class="nav-item"><span class="nav-item-icon">📈</span> Analytics</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="empresas.html" class="nav-item active"><span class="nav-item-icon">🏢</span> Empresas</a>
+                    <a href="suscripciones.html" class="nav-item"><span class="nav-item-icon">💳</span> Suscripciones</a>
+                    <a href="soporte.html" class="nav-item"><span class="nav-item-icon">🎧</span> Soporte</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">SA</div>
+                    <div class="user-info"><div class="user-name">Super Admin</div><div class="user-role">Propietario SaaS</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">🏢 Gestión de Empresas</h1>
+                    <p class="page-subtitle">Administra las empresas de fumigación registradas en el sistema</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📥 Exportar</button>
+                    <button class="btn btn-primary">+ Nueva Empresa</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card blue"><div class="stat-value">47</div><div class="stat-label">Total Empresas</div></div>
+                <div class="stat-card green"><div class="stat-value">44</div><div class="stat-label">Activas</div></div>
+                <div class="stat-card yellow"><div class="stat-value">2</div><div class="stat-label">Prueba Gratis</div></div>
+                <div class="stat-card red"><div class="stat-value">1</div><div class="stat-label">Suspendidas</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="tabs" style="margin: 0;">
+                        <button class="tab active">Todas (47)</button>
+                        <button class="tab">Enterprise (12)</button>
+                        <button class="tab">Professional (21)</button>
+                        <button class="tab">Starter (14)</button>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <input type="text" class="form-input" placeholder="🔍 Buscar empresa..." style="width: 250px;">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Contacto</th>
+                                <th>Plan</th>
+                                <th>Locaciones</th>
+                                <th>Usuarios</th>
+                                <th>Ingresos</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">FL</div>
+                                        <div><strong>Fumigaciones López S.A.</strong><br><span style="font-size: 0.8rem; color: var(--color-text-muted);">Desde Ene 2024</span></div>
+                                    </div>
+                                </td>
+                                <td>juan@fumlopez.com<br><span style="font-size: 0.8rem; color: var(--color-text-muted);">+52 55 1234 5678</span></td>
+                                <td><span class="badge badge-warning">Enterprise</span></td>
+                                <td><strong>80</strong></td>
+                                <td>24</td>
+                                <td><strong>$8,500</strong>/mes</td>
+                                <td><span class="badge badge-success">Activa</span></td>
+                                <td><button class="btn btn-ghost btn-sm">👁️</button><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">⚙️</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">CT</div>
+                                        <div><strong>Control Total MX</strong><br><span style="font-size: 0.8rem; color: var(--color-text-muted);">Desde Mar 2024</span></div>
+                                    </div>
+                                </td>
+                                <td>admin@controltotal.mx<br><span style="font-size: 0.8rem; color: var(--color-text-muted);">+52 33 9876 5432</span></td>
+                                <td><span class="badge badge-warning">Enterprise</span></td>
+                                <td><strong>65</strong></td>
+                                <td>18</td>
+                                <td><strong>$7,200</strong>/mes</td>
+                                <td><span class="badge badge-success">Activa</span></td>
+                                <td><button class="btn btn-ghost btn-sm">👁️</button><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">⚙️</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">PM</div>
+                                        <div><strong>Pest Masters</strong><br><span style="font-size: 0.8rem; color: var(--color-text-muted);">Desde Jun 2024</span></div>
+                                    </div>
+                                </td>
+                                <td>info@pestmasters.com<br><span style="font-size: 0.8rem; color: var(--color-text-muted);">+52 81 5555 4444</span></td>
+                                <td><span class="badge badge-primary">Professional</span></td>
+                                <td><strong>42</strong></td>
+                                <td>12</td>
+                                <td><strong>$4,800</strong>/mes</td>
+                                <td><span class="badge badge-success">Activa</span></td>
+                                <td><button class="btn btn-ghost btn-sm">👁️</button><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">⚙️</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">SC</div>
+                                        <div><strong>SaniClean Corp</strong><br><span style="font-size: 0.8rem; color: var(--color-text-muted);">Desde Hoy</span></div>
+                                    </div>
+                                </td>
+                                <td>nuevo@saniclean.com<br><span style="font-size: 0.8rem; color: var(--color-text-muted);">+52 55 7777 8888</span></td>
+                                <td><span class="badge badge-info">Trial</span></td>
+                                <td><strong>0</strong></td>
+                                <td>1</td>
+                                <td><strong>$0</strong> (prueba)</td>
+                                <td><span class="badge badge-info">Prueba</span></td>
+                                <td><button class="btn btn-ghost btn-sm">👁️</button><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">⚙️</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

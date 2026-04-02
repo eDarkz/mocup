@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Dashboard Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Panel</span>Super Administrador</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="dashboard.html" class="nav-item active"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="analytics.html" class="nav-item"><span class="nav-item-icon">📈</span> Analytics</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="empresas.html" class="nav-item"><span class="nav-item-icon">🏢</span> Empresas</a>
+                    <a href="suscripciones.html" class="nav-item"><span class="nav-item-icon">💳</span> Suscripciones</a>
+                    <a href="soporte.html" class="nav-item"><span class="nav-item-icon">🎧</span> Soporte</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="configuracion.html" class="nav-item"><span class="nav-item-icon">⚙️</span> Configuración</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">SA</div>
+                    <div class="user-info"><div class="user-name">Super Admin</div><div class="user-role">Propietario SaaS</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">📊 Dashboard Global SaaS</h1>
+                    <p class="page-subtitle">Vista general de todo el sistema FumiControl</p>
+                </div>
+                <div class="page-actions">
+                    <select class="form-input form-select" style="width: 150px;">
+                        <option>Este mes</option>
+                        <option>Último trimestre</option>
+                        <option>Este año</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Revenue Cards -->
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card purple">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-value">$128,450</div>
+                    <div class="stat-label">Ingresos Mensuales</div>
+                    <div class="stat-trend up">↑ 12% vs mes anterior</div>
+                </div>
+                <div class="stat-card blue">
+                    <div class="stat-icon">🏢</div>
+                    <div class="stat-value">47</div>
+                    <div class="stat-label">Empresas Activas</div>
+                    <div class="stat-trend up">↑ 3 nuevas este mes</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value">312</div>
+                    <div class="stat-label">Usuarios Totales</div>
+                    <div class="stat-trend up">↑ 8% crecimiento</div>
+                </div>
+                <div class="stat-card yellow">
+                    <div class="stat-icon">📍</div>
+                    <div class="stat-value">1,847</div>
+                    <div class="stat-label">Locaciones Registradas</div>
+                    <div class="stat-trend up">↑ 156 nuevas</div>
+                </div>
+            </div>
+            <!-- Secondary Metrics -->
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card">
+                    <div class="stat-value">23,456</div>
+                    <div class="stat-label">Fumigaciones Este Mes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12,340</div>
+                    <div class="stat-label">Cebaderas Activas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3,210</div>
+                    <div class="stat-label">Trampas de Luz</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">99.8%</div>
+                    <div class="stat-label">Uptime del Sistema</div>
+                </div>
+            </div>
+            <div class="grid grid-2">
+                <!-- Empresas Top -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">🏆 Top Empresas por Ingresos</h3>
+                        <a href="empresas.html" class="btn btn-ghost btn-sm">Ver todas</a>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead><tr><th>Empresa</th><th>Plan</th><th>Locaciones</th><th>Ingresos</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Fumigaciones López S.A.</strong></td><td><span class="badge badge-warning">Enterprise</span></td><td>80</td><td>$8,500/mes</td></tr>
+                                <tr><td><strong>Control Total MX</strong></td><td><span class="badge badge-warning">Enterprise</span></td><td>65</td><td>$7,200/mes</td></tr>
+                                <tr><td><strong>Pest Masters</strong></td><td><span class="badge badge-primary">Professional</span></td><td>42</td><td>$4,800/mes</td></tr>
+                                <tr><td><strong>Sanidad Express</strong></td><td><span class="badge badge-primary">Professional</span></td><td>38</td><td>$4,200/mes</td></tr>
+                                <tr><td><strong>EcoFumi Verde</strong></td><td><span class="badge badge-success">Starter</span></td><td>15</td><td>$1,500/mes</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Actividad Reciente -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">⚡ Actividad del Sistema</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item"><div class="activity-icon green">🏢</div><div class="activity-content"><strong>Nueva empresa registrada</strong><p>SaniClean Corp se unió al plan Professional</p></div><div class="activity-time">Hace 2 horas</div></div>
+                            <div class="activity-item"><div class="activity-icon blue">💳</div><div class="activity-content"><strong>Pago recibido</strong><p>Control Total MX - $7,200.00</p></div><div class="activity-time">Hace 4 horas</div></div>
+                            <div class="activity-item"><div class="activity-icon yellow">⬆️</div><div class="activity-content"><strong>Upgrade de plan</strong><p>Pest Masters cambió a Enterprise</p></div><div class="activity-time">Hace 6 horas</div></div>
+                            <div class="activity-item"><div class="activity-icon purple">🎧</div><div class="activity-content"><strong>Ticket de soporte</strong><p>Fumigaciones López - Consulta de API</p></div><div class="activity-time">Hace 8 horas</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Charts placeholder -->
+            <div class="grid grid-2 mt-lg">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">📈 Ingresos Mensuales</h3></div>
+                    <div class="card-body">
+                        <div class="chart-placeholder">
+                            <div class="chart-bars">
+                                <div class="chart-bar" style="height: 60%;"><span>Ene</span></div>
+                                <div class="chart-bar" style="height: 75%;"><span>Feb</span></div>
+                                <div class="chart-bar" style="height: 65%;"><span>Mar</span></div>
+                                <div class="chart-bar" style="height: 80%;"><span>Abr</span></div>
+                                <div class="chart-bar" style="height: 70%;"><span>May</span></div>
+                                <div class="chart-bar" style="height: 85%;"><span>Jun</span></div>
+                                <div class="chart-bar" style="height: 90%;"><span>Jul</span></div>
+                                <div class="chart-bar active" style="height: 95%;"><span>Ago</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">📊 Distribución por Plan</h3></div>
+                    <div class="card-body">
+                        <div class="plan-distribution">
+                            <div class="plan-item"><div class="plan-info"><span class="plan-dot enterprise"></span><strong>Enterprise</strong></div><div class="plan-bar"><div class="plan-progress" style="width: 25%;"></div></div><span>12 empresas</span></div>
+                            <div class="plan-item"><div class="plan-info"><span class="plan-dot professional"></span><strong>Professional</strong></div><div class="plan-bar"><div class="plan-progress pro" style="width: 45%;"></div></div><span>21 empresas</span></div>
+                            <div class="plan-item"><div class="plan-info"><span class="plan-dot starter"></span><strong>Starter</strong></div><div class="plan-bar"><div class="plan-progress starter" style="width: 30%;"></div></div><span>14 empresas</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <style>
+        .stat-card.purple { border-left-color: #8b5cf6; }
+        .stat-card.purple .stat-icon { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+        .stat-trend { font-size: 0.75rem; margin-top: 8px; }
+        .stat-trend.up { color: var(--color-success); }
+        .chart-placeholder { height: 200px; display: flex; align-items: flex-end; justify-content: center; }
+        .chart-bars { display: flex; align-items: flex-end; gap: 12px; height: 100%; padding: 20px 0; }
+        .chart-bar { width: 40px; background: linear-gradient(180deg, #3b82f6 0%, #1e40af 100%); border-radius: 6px 6px 0 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 8px; transition: all 0.3s; }
+        .chart-bar span { font-size: 0.65rem; color: var(--color-text-muted); margin-top: 8px; }
+        .chart-bar.active { background: linear-gradient(180deg, #8b5cf6 0%, #6366f1 100%); }
+        .plan-distribution { display: flex; flex-direction: column; gap: 20px; padding: 20px 0; }
+        .plan-item { display: flex; align-items: center; gap: 16px; }
+        .plan-info { display: flex; align-items: center; gap: 8px; min-width: 120px; }
+        .plan-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .plan-dot.enterprise { background: #f59e0b; }
+        .plan-dot.professional { background: #3b82f6; }
+        .plan-dot.starter { background: #10b981; }
+        .plan-bar { flex: 1; height: 8px; background: var(--color-bg-tertiary); border-radius: 4px; overflow: hidden; }
+        .plan-progress { height: 100%; background: linear-gradient(90deg, #f59e0b, #fbbf24); border-radius: 4px; }
+        .plan-progress.pro { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+        .plan-progress.starter { background: linear-gradient(90deg, #10b981, #34d399); }
+    </style>
+</body>
+</html>

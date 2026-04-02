@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Plataforma SaaS</span>Administrador General</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="#" class="nav-item active"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">🏢</span> Empresas <span class="nav-item-badge">24</span></a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">💳</span> Suscripciones</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">👥</span> Usuarios</a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">📈</span> Reportes</a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">⚙️</span> Configuración</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar">SA</div>
+                    <div class="user-info">
+                        <div class="user-name">Super Admin</div>
+                        <div class="user-role">Administrador SaaS</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Dashboard SaaS</h1>
+                    <p class="page-subtitle">Resumen general de la plataforma</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📥 Exportar</button>
+                    <button class="btn btn-primary">+ Nueva Empresa</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card blue">
+                    <div class="stat-icon">🏢</div>
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Empresas Activas</div>
+                    <div class="stat-change positive">↑ 12% este mes</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value">156</div>
+                    <div class="stat-label">Usuarios Totales</div>
+                    <div class="stat-change positive">↑ 8% este mes</div>
+                </div>
+                <div class="stat-card yellow">
+                    <div class="stat-icon">🏨</div>
+                    <div class="stat-value">1,284</div>
+                    <div class="stat-label">Locaciones</div>
+                    <div class="stat-change positive">↑ 23% este mes</div>
+                </div>
+                <div class="stat-card red">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-value">$48,500</div>
+                    <div class="stat-label">Ingresos Mensuales</div>
+                    <div class="stat-change positive">↑ 15% vs anterior</div>
+                </div>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Empresas Recientes</h3>
+                        <button class="btn btn-ghost btn-sm">Ver todas →</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr><th>Empresa</th><th>Plan</th><th>Usuarios</th><th>Estado</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Fumigaciones López</strong></td><td><span class="badge badge-primary">Pro</span></td><td>12</td><td><span class="badge badge-success">Activo</span></td></tr>
+                                    <tr><td><strong>Control Pest MX</strong></td><td><span class="badge badge-info">Enterprise</span></td><td>28</td><td><span class="badge badge-success">Activo</span></td></tr>
+                                    <tr><td><strong>Fumigadora del Norte</strong></td><td><span class="badge badge-primary">Pro</span></td><td>8</td><td><span class="badge badge-warning">Pendiente</span></td></tr>
+                                    <tr><td><strong>EcoFumiga</strong></td><td><span class="badge badge-success">Básico</span></td><td>3</td><td><span class="badge badge-success">Activo</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Actividad Reciente</h3>
+                        <button class="btn btn-ghost btn-sm">Ver todo →</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item"><div class="activity-icon green">✓</div><div class="activity-content"><p><strong>Fumigaciones López</strong> registró 15 fumigaciones</p><span class="activity-time">Hace 2 horas</span></div></div>
+                            <div class="activity-item"><div class="activity-icon blue">+</div><div class="activity-content"><p>Nueva empresa: <strong>EcoFumiga</strong></p><span class="activity-time">Hace 5 horas</span></div></div>
+                            <div class="activity-item"><div class="activity-icon yellow">⚡</div><div class="activity-content"><p><strong>Control Pest MX</strong> actualizó a plan Enterprise</p><span class="activity-time">Hace 1 día</span></div></div>
+                            <div class="activity-item"><div class="activity-icon green">✓</div><div class="activity-content"><p><strong>Fumigadora del Norte</strong> agregó 45 locaciones</p><span class="activity-time">Hace 2 días</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

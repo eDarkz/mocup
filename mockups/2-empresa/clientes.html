@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Clientes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Negocio</div>
+                    <a href="clientes.html" class="nav-item active"><span class="nav-item-icon">🤝</span> Clientes</a>
+                    <a href="reportes.html" class="nav-item"><span class="nav-item-icon">📄</span> Reportes</a>
+                    <a href="facturacion.html" class="nav-item"><span class="nav-item-icon">💰</span> Facturación</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">🤝 Gestión de Clientes</h1>
+                    <p class="page-subtitle">Administra tus clientes y sus propiedades</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-primary">+ Nuevo Cliente</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card blue"><div class="stat-value">28</div><div class="stat-label">Clientes Activos</div></div>
+                <div class="stat-card green"><div class="stat-value">80</div><div class="stat-label">Propiedades</div></div>
+                <div class="stat-card yellow"><div class="stat-value">$45,200</div><div class="stat-label">Facturado/Mes</div></div>
+                <div class="stat-card"><div class="stat-value">3.2 años</div><div class="stat-label">Promedio Antigüedad</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="tabs" style="margin: 0;">
+                        <button class="tab active">Todos (28)</button>
+                        <button class="tab">🏨 Hoteles (8)</button>
+                        <button class="tab">🏠 Residenciales (12)</button>
+                        <button class="tab">🏪 Comerciales (8)</button>
+                    </div>
+                    <input type="text" class="form-input" placeholder="🔍 Buscar cliente..." style="width: 250px;">
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Cliente</th><th>Tipo</th><th>Propiedades</th><th>Contrato</th><th>Facturación</th><th>Estado</th><th>Acciones</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🏨</div>
+                                        <div><strong>Cadena Marriott</strong><br><span style="font-size: 0.8rem; color: var(--color-text-muted);">contacto@marriott.mx</span></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-primary">Hoteles</span></td>
+                                <td><strong>3</strong> hoteles</td>
+                                <td>Anual</td>
+                                <td><strong>$8,500</strong>/mes</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">👁️</button><button class="btn btn-ghost btn-sm">📧</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🏘️</div>
+                                        <div><strong>Fraccionamiento Los Pinos</strong><br><span style="font-size: 0.8rem; color: var(--color-text-muted);">admin@lospinos.com</span></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-success">Residencial</span></td>
+                                <td><strong>25</strong> casas</td>
+                                <td>Mensual</td>
+                                <td><strong>$4,200</strong>/mes</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">👁️</button><button class="btn btn-ghost btn-sm">📧</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🍽️</div>
+                                        <div><strong>Restaurantes La Parilla</strong><br><span style="font-size: 0.8rem; color: var(--color-text-muted);">gerencia@laparilla.mx</span></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-warning">Comercial</span></td>
+                                <td><strong>5</strong> sucursales</td>
+                                <td>Anual</td>
+                                <td><strong>$3,800</strong>/mes</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">👁️</button><button class="btn btn-ghost btn-sm">📧</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🏢</div>
+                                        <div><strong>Hotel Hilton Centro</strong><br><span style="font-size: 0.8rem; color: var(--color-text-muted);">ops@hilton.com</span></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-primary">Hoteles</span></td>
+                                <td><strong>1</strong> hotel</td>
+                                <td>Anual</td>
+                                <td><strong>$5,200</strong>/mes</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">👁️</button><button class="btn btn-ghost btn-sm">📧</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

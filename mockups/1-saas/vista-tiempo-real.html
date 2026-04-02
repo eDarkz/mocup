@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Vista en Tiempo Real</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .realtime-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 24px;
+            height: calc(100vh - 140px);
+        }
+        .users-panel {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .users-list {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .user-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--color-bg-tertiary);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .user-item:hover {
+            background: var(--color-bg-card);
+            border-color: var(--color-border);
+        }
+        .user-item.active {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--color-accent-primary);
+        }
+        .user-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            position: relative;
+        }
+        .user-avatar.empresa { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .user-avatar.supervisor { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .user-avatar.operativo { background: linear-gradient(135deg, #10b981, #059669); }
+        .user-avatar.cliente { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .online-indicator {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 14px;
+            height: 14px;
+            background: #10b981;
+            border: 3px solid var(--color-bg-primary);
+            border-radius: 50%;
+        }
+        .online-indicator.idle { background: #f59e0b; }
+        .user-info { flex: 1; min-width: 0; }
+        .user-name { font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .user-role { font-size: 0.8rem; color: var(--color-text-muted); }
+        .user-current-view { font-size: 0.75rem; color: var(--color-accent-primary); margin-top: 2px; }
+        .user-level-badge {
+            font-size: 0.65rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .user-level-badge.empresa { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .user-level-badge.supervisor { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+        .user-level-badge.operativo { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        .user-level-badge.cliente { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+        .preview-panel {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px 16px 0 0;
+        }
+        .preview-user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .preview-user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: white;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+        .preview-user-details h3 { font-size: 1.1rem; margin-bottom: 2px; }
+        .preview-user-details p { font-size: 0.85rem; color: var(--color-text-muted); }
+        .preview-controls {
+            display: flex;
+            gap: 8px;
+        }
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #10b981;
+            font-weight: 600;
+        }
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .preview-frame {
+            flex: 1;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-top: none;
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        .preview-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .preview-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 8px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+        }
+        .preview-path {
+            font-size: 0.75rem;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+        }
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .filter-tab {
+            padding: 8px 16px;
+            background: var(--color-bg-tertiary);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-tab:hover, .filter-tab.active {
+            background: var(--color-accent-primary);
+            border-color: var(--color-accent-primary);
+            color: white;
+        }
+        .filter-tab .count {
+            margin-left: 6px;
+            padding: 2px 6px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        .search-box {
+            margin-bottom: 16px;
+        }
+        .activity-feed {
+            margin-top: 16px;
+            padding: 12px;
+            background: var(--color-bg-tertiary);
+            border-radius: 10px;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        .activity-feed-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .activity-item-mini {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .activity-item-mini:last-child { border-bottom: none; }
+        .activity-time-mini { font-size: 0.7rem; color: var(--color-text-muted); margin-left: auto; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Panel</span>Super Administrador</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="analytics.html" class="nav-item"><span class="nav-item-icon">📈</span> Analytics</a>
+                    <a href="vista-tiempo-real.html" class="nav-item active"><span class="nav-item-icon">👁️</span> Vista Tiempo Real</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="empresas.html" class="nav-item"><span class="nav-item-icon">🏢</span> Empresas</a>
+                    <a href="suscripciones.html" class="nav-item"><span class="nav-item-icon">💳</span> Suscripciones</a>
+                    <a href="soporte.html" class="nav-item"><span class="nav-item-icon">🎧</span> Soporte</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">SA</div>
+                    <div class="user-info"><div class="user-name">Super Admin</div><div class="user-role">Propietario SaaS</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">👁️ Vista en Tiempo Real</h1>
+                    <p class="page-subtitle">Monitorea lo que ven todos los usuarios del sistema de forma transparente</p>
+                </div>
+                <div class="page-actions">
+                    <div class="live-indicator"><div class="live-dot"></div> EN VIVO</div>
+                </div>
+            </div>
+            <!-- Stats -->
+            <div class="grid grid-5 mb-lg">
+                <div class="stat-card"><div class="stat-value">47</div><div class="stat-label">Usuarios Online</div></div>
+                <div class="stat-card"><div class="stat-value" style="color: #3b82f6;">12</div><div class="stat-label">Admins Empresa</div></div>
+                <div class="stat-card"><div class="stat-value" style="color: #f59e0b;">8</div><div class="stat-label">Supervisores</div></div>
+                <div class="stat-card"><div class="stat-value" style="color: #10b981;">15</div><div class="stat-label">Operativos</div></div>
+                <div class="stat-card"><div class="stat-value" style="color: #ec4899;">12</div><div class="stat-label">Clientes</div></div>
+            </div>
+            <div class="realtime-layout">
+                <!-- Users Panel -->
+                <div class="card users-panel">
+                    <div class="card-header">
+                        <h3 class="card-title">👥 Usuarios Conectados</h3>
+                    </div>
+                    <div class="card-body" style="display: flex; flex-direction: column; flex: 1; overflow: hidden;">
+                        <div class="search-box">
+                            <input type="text" class="form-input" placeholder="🔍 Buscar usuario o empresa...">
+                        </div>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active">Todos <span class="count">47</span></button>
+                            <button class="filter-tab">🏢 Empresa <span class="count">12</span></button>
+                            <button class="filter-tab">👔 Supervisor <span class="count">8</span></button>
+                            <button class="filter-tab">👷 Operativo <span class="count">15</span></button>
+                            <button class="filter-tab">🏨 Cliente <span class="count">12</span></button>
+                        </div>
+                        <div class="users-list">
+                            <!-- Admin Empresa -->
+                            <div class="user-item active">
+                                <div class="user-avatar empresa">JL<div class="online-indicator"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Juan López</div>
+                                    <div class="user-role">Fumigaciones López S.A.</div>
+                                    <div class="user-current-view">📊 Dashboard Empresa</div>
+                                </div>
+                                <span class="user-level-badge empresa">Empresa</span>
+                            </div>
+                            <!-- Admin Empresa -->
+                            <div class="user-item">
+                                <div class="user-avatar empresa">MR<div class="online-indicator"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Miguel Ruiz</div>
+                                    <div class="user-role">Control Total MX</div>
+                                    <div class="user-current-view">📍 Mapa GPS</div>
+                                </div>
+                                <span class="user-level-badge empresa">Empresa</span>
+                            </div>
+                            <!-- Supervisor -->
+                            <div class="user-item">
+                                <div class="user-avatar supervisor">AG<div class="online-indicator"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Ana García</div>
+                                    <div class="user-role">Fumigaciones López S.A.</div>
+                                    <div class="user-current-view">📋 Asignaciones</div>
+                                </div>
+                                <span class="user-level-badge supervisor">Supervisor</span>
+                            </div>
+                            <!-- Supervisor -->
+                            <div class="user-item">
+                                <div class="user-avatar supervisor">RV<div class="online-indicator idle"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Roberto Vega</div>
+                                    <div class="user-role">Pest Masters</div>
+                                    <div class="user-current-view">✅ Aprobaciones</div>
+                                </div>
+                                <span class="user-level-badge supervisor">Supervisor</span>
+                            </div>
+                            <!-- Operativo -->
+                            <div class="user-item">
+                                <div class="user-avatar operativo">CR<div class="online-indicator"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Carlos Ramírez</div>
+                                    <div class="user-role">Fumigaciones López S.A.</div>
+                                    <div class="user-current-view">📝 Registrar Fumigación</div>
+                                </div>
+                                <span class="user-level-badge operativo">Operativo</span>
+                            </div>
+                            <!-- Operativo -->
+                            <div class="user-item">
+                                <div class="user-avatar operativo">MS<div class="online-indicator"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">María Sánchez</div>
+                                    <div class="user-role">Fumigaciones López S.A.</div>
+                                    <div class="user-current-view">📱 Escaneo QR</div>
+                                </div>
+                                <span class="user-level-badge operativo">Operativo</span>
+                            </div>
+                            <!-- Operativo -->
+                            <div class="user-item">
+                                <div class="user-avatar operativo">PM<div class="online-indicator"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Pedro Martínez</div>
+                                    <div class="user-role">Pest Masters</div>
+                                    <div class="user-current-view">🏠 Mi Día</div>
+                                </div>
+                                <span class="user-level-badge operativo">Operativo</span>
+                            </div>
+                            <!-- Cliente -->
+                            <div class="user-item">
+                                <div class="user-avatar cliente">🏨<div class="online-indicator"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Hotel Marriott Centro</div>
+                                    <div class="user-role">Cliente de López S.A.</div>
+                                    <div class="user-current-view">📊 Mi Dashboard</div>
+                                </div>
+                                <span class="user-level-badge cliente">Cliente</span>
+                            </div>
+                            <!-- Cliente -->
+                            <div class="user-item">
+                                <div class="user-avatar cliente">🏨<div class="online-indicator idle"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Hotel Hilton</div>
+                                    <div class="user-role">Cliente de López S.A.</div>
+                                    <div class="user-current-view">📜 Certificados</div>
+                                </div>
+                                <span class="user-level-badge cliente">Cliente</span>
+                            </div>
+                            <!-- Cliente -->
+                            <div class="user-item">
+                                <div class="user-avatar cliente">🏘️<div class="online-indicator"></div></div>
+                                <div class="user-info">
+                                    <div class="user-name">Fracc. Los Pinos</div>
+                                    <div class="user-role">Cliente de Control Total</div>
+                                    <div class="user-current-view">📞 Solicitar Servicio</div>
+                                </div>
+                                <span class="user-level-badge cliente">Cliente</span>
+                            </div>
+                        </div>
+                        <!-- Activity Feed -->
+                        <div class="activity-feed">
+                            <div class="activity-feed-title">⚡ Actividad Reciente</div>
+                            <div class="activity-item-mini">
+                                <span>👷 Carlos R.</span> abrió <strong>Registrar Fumigación</strong>
+                                <span class="activity-time-mini">Ahora</span>
+                            </div>
+                            <div class="activity-item-mini">
+                                <span>🏨 Marriott</span> descargó <strong>Certificado Feb</strong>
+                                <span class="activity-time-mini">2 min</span>
+                            </div>
+                            <div class="activity-item-mini">
+                                <span>👔 Ana G.</span> aprobó <strong>Reporte #1247</strong>
+                                <span class="activity-time-mini">5 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preview Panel -->
+                <div class="preview-panel">
+                    <div class="preview-header">
+                        <div class="preview-user-info">
+                            <div class="preview-user-avatar">JL</div>
+                            <div class="preview-user-details">
+                                <h3>Juan López</h3>
+                                <p>Administrador • Fumigaciones López S.A.</p>
+                            </div>
+                        </div>
+                        <div class="preview-controls">
+                            <div class="live-indicator"><div class="live-dot"></div> VISTA EN VIVO</div>
+                            <button class="btn btn-secondary btn-sm">🔄 Actualizar</button>
+                            <button class="btn btn-ghost btn-sm">⬜ Pantalla completa</button>
+                        </div>
+                    </div>
+                    <div class="preview-frame">
+                        <div class="preview-overlay">
+                            <span class="preview-path">📍 /empresa/dashboard</span>
+                            <span class="preview-path">🕐 Última actividad: hace 5 seg</span>
+                        </div>
+                        <iframe src="../2-empresa/dashboard.html" class="preview-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

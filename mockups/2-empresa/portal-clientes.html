@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Portal Clientes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="portal-clientes.html" class="nav-item active"><span class="nav-item-icon">🌐</span> Portal Clientes</a>
+                <a href="satisfaccion.html" class="nav-item"><span class="nav-item-icon">⭐</span> Encuestas</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🌐 Portal para Clientes</h1><p class="page-subtitle">Acceso de clientes con roles: Solo lectura, Firma, Administrador</p></div>
+                <button class="btn btn-primary">+ Invitar Cliente</button>
+            </div>
+            <div class="grid grid-3 mb-lg">
+                <div class="stat-card"><div class="stat-value">156</div><div class="stat-label">Usuarios Cliente</div></div>
+                <div class="stat-card green"><div class="stat-value">89</div><div class="stat-label">Activos (30d)</div></div>
+                <div class="stat-card"><div class="stat-value">67</div><div class="stat-label">Clientes con Acceso</div></div>
+            </div>
+            <div class="card mb-lg">
+                <div class="card-header"><h3 class="card-title">👥 Usuarios de Clientes</h3>
+                    <input type="text" class="form-input" placeholder="Buscar..." style="width:200px;">
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Usuario</th><th>Cliente</th><th>Rol</th><th>Último Acceso</th><th>Estado</th><th>Acciones</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Juan García</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">juan.garcia@marriott.com.mx</span></td>
+                                <td>Hotel Marriott Reforma</td>
+                                <td><span class="badge badge-primary">Administrador</span><br><span style="font-size:0.7rem;">Ver + Firma + Gestión</span></td>
+                                <td>Hace 2 horas</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ana Martínez</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">ana.mtz@marriott.com.mx</span></td>
+                                <td>Hotel Marriott Reforma</td>
+                                <td><span class="badge badge-success">Firma</span><br><span style="font-size:0.7rem;">Ver + Firmar servicios</span></td>
+                                <td>Ayer</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pedro López</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">pedro@hilton.com</span></td>
+                                <td>Hilton Santa Fe</td>
+                                <td><span class="badge">Solo Lectura</span><br><span style="font-size:0.7rem;">Ver reportes y certificados</span></td>
+                                <td>Hace 5 días</td>
+                                <td><span class="badge badge-success">Activo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>María Hernández</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">mhernandez@restaurante.mx</span></td>
+                                <td>Restaurante El Sol</td>
+                                <td><span class="badge badge-success">Firma</span></td>
+                                <td>Hace 15 días</td>
+                                <td><span class="badge badge-warning">Inactivo</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Reenviar invitación</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">🔐 Permisos por Rol</h3></div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Funcionalidad</th><th>Solo Lectura</th><th>Firma</th><th>Administrador</th></tr></thead>
+                        <tbody>
+                            <tr><td>Ver dashboard y estadísticas</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                            <tr><td>Ver historial de servicios</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                            <tr><td>Descargar certificados/reportes</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                            <tr><td>Firmar servicios digitalmente</td><td>❌</td><td>✅</td><td>✅</td></tr>
+                            <tr><td>Solicitar servicio extra</td><td>❌</td><td>✅</td><td>✅</td></tr>
+                            <tr><td>Gestionar usuarios del cliente</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                            <tr><td>Configurar notificaciones</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

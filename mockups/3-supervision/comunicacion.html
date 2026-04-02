@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Comunicación con Técnicos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .chat-container { display: grid; grid-template-columns: 280px 1fr; height: calc(100vh - 140px); gap: 16px; }
+        .chat-list { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; }
+        .chat-list-header { padding: 16px; border-bottom: 1px solid var(--color-border); }
+        .chat-list-items { overflow-y: auto; }
+        .chat-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; cursor: pointer; border-bottom: 1px solid var(--color-border); }
+        .chat-item:hover, .chat-item.active { background: var(--color-bg-tertiary); }
+        .chat-item-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; position: relative; }
+        .chat-item-avatar .online { position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background: #10b981; border-radius: 50%; border: 2px solid var(--color-bg-card); }
+        .chat-main { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; display: flex; flex-direction: column; }
+        .chat-header { padding: 16px; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: 12px; }
+        .chat-messages { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .message { max-width: 70%; padding: 12px 16px; border-radius: 12px; }
+        .message.incoming { background: var(--color-bg-tertiary); align-self: flex-start; border-bottom-left-radius: 4px; }
+        .message.outgoing { background: var(--color-accent-primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .message-time { font-size: 0.7rem; opacity: 0.7; margin-top: 4px; }
+        .chat-input { padding: 16px; border-top: 1px solid var(--color-border); display: flex; gap: 12px; }
+        .quick-actions { display: flex; gap: 8px; padding: 8px 16px; background: var(--color-bg-tertiary); border-top: 1px solid var(--color-border); flex-wrap: wrap; }
+        .quick-btn { font-size: 0.8rem; padding: 6px 12px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>👷</span> Supervisión</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="comunicacion.html" class="nav-item active"><span class="nav-item-icon">💬</span> Comunicación</a>
+            </nav>
+        </aside>
+        <main class="main-content" style="padding:16px;">
+            <div class="chat-container">
+                <div class="chat-list">
+                    <div class="chat-list-header">
+                        <input type="text" class="form-input" placeholder="Buscar técnico..." style="width:100%;">
+                    </div>
+                    <div class="chat-list-items">
+                        <div class="chat-item active">
+                            <div class="chat-item-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">CR<div class="online"></div></div>
+                            <div style="flex:1;"><strong>Carlos Ramírez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">Ya terminé en Marriott ✓✓</div></div>
+                            <span style="font-size:0.7rem;color:var(--color-text-muted);">10:45</span>
+                        </div>
+                        <div class="chat-item">
+                            <div class="chat-item-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">MS<div class="online"></div></div>
+                            <div style="flex:1;"><strong>María Sánchez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">📸 Foto enviada</div></div>
+                            <span style="font-size:0.7rem;color:var(--color-text-muted);">11:30</span>
+                        </div>
+                        <div class="chat-item">
+                            <div class="chat-item-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">JP<div class="online"></div></div>
+                            <div style="flex:1;"><strong>Juan Pérez</strong><div style="font-size:0.8rem;color:#ef4444;">⚠️ Con retraso</div></div>
+                            <span class="badge badge-danger" style="font-size:0.6rem;">1</span>
+                        </div>
+                        <div class="chat-item" style="opacity:0.6;">
+                            <div class="chat-item-avatar" style="background:#6b7280;">RL</div>
+                            <div style="flex:1;"><strong>Roberto López</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">Offline - Día libre</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <div class="chat-item-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">CR<div class="online"></div></div>
+                        <div><strong>Carlos Ramírez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">🟢 En línea • Hotel Marriott</div></div>
+                        <div style="margin-left:auto;display:flex;gap:8px;"><button class="btn btn-ghost btn-sm">📞</button><button class="btn btn-ghost btn-sm">📍</button></div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message incoming">
+                            <div>Buenos días jefe, ya llegué al Marriott</div>
+                            <div class="message-time">10:05 AM</div>
+                        </div>
+                        <div class="message outgoing">
+                            <div>Perfecto Carlos, recuerda revisar bien la cocina, el cliente reportó actividad la semana pasada</div>
+                            <div class="message-time">10:08 AM ✓✓</div>
+                        </div>
+                        <div class="message incoming">
+                            <div>Entendido, voy a aplicar gel extra en esa zona</div>
+                            <div class="message-time">10:10 AM</div>
+                        </div>
+                        <div class="message incoming">
+                            <div style="background:var(--color-bg-tertiary);padding:8px;border-radius:8px;margin-bottom:8px;">📸 Foto adjunta</div>
+                            <div>Mira, encontré evidencia de cucaracha alemana aquí</div>
+                            <div class="message-time">10:35 AM</div>
+                        </div>
+                        <div class="message outgoing">
+                            <div>Bien detectado 👍 Aplica protocolo B2 y documenta todo</div>
+                            <div class="message-time">10:38 AM ✓✓</div>
+                        </div>
+                        <div class="message incoming">
+                            <div>Ya terminé en Marriott, todo documentado. Voy hacia Oficinas ABC</div>
+                            <div class="message-time">10:45 AM</div>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="quick-btn">👍 OK, gracias</button>
+                        <button class="quick-btn">📍 Envía ubicación</button>
+                        <button class="quick-btn">📸 Envía foto</button>
+                        <button class="quick-btn">⏰ ¿Tiempo estimado?</button>
+                        <button class="quick-btn">🚨 Urgente, llámame</button>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" class="form-input" placeholder="Escribe un mensaje..." style="flex:1;">
+                        <button class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

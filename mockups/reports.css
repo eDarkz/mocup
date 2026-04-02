@@ -1,0 +1,23 @@
+.reports-layout { display: grid; grid-template-columns: 1fr 320px; gap: var(--spacing-xl); }
+.reports-main { min-width: 0; }
+.reports-sidebar { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+.report-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); }
+.report-type-card { background: var(--color-bg-card); border: 2px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-lg); text-align: center; cursor: pointer; transition: all var(--transition-fast); }
+.report-type-card:hover { border-color: var(--color-accent-secondary); }
+.report-type-card.active { border-color: var(--color-accent-primary); background: rgba(59, 130, 246, 0.1); }
+.report-type-icon { font-size: 2rem; display: block; margin-bottom: var(--spacing-sm); }
+.report-type-card h4 { font-size: var(--font-size-sm); font-weight: 600; margin-bottom: var(--spacing-xs); }
+.report-type-card p { font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; }
+.card-filters { display: flex; gap: var(--spacing-sm); }
+.stats-list { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.stats-item { display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border); }
+.stats-item:last-child { border-bottom: none; }
+.stats-label { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+.stats-value { font-size: var(--font-size-lg); font-weight: 700; }
+.stats-value.text-success { color: var(--color-success); }
+.stats-value.text-warning { color: var(--color-warning); }
+.pending-list { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.pending-item { display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-sm); background: var(--color-bg-tertiary); border-radius: var(--radius-md); }
+.pending-info strong { font-size: var(--font-size-sm); display: block; }
+.pending-info p { font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; }
+@media (max-width: 1200px) { .reports-layout { grid-template-columns: 1fr; } .report-types { grid-template-columns: repeat(2, 1fr); } }

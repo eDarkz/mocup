@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Cotizaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="cotizaciones.html" class="nav-item active"><span class="nav-item-icon">📋</span> Cotizaciones</a>
+                <a href="contratos.html" class="nav-item"><span class="nav-item-icon">📄</span> Contratos</a>
+                <a href="ordenes-servicio.html" class="nav-item"><span class="nav-item-icon">🔧</span> Órdenes Servicio</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📋 Cotizaciones</h1><p class="page-subtitle">Crear, enviar y dar seguimiento a propuestas comerciales</p></div>
+                <button class="btn btn-primary">+ Nueva Cotización</button>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card"><div class="stat-value">12</div><div class="stat-label">En Borrador</div></div>
+                <div class="stat-card yellow"><div class="stat-value">8</div><div class="stat-label">Enviadas (pendientes)</div></div>
+                <div class="stat-card green"><div class="stat-value">45</div><div class="stat-label">Aceptadas (mes)</div></div>
+                <div class="stat-card"><div class="stat-value">67%</div><div class="stat-label">Tasa Conversión</div></div>
+            </div>
+            <div class="tabs mb-lg"><button class="tab active">Todas</button><button class="tab">Borrador</button><button class="tab">Enviadas</button><button class="tab">Aceptadas</button><button class="tab">Rechazadas</button></div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Folio</th><th>Cliente</th><th>Servicio</th><th>Monto</th><th>Vigencia</th><th>Estado</th><th>Acciones</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>COT-2026-0089</strong></td>
+                                <td>Hotel Westin Santa Fe</td>
+                                <td>Contrato Anual - Fumigación + Trampas</td>
+                                <td><strong>$156,000 MXN</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">$13,000/mes</span></td>
+                                <td>15 Feb 2026</td>
+                                <td><span class="badge badge-warning">Enviada</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Ver</button><button class="btn btn-success btn-sm">Convertir</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>COT-2026-0088</strong></td>
+                                <td>Restaurante La Capital</td>
+                                <td>Servicio Quincenal - Cocina</td>
+                                <td><strong>$4,800 MXN/mes</strong></td>
+                                <td>10 Feb 2026</td>
+                                <td><span class="badge badge-success">Aceptada</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Ver</button><button class="btn btn-primary btn-sm">Generar Contrato</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>COT-2026-0087</strong></td>
+                                <td>Corporativo Reforma 222</td>
+                                <td>Fumigación Mensual - 15 pisos</td>
+                                <td><strong>$28,500 MXN/mes</strong></td>
+                                <td>--</td>
+                                <td><span class="badge" style="background:var(--color-bg-tertiary);">Borrador</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-primary btn-sm">Enviar</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>COT-2026-0086</strong></td>
+                                <td>Residencial Santa Fe</td>
+                                <td>Servicio Único - Fumigación Jardín</td>
+                                <td><strong>$2,500 MXN</strong></td>
+                                <td>Vencida</td>
+                                <td><span class="badge badge-danger">Rechazada</span></td>
+                                <td><button class="btn btn-ghost btn-sm">Ver</button><button class="btn btn-ghost btn-sm">Clonar</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

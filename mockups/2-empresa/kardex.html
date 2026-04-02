@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Kardex de Inventario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="inventario.html" class="nav-item"><span class="nav-item-icon">📦</span> Inventario</a>
+                <a href="kardex.html" class="nav-item active"><span class="nav-item-icon">📊</span> Kardex</a>
+                <a href="requisiciones.html" class="nav-item"><span class="nav-item-icon">📝</span> Requisiciones</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📊 Kardex / Movimientos</h1><p class="page-subtitle">Entradas, salidas por servicio, por técnico, lotes y caducidad</p></div>
+                <div class="page-actions">
+                    <select class="form-input form-select"><option>Todos los productos</option><option>MaxForce FC Gel</option><option>Demand CS</option></select>
+                    <button class="btn btn-secondary">📥 Exportar</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card"><div class="stat-value">847</div><div class="stat-label">Movimientos (Mes)</div></div>
+                <div class="stat-card green"><div class="stat-value">+124</div><div class="stat-label">Entradas</div></div>
+                <div class="stat-card blue"><div class="stat-value">-723</div><div class="stat-label">Salidas Servicio</div></div>
+                <div class="stat-card yellow"><div class="stat-value">3</div><div class="stat-label">Incidentes/Mermas</div></div>
+            </div>
+            <div class="card mb-lg">
+                <div class="card-header"><h3 class="card-title">📋 Movimientos Recientes - MaxForce FC Gel</h3></div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Fecha</th><th>Tipo</th><th>Cantidad</th><th>Técnico</th><th>Servicio/Motivo</th><th>Lote</th><th>Saldo</th></tr></thead>
+                        <tbody>
+                            <tr style="background:rgba(16,185,129,0.05);">
+                                <td>Feb 7, 14:30</td>
+                                <td><span class="badge badge-success">Entrada</span></td>
+                                <td style="color:#10b981;"><strong>+50 tubos</strong></td>
+                                <td>Almacén</td>
+                                <td>Compra - Factura #4521</td>
+                                <td>LOT-2026-089<br><span style="font-size:0.7rem;color:var(--color-text-muted);">Vence: Dic 2027</span></td>
+                                <td><strong>95</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Feb 7, 10:15</td>
+                                <td><span class="badge badge-primary">Salida</span></td>
+                                <td style="color:#3b82f6;">-3 tubos</td>
+                                <td>Carlos R.</td>
+                                <td>OS-2026-0233 - Hotel Marriott</td>
+                                <td>LOT-2026-045</td>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <td>Feb 7, 08:00</td>
+                                <td><span class="badge badge-primary">Salida</span></td>
+                                <td style="color:#3b82f6;">-2 tubos</td>
+                                <td>María S.</td>
+                                <td>OS-2026-0232 - Hilton</td>
+                                <td>LOT-2026-045</td>
+                                <td>48</td>
+                            </tr>
+                            <tr style="background:rgba(239,68,68,0.05);">
+                                <td>Feb 6, 16:45</td>
+                                <td><span class="badge badge-danger">Merma</span></td>
+                                <td style="color:#ef4444;">-1 tubo</td>
+                                <td>Juan P.</td>
+                                <td>Derrame accidental en vehículo</td>
+                                <td>LOT-2026-045</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Feb 6, 11:30</td>
+                                <td><span class="badge badge-primary">Salida</span></td>
+                                <td style="color:#3b82f6;">-4 tubos</td>
+                                <td>Carlos R.</td>
+                                <td>OS-2026-0228 - Corporativo ABC</td>
+                                <td>LOT-2026-045</td>
+                                <td>51</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">📦 Lotes Activos</h3></div>
+                    <div class="card-body">
+                        <div style="padding:12px;background:var(--color-bg-tertiary);border-radius:8px;margin-bottom:8px;">
+                            <div style="display:flex;justify-content:space-between;"><strong>LOT-2026-089</strong><span class="badge badge-success">45 tubos</span></div>
+                            <div style="font-size:0.8rem;color:var(--color-text-muted);">Ingreso: Feb 7, 2026 • Vence: Dic 2027</div>
+                        </div>
+                        <div style="padding:12px;background:var(--color-bg-tertiary);border-radius:8px;margin-bottom:8px;">
+                            <div style="display:flex;justify-content:space-between;"><strong>LOT-2026-045</strong><span class="badge">50 tubos</span></div>
+                            <div style="font-size:0.8rem;color:var(--color-text-muted);">Ingreso: Ene 15, 2026 • Vence: Sep 2027</div>
+                        </div>
+                        <div style="padding:12px;background:rgba(245,158,11,0.1);border-radius:8px;">
+                            <div style="display:flex;justify-content:space-between;"><strong>LOT-2025-089</strong><span class="badge badge-warning">8 tubos</span></div>
+                            <div style="font-size:0.8rem;color:#f59e0b;">⚠️ Vence en 45 días</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">📉 Consumo por Técnico (Mes)</h3></div>
+                    <div class="card-body">
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;color:white;font-size:0.8rem;">CR</div>
+                            <div style="flex:1;"><strong>Carlos R.</strong></div>
+                            <div><strong>28 tubos</strong></div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;color:white;font-size:0.8rem;">MS</div>
+                            <div style="flex:1;"><strong>María S.</strong></div>
+                            <div><strong>22 tubos</strong></div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;color:white;font-size:0.8rem;">JP</div>
+                            <div style="flex:1;"><strong>Juan P.</strong></div>
+                            <div><strong>18 tubos</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

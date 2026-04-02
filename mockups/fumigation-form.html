@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Fumigación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="fumigation-form.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="company-dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="#" class="nav-item active"><span class="nav-item-icon">🔫</span> Fumigaciones</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Locaciones</div>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏨</span> Hoteles</a>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏠</span> Casas</a>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏪</span> Negocios</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar">JL</div>
+                    <div class="user-info"><div class="user-name">Juan López</div><div class="user-role">Administrador</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="company-dashboard.html">Dashboard</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="#">Fumigaciones</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Nueva Fumigación</span>
+            </div>
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Nueva Fumigación</h1>
+                    <p class="page-subtitle">Programa una nueva fumigación para tus locaciones</p>
+                </div>
+            </div>
+            <div class="form-layout">
+                <div class="form-main">
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">📍 Locación</h3></div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Tipo de Locación <span class="required">*</span></label>
+                                    <select class="form-input form-select">
+                                        <option value="">Seleccionar tipo...</option>
+                                        <option value="hotel">🏨 Hotel</option>
+                                        <option value="casa">🏠 Casa</option>
+                                        <option value="negocio">🏪 Negocio</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Seleccionar Locación <span class="required">*</span></label>
+                                    <select class="form-input form-select">
+                                        <option value="">Seleccionar locación...</option>
+                                        <option value="1">Hotel Marriott Centro</option>
+                                        <option value="2">Hotel Hilton</option>
+                                        <option value="3">Hotel Fiesta Inn</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Áreas a Fumigar</label>
+                                <div class="checkbox-grid">
+                                    <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">Lobby Principal</span></label>
+                                    <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">Restaurante Buffet</span></label>
+                                    <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">Cocina Principal</span></label>
+                                    <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">Área de Piscina</span></label>
+                                    <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">Elevadores</span></label>
+                                    <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">Estacionamiento</span></label>
+                                    <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">Lavandería</span></label>
+                                    <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">Gimnasio</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-lg">
+                        <div class="card-header"><h3 class="card-title">🐛 Tipo de Plaga</h3></div>
+                        <div class="card-body">
+                            <div class="checkbox-grid cols-3">
+                                <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">🪳 Cucarachas</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🐀 Roedores</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🐜 Hormigas</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🦟 Mosquitos</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🕷️ Arañas</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🐝 Avispas</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🛏️ Chinches</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🎫 Garrapatas</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🪲 Termitas</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🦗 Pulgas</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🐌 Caracoles</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input"><span class="form-check-label">🦎 Alacranes</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-lg">
+                        <div class="card-header"><h3 class="card-title">💊 Tipo de Tratamiento</h3></div>
+                        <div class="card-body">
+                            <div class="radio-grid">
+                                <label class="radio-card"><input type="radio" name="treatment" checked><div class="radio-content"><span class="radio-icon">💨</span><strong>Aspersión</strong><p>Tratamiento líquido en spray</p></div></label>
+                                <label class="radio-card"><input type="radio" name="treatment"><div class="radio-content"><span class="radio-icon">🧴</span><strong>Gel</strong><p>Cebos en gel para plagas</p></div></label>
+                                <label class="radio-card"><input type="radio" name="treatment"><div class="radio-content"><span class="radio-icon">☁️</span><strong>Nebulización</strong><p>Tratamiento en niebla fina</p></div></label>
+                                <label class="radio-card"><input type="radio" name="treatment"><div class="radio-content"><span class="radio-icon">🧊</span><strong>Termonebulización</strong><p>Niebla con calor</p></div></label>
+                                <label class="radio-card"><input type="radio" name="treatment"><div class="radio-content"><span class="radio-icon">🪤</span><strong>Cebos</strong><p>Estaciones de cebo</p></div></label>
+                                <label class="radio-card"><input type="radio" name="treatment"><div class="radio-content"><span class="radio-icon">🏠</span><strong>Fumigación Total</strong><p>Tratamiento completo</p></div></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-lg">
+                        <div class="card-header"><h3 class="card-title">📝 Observaciones</h3></div>
+                        <div class="card-body">
+                            <textarea class="form-input form-textarea" placeholder="Agregar notas especiales, instrucciones para el agente, condiciones particulares..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-sidebar">
+                    <div class="card sticky-card">
+                        <div class="card-header"><h3 class="card-title">📅 Programación</h3></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Fecha <span class="required">*</span></label>
+                                <input type="date" class="form-input" value="2026-02-12">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Hora <span class="required">*</span></label>
+                                <input type="time" class="form-input" value="09:00">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Agente Asignado <span class="required">*</span></label>
+                                <select class="form-input form-select">
+                                    <option value="">Seleccionar agente...</option>
+                                    <option value="1">Carlos Ramírez</option>
+                                    <option value="2">María Sánchez</option>
+                                    <option value="3">Pedro Martínez</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Duración Estimada</label>
+                                <select class="form-input form-select">
+                                    <option value="1">1 hora</option>
+                                    <option value="2" selected>2 horas</option>
+                                    <option value="3">3 horas</option>
+                                    <option value="4">4 horas</option>
+                                    <option value="5">Medio día</option>
+                                    <option value="8">Día completo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-secondary w-full mb-sm">Guardar Borrador</button>
+                            <button class="btn btn-primary w-full">✓ Programar Fumigación</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

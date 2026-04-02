@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Mapa GPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="company-dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="#" class="nav-item active"><span class="nav-item-icon">🗺️</span> Mapa GPS</a>
+                    <a href="fumigation-form.html" class="nav-item"><span class="nav-item-icon">🔫</span> Fumigaciones</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Locaciones</div>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏨</span> Hoteles</a>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏠</span> Casas</a>
+                    <a href="locations.html" class="nav-item"><span class="nav-item-icon">🏪</span> Negocios</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="personnel.html" class="nav-item"><span class="nav-item-icon">👥</span> Personal</a>
+                    <a href="reports.html" class="nav-item"><span class="nav-item-icon">📈</span> Reportes</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar">JL</div>
+                    <div class="user-info"><div class="user-name">Juan López</div><div class="user-role">Administrador</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content map-page">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">🗺️ Mapa GPS en Tiempo Real</h1>
+                    <p class="page-subtitle">Ubicación de dispositivos, trampas, cebaderas y seguimiento de vehículos</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📥 Exportar Mapa</button>
+                    <button class="btn btn-primary">+ Agregar Dispositivo</button>
+                </div>
+            </div>
+            <div class="map-layout">
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <div class="map-grid">
+                            <!-- Simulated map with markers -->
+                            <div class="map-marker hotel" style="top: 20%; left: 30%;" title="Hotel Marriott">
+                                <span class="marker-icon">🏨</span>
+                                <span class="marker-pulse"></span>
+                            </div>
+                            <div class="map-marker hotel" style="top: 45%; left: 60%;" title="Hotel Hilton">
+                                <span class="marker-icon">🏨</span>
+                            </div>
+                            <div class="map-marker trap" style="top: 25%; left: 35%;" title="Cebadera C-001">
+                                <span class="marker-icon">🪤</span>
+                            </div>
+                            <div class="map-marker trap" style="top: 28%; left: 32%;" title="Cebadera C-002">
+                                <span class="marker-icon">🪤</span>
+                            </div>
+                            <div class="map-marker light-trap" style="top: 22%; left: 28%;" title="Trampa Luz T-001">
+                                <span class="marker-icon">💡</span>
+                            </div>
+                            <div class="map-marker vehicle moving" style="top: 35%; left: 45%;" title="Unidad 03 - Carlos R.">
+                                <span class="marker-icon">🚐</span>
+                                <span class="marker-pulse"></span>
+                            </div>
+                            <div class="map-marker vehicle" style="top: 50%; left: 25%;" title="Unidad 01 - María S.">
+                                <span class="marker-icon">🚐</span>
+                            </div>
+                            <div class="map-marker vehicle moving" style="top: 65%; left: 70%;" title="Unidad 02 - Pedro M.">
+                                <span class="marker-icon">🚐</span>
+                                <span class="marker-pulse"></span>
+                            </div>
+                            <div class="map-marker house" style="top: 55%; left: 40%;" title="Casa García">
+                                <span class="marker-icon">🏠</span>
+                            </div>
+                            <div class="map-marker business" style="top: 70%; left: 50%;" title="Rest. La Parilla">
+                                <span class="marker-icon">🏪</span>
+                            </div>
+                        </div>
+                        <div class="map-controls">
+                            <button class="map-control-btn">+</button>
+                            <button class="map-control-btn">−</button>
+                            <button class="map-control-btn">📍</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-sidebar">
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">🎯 Filtros</h3></div>
+                        <div class="card-body">
+                            <div class="filter-group">
+                                <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">🏨 Hoteles (12)</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">🏠 Casas (45)</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">🏪 Negocios (23)</span></label>
+                            </div>
+                            <div class="filter-divider"></div>
+                            <div class="filter-group">
+                                <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">🪤 Cebaderas (156)</span></label>
+                                <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">💡 Trampas Luz (48)</span></label>
+                            </div>
+                            <div class="filter-divider"></div>
+                            <div class="filter-group">
+                                <label class="form-check"><input type="checkbox" class="form-check-input" checked><span class="form-check-label">🚐 Vehículos (5)</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-lg">
+                        <div class="card-header"><h3 class="card-title">🚐 Vehículos en Ruta</h3></div>
+                        <div class="card-body">
+                            <div class="vehicle-list">
+                                <div class="vehicle-item online">
+                                    <div class="vehicle-status"><span class="status-dot online"></span></div>
+                                    <div class="vehicle-info">
+                                        <strong>Unidad 03</strong>
+                                        <p>Carlos Ramírez</p>
+                                        <span class="vehicle-location">📍 Rumbo a Hotel Marriott</span>
+                                    </div>
+                                    <div class="vehicle-speed">45 km/h</div>
+                                </div>
+                                <div class="vehicle-item online">
+                                    <div class="vehicle-status"><span class="status-dot online"></span></div>
+                                    <div class="vehicle-info">
+                                        <strong>Unidad 02</strong>
+                                        <p>Pedro Martínez</p>
+                                        <span class="vehicle-location">📍 En Casa García</span>
+                                    </div>
+                                    <div class="vehicle-speed">0 km/h</div>
+                                </div>
+                                <div class="vehicle-item offline">
+                                    <div class="vehicle-status"><span class="status-dot offline"></span></div>
+                                    <div class="vehicle-info">
+                                        <strong>Unidad 01</strong>
+                                        <p>María Sánchez</p>
+                                        <span class="vehicle-location">📍 Base</span>
+                                    </div>
+                                    <div class="vehicle-speed">--</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-lg">
+                        <div class="card-header"><h3 class="card-title">⚠️ Alertas</h3></div>
+                        <div class="card-body">
+                            <div class="alert-list">
+                                <div class="alert-item warning">
+                                    <span class="alert-icon">🪤</span>
+                                    <div class="alert-content">
+                                        <strong>Cebadera C-015</strong>
+                                        <p>Consumo detectado - Hotel Marriott</p>
+                                    </div>
+                                </div>
+                                <div class="alert-item danger">
+                                    <span class="alert-icon">💡</span>
+                                    <div class="alert-content">
+                                        <strong>Trampa T-008</strong>
+                                        <p>Sin señal hace 2 horas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

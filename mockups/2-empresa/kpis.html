@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - KPIs y Calidad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="kpis.html" class="nav-item active"><span class="nav-item-icon">📈</span> KPIs</a>
+                <a href="auditorias-internas.html" class="nav-item"><span class="nav-item-icon">✅</span> Auditorías</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📈 KPIs y Calidad</h1><p class="page-subtitle">Métricas operativas y comerciales para medir rendimiento</p></div>
+                <select class="form-input form-select" style="width:150px;"><option>Este mes</option><option>Últimos 3 meses</option><option>Este año</option></select>
+            </div>
+            <!-- KPIs Operativos -->
+            <h3 class="mb-md">🔧 KPIs Operativos</h3>
+            <div class="grid grid-5 mb-xl">
+                <div class="stat-card green"><div class="stat-value">94%</div><div class="stat-label">Cumplimiento Ruta</div><div style="font-size:0.75rem;color:#10b981;margin-top:4px;">↑ 3% vs mes anterior</div></div>
+                <div class="stat-card"><div class="stat-value">47 min</div><div class="stat-label">Tiempo Prom. en Sitio</div></div>
+                <div class="stat-card"><div class="stat-value">2.3%</div><div class="stat-label">% Re-visitas</div><div style="font-size:0.75rem;color:#10b981;margin-top:4px;">↓ Bajo</div></div>
+                <div class="stat-card yellow"><div class="stat-value">156</div><div class="stat-label">Hallazgos Totales</div></div>
+                <div class="stat-card"><div class="stat-value">98%</div><div class="stat-label">Reportes Completos</div></div>
+            </div>
+            <!-- KPIs Comerciales -->
+            <h3 class="mb-md">💰 KPIs Comerciales</h3>
+            <div class="grid grid-5 mb-xl">
+                <div class="stat-card green"><div class="stat-value">96%</div><div class="stat-label">Retención Clientes</div></div>
+                <div class="stat-card"><div class="stat-value">12</div><div class="stat-label">Upsells (Mes)</div></div>
+                <div class="stat-card"><div class="stat-value">$45,600</div><div class="stat-label">Servicios Extra</div></div>
+                <div class="stat-card"><div class="stat-value">32%</div><div class="stat-label">Margen Promedio</div></div>
+                <div class="stat-card"><div class="stat-value">4.8 ⭐</div><div class="stat-label">Satisfacción (NPS)</div></div>
+            </div>
+            <div class="grid grid-2 mb-lg">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">🏆 Ranking de Técnicos</h3></div>
+                    <div class="card-body">
+                        <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(16,185,129,0.1);border-radius:8px;margin-bottom:8px;">
+                            <span style="font-size:1.5rem;">🥇</span>
+                            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;color:white;">CR</div>
+                            <div style="flex:1;"><strong>Carlos Ramírez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">48 servicios • 98% cumplimiento • 0 re-visitas</div></div>
+                            <span class="badge badge-success">Excelente</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--color-bg-tertiary);border-radius:8px;margin-bottom:8px;">
+                            <span style="font-size:1.5rem;">🥈</span>
+                            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;color:white;">MS</div>
+                            <div style="flex:1;"><strong>María Sánchez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">42 servicios • 95% cumplimiento • 1 re-visita</div></div>
+                            <span class="badge badge-success">Excelente</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--color-bg-tertiary);border-radius:8px;">
+                            <span style="font-size:1.5rem;">🥉</span>
+                            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;color:white;">JP</div>
+                            <div style="flex:1;"><strong>Juan Pérez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">38 servicios • 91% cumplimiento • 3 re-visitas</div></div>
+                            <span class="badge badge-warning">Mejorar</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">🐛 Hallazgos por Tipo</h3></div>
+                    <div class="card-body">
+                        <div style="margin-bottom:12px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🪳 Cucarachas</span><strong>45 (29%)</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:8px;border-radius:4px;"><div style="background:#10b981;height:100%;width:29%;border-radius:4px;"></div></div>
+                        </div>
+                        <div style="margin-bottom:12px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🐀 Roedores</span><strong>38 (24%)</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:8px;border-radius:4px;"><div style="background:#3b82f6;height:100%;width:24%;border-radius:4px;"></div></div>
+                        </div>
+                        <div style="margin-bottom:12px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🐜 Hormigas</span><strong>32 (21%)</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:8px;border-radius:4px;"><div style="background:#f59e0b;height:100%;width:21%;border-radius:4px;"></div></div>
+                        </div>
+                        <div style="margin-bottom:12px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🪰 Moscas</span><strong>25 (16%)</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:8px;border-radius:4px;"><div style="background:#8b5cf6;height:100%;width:16%;border-radius:4px;"></div></div>
+                        </div>
+                        <div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>🦟 Otros</span><strong>16 (10%)</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:8px;border-radius:4px;"><div style="background:#6b7280;height:100%;width:10%;border-radius:4px;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

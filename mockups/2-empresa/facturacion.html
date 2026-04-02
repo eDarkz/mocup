@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Facturación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="facturacion.html" class="nav-item active"><span class="nav-item-icon">💳</span> Facturación</a>
+                <a href="cuentas-cobrar.html" class="nav-item"><span class="nav-item-icon">💰</span> Cuentas x Cobrar</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">💳 Facturación</h1><p class="page-subtitle">Generación de facturas y control de ingresos</p></div>
+                <button class="btn btn-primary">+ Nueva Factura</button>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card green"><div class="stat-value">$485,200</div><div class="stat-label">Facturado (Feb)</div></div>
+                <div class="stat-card"><div class="stat-value">$380,500</div><div class="stat-label">Cobrado</div></div>
+                <div class="stat-card" style="border-color:#f59e0b;"><div class="stat-value" style="color:#f59e0b;">$104,700</div><div class="stat-label">Pendiente</div></div>
+                <div class="stat-card"><div class="stat-value">47</div><div class="stat-label">Facturas Emitidas</div></div>
+            </div>
+            <div class="tabs mb-lg">
+                <button class="tab active">Todas</button>
+                <button class="tab">Pagadas</button>
+                <button class="tab">Pendientes</button>
+                <button class="tab">Vencidas</button>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Factura</th><th>Cliente</th><th>Concepto</th><th>Fecha</th><th>Monto</th><th>Estado</th><th>Acciones</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>FAC-2026-0234</strong></td>
+                                <td>Hotel Marriott Reforma</td>
+                                <td>Fumigación semanal - Febrero W1</td>
+                                <td>Feb 7, 2026</td>
+                                <td>$12,500.00</td>
+                                <td><span class="badge badge-success">Pagada</span></td>
+                                <td><button class="btn btn-ghost btn-sm">📄 Ver</button><button class="btn btn-ghost btn-sm">📥 XML</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>FAC-2026-0233</strong></td>
+                                <td>Hilton Santa Fe</td>
+                                <td>Servicio mensual + inspección</td>
+                                <td>Feb 5, 2026</td>
+                                <td>$28,400.00</td>
+                                <td><span class="badge badge-warning">Pendiente</span></td>
+                                <td><button class="btn btn-ghost btn-sm">📄 Ver</button><button class="btn btn-primary btn-sm">💳 Registrar Pago</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>FAC-2026-0230</strong></td>
+                                <td>Restaurante El Sol</td>
+                                <td>Fumigación mensual</td>
+                                <td>Ene 28, 2026</td>
+                                <td>$4,800.00</td>
+                                <td><span class="badge badge-danger">Vencida (10d)</span></td>
+                                <td><button class="btn btn-ghost btn-sm">📄 Ver</button><button class="btn btn-warning btn-sm">📧 Recordar</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>FAC-2026-0228</strong></td>
+                                <td>Westin Reforma</td>
+                                <td>Contrato trimestral</td>
+                                <td>Ene 25, 2026</td>
+                                <td>$45,000.00</td>
+                                <td><span class="badge badge-success">Pagada</span></td>
+                                <td><button class="btn btn-ghost btn-sm">📄 Ver</button><button class="btn btn-ghost btn-sm">📥 XML</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

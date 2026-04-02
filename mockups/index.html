@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Navegador de Mockups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .mockup-home {
+            min-height: 100vh;
+            padding: 60px 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        .stats-bar .stat {
+            text-align: center;
+        }
+        .stats-bar .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-accent-primary);
+        }
+        .stats-bar .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+        .architecture-section {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+        .architecture-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .architecture-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .arch-level {
+            background: var(--color-bg-tertiary);
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+            min-width: 180px;
+            transition: all 0.3s;
+        }
+        .arch-level:hover {
+            border-color: var(--color-accent-primary);
+            transform: translateY(-4px);
+        }
+        .arch-level-num {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-accent-primary);
+            margin-bottom: 4px;
+        }
+        .arch-level-name {
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .arch-level-desc {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+        .arch-arrow {
+            font-size: 1.5rem;
+            color: var(--color-text-muted);
+        }
+        .level-section {
+            margin-bottom: 48px;
+        }
+        .level-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--color-border);
+        }
+        .level-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+        .level-icon.l1 { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
+        .level-icon.l2 { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .level-icon.l3 { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .level-icon.l4 { background: linear-gradient(135deg, #10b981, #059669); }
+        .level-icon.l5 { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .level-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .level-subtitle {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+        .level-count {
+            margin-left: auto;
+            background: var(--color-bg-tertiary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        .mockup-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .mockup-card:hover {
+            border-color: var(--color-accent-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+        }
+        .mockup-icon {
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+        }
+        .mockup-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .mockup-desc {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            flex: 1;
+        }
+        .mockup-badge {
+            margin-top: 10px;
+            font-size: 0.65rem;
+            padding: 3px 6px;
+            background: var(--color-bg-tertiary);
+            border-radius: 4px;
+            color: var(--color-text-muted);
+            align-self: flex-start;
+        }
+        .mockup-badge.new {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+        }
+        @media (max-width: 768px) {
+            .architecture-flow {
+                flex-direction: column;
+            }
+            .arch-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-home">
+        <div class="hero-section">
+            <div class="hero-icon">🛡️</div>
+            <h1 class="hero-title">FumiControl SaaS</h1>
+            <p class="hero-subtitle">Sistema completo de gestión para empresas de control de plagas. Explora los mockups organizados por nivel de usuario.</p>
+            <div class="stats-bar">
+                <div class="stat"><div class="stat-value">68</div><div class="stat-label">Mockups Totales</div></div>
+                <div class="stat"><div class="stat-value">5</div><div class="stat-label">Niveles de Usuario</div></div>
+                <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Funcionalidades</div></div>
+            </div>
+        </div>
+
+        <div class="architecture-section">
+            <h2 class="architecture-title">🏗️ Arquitectura del Sistema - 5 Niveles de Usuario</h2>
+            <div class="architecture-flow">
+                <div class="arch-level">
+                    <div class="arch-level-num">NIVEL 1</div>
+                    <div class="arch-level-name">🏛️ SaaS Admin</div>
+                    <div class="arch-level-desc">Super Administrador</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-level">
+                    <div class="arch-level-num">NIVEL 2</div>
+                    <div class="arch-level-name">🏢 Empresa</div>
+                    <div class="arch-level-desc">Admin Fumigadora</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-level">
+                    <div class="arch-level-num">NIVEL 3</div>
+                    <div class="arch-level-name">👔 Supervisión</div>
+                    <div class="arch-level-desc">Coordinadores</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-level">
+                    <div class="arch-level-num">NIVEL 4</div>
+                    <div class="arch-level-name">👷 Operativo</div>
+                    <div class="arch-level-desc">Técnicos Campo</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-level">
+                    <div class="arch-level-num">NIVEL 5</div>
+                    <div class="arch-level-name">🏨 Cliente</div>
+                    <div class="arch-level-desc">Portal Cliente</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NIVEL 1: SaaS Admin -->
+        <section class="level-section">
+            <div class="level-header">
+                <div class="level-icon l1">🏛️</div>
+                <div>
+                    <h2 class="level-title">Nivel 1: Administración SaaS</h2>
+                    <p class="level-subtitle">Panel del super administrador del sistema FumiControl</p>
+                </div>
+                <div class="level-count">18 mockups</div>
+            </div>
+            <div class="mockup-grid">
+                <a href="1-saas/dashboard.html" class="mockup-card">
+                    <div class="mockup-icon">📊</div>
+                    <div class="mockup-name">Dashboard Global</div>
+                    <div class="mockup-desc">Métricas globales, ingresos, empresas activas</div>
+                </a>
+                <a href="1-saas/empresas.html" class="mockup-card">
+                    <div class="mockup-icon">🏢</div>
+                    <div class="mockup-name">Gestión de Empresas</div>
+                    <div class="mockup-desc">Lista de tenants, planes y estados</div>
+                </a>
+                <a href="1-saas/suscripciones.html" class="mockup-card">
+                    <div class="mockup-icon">💳</div>
+                    <div class="mockup-name">Planes y Suscripciones</div>
+                    <div class="mockup-desc">Gestión de planes y precios</div>
+                </a>
+                <a href="1-saas/billing.html" class="mockup-card">
+                    <div class="mockup-icon">💰</div>
+                    <div class="mockup-name">Billing</div>
+                    <div class="mockup-desc">Facturación y cobros</div>
+                </a>
+                <a href="1-saas/cupones.html" class="mockup-card">
+                    <div class="mockup-icon">🎟️</div>
+                    <div class="mockup-name">Cupones</div>
+                    <div class="mockup-desc">Códigos de descuento y promociones</div>
+                </a>
+                <a href="1-saas/impersonacion.html" class="mockup-card">
+                    <div class="mockup-icon">👤</div>
+                    <div class="mockup-name">Impersonación</div>
+                    <div class="mockup-desc">Acceder como otro usuario</div>
+                    <span class="mockup-badge new">Seguro</span>
+                </a>
+                <a href="1-saas/feature-flags.html" class="mockup-card">
+                    <div class="mockup-icon">🚩</div>
+                    <div class="mockup-name">Feature Flags</div>
+                    <div class="mockup-desc">Control de características por tenant</div>
+                </a>
+                <a href="1-saas/health-tenants.html" class="mockup-card">
+                    <div class="mockup-icon">❤️</div>
+                    <div class="mockup-name">Health de Tenants</div>
+                    <div class="mockup-desc">Estado de salud por empresa</div>
+                </a>
+                <a href="1-saas/auditoria.html" class="mockup-card">
+                    <div class="mockup-icon">📜</div>
+                    <div class="mockup-name">Auditoría Global</div>
+                    <div class="mockup-desc">Log de todas las acciones</div>
+                </a>
+                <a href="1-saas/backups.html" class="mockup-card">
+                    <div class="mockup-icon">💾</div>
+                    <div class="mockup-name">Backups & GDPR</div>
+                    <div class="mockup-desc">Respaldos y exportación de datos</div>
+                </a>
+                <a href="1-saas/soporte.html" class="mockup-card">
+                    <div class="mockup-icon">🎧</div>
+                    <div class="mockup-name">Soporte Técnico</div>
+                    <div class="mockup-desc">Sistema de tickets</div>
+                </a>
+                <a href="1-saas/base-conocimiento.html" class="mockup-card">
+                    <div class="mockup-icon">📚</div>
+                    <div class="mockup-name">Base de Conocimiento</div>
+                    <div class="mockup-desc">Artículos y documentación</div>
+                </a>
+                <a href="1-saas/status-page.html" class="mockup-card">
+                    <div class="mockup-icon">🟢</div>
+                    <div class="mockup-name">Status Page</div>
+                    <div class="mockup-desc">Estado del sistema e incidentes</div>
+                </a>
+                <a href="1-saas/roles-internos.html" class="mockup-card">
+                    <div class="mockup-icon">🔐</div>
+                    <div class="mockup-name">Roles Internos</div>
+                    <div class="mockup-desc">Permisos del equipo SaaS</div>
+                </a>
+                <a href="1-saas/white-label.html" class="mockup-card">
+                    <div class="mockup-icon">🎨</div>
+                    <div class="mockup-name">White Label</div>
+                    <div class="mockup-desc">Personalización de marca</div>
+                </a>
+                <a href="1-saas/alertas-seguridad.html" class="mockup-card">
+                    <div class="mockup-icon">🚨</div>
+                    <div class="mockup-name">Alertas de Seguridad</div>
+                    <div class="mockup-desc">Monitoreo de seguridad</div>
+                </a>
+                <a href="1-saas/vista-tiempo-real.html" class="mockup-card">
+                    <div class="mockup-icon">👁️</div>
+                    <div class="mockup-name">Vista en Tiempo Real</div>
+                    <div class="mockup-desc">Monitor de actividad live</div>
+                    <span class="mockup-badge new">Live</span>
+                </a>
+                <a href="1-saas/monitor-multivista.html" class="mockup-card">
+                    <div class="mockup-icon">📺</div>
+                    <div class="mockup-name">Monitor Multi-Vista</div>
+                    <div class="mockup-desc">Múltiples usuarios simultáneos</div>
+                    <span class="mockup-badge new">Live</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- NIVEL 2: Empresa -->
+        <section class="level-section">
+            <div class="level-header">
+                <div class="level-icon l2">🏢</div>
+                <div>
+                    <h2 class="level-title">Nivel 2: Empresa de Fumigación</h2>
+                    <p class="level-subtitle">Panel del administrador de la empresa de control de plagas</p>
+                </div>
+                <div class="level-count">23 mockups</div>
+            </div>
+            <div class="mockup-grid">
+                <a href="2-empresa/dashboard.html" class="mockup-card">
+                    <div class="mockup-icon">📊</div>
+                    <div class="mockup-name">Dashboard Empresa</div>
+                    <div class="mockup-desc">Resumen de operaciones y alertas</div>
+                </a>
+                <a href="2-empresa/clientes.html" class="mockup-card">
+                    <div class="mockup-icon">🤝</div>
+                    <div class="mockup-name">Clientes</div>
+                    <div class="mockup-desc">Gestión de clientes y sitios</div>
+                </a>
+                <a href="2-empresa/calendario.html" class="mockup-card">
+                    <div class="mockup-icon">📅</div>
+                    <div class="mockup-name">Calendario</div>
+                    <div class="mockup-desc">Agenda de servicios</div>
+                </a>
+                <a href="2-empresa/rutas.html" class="mockup-card">
+                    <div class="mockup-icon">🗺️</div>
+                    <div class="mockup-name">Optimización de Rutas</div>
+                    <div class="mockup-desc">Rutas inteligentes GPS</div>
+                </a>
+                <a href="2-empresa/cotizaciones.html" class="mockup-card">
+                    <div class="mockup-icon">📋</div>
+                    <div class="mockup-name">Cotizaciones</div>
+                    <div class="mockup-desc">Propuestas comerciales</div>
+                </a>
+                <a href="2-empresa/contratos.html" class="mockup-card">
+                    <div class="mockup-icon">📄</div>
+                    <div class="mockup-name">Contratos</div>
+                    <div class="mockup-desc">Gestión de contratos activos</div>
+                </a>
+                <a href="2-empresa/ordenes-servicio.html" class="mockup-card">
+                    <div class="mockup-icon">📝</div>
+                    <div class="mockup-name">Órdenes de Servicio</div>
+                    <div class="mockup-desc">Work orders y emergencias</div>
+                </a>
+                <a href="2-empresa/catalogo-plagas.html" class="mockup-card">
+                    <div class="mockup-icon">🐛</div>
+                    <div class="mockup-name">Catálogo de Plagas</div>
+                    <div class="mockup-desc">Especies y protocolos</div>
+                </a>
+                <a href="2-empresa/catalogo-quimicos.html" class="mockup-card">
+                    <div class="mockup-icon">🧪</div>
+                    <div class="mockup-name">Catálogo de Químicos</div>
+                    <div class="mockup-desc">Productos y fichas SDS</div>
+                </a>
+                <a href="2-empresa/checklists.html" class="mockup-card">
+                    <div class="mockup-icon">✅</div>
+                    <div class="mockup-name">Checklists</div>
+                    <div class="mockup-desc">Listas de verificación</div>
+                </a>
+                <a href="2-empresa/estaciones.html" class="mockup-card">
+                    <div class="mockup-icon">📍</div>
+                    <div class="mockup-name">Control de Estaciones</div>
+                    <div class="mockup-desc">Mapa de dispositivos</div>
+                </a>
+                <a href="2-empresa/inventario.html" class="mockup-card">
+                    <div class="mockup-icon">📦</div>
+                    <div class="mockup-name">Inventario</div>
+                    <div class="mockup-desc">Stock y productos</div>
+                </a>
+                <a href="2-empresa/kardex.html" class="mockup-card">
+                    <div class="mockup-icon">📒</div>
+                    <div class="mockup-name">Kardex</div>
+                    <div class="mockup-desc">Movimientos y lotes</div>
+                </a>
+                <a href="2-empresa/tecnicos.html" class="mockup-card">
+                    <div class="mockup-icon">👷</div>
+                    <div class="mockup-name">Técnicos</div>
+                    <div class="mockup-desc">Equipo y certificaciones</div>
+                </a>
+                <a href="2-empresa/vehiculos.html" class="mockup-card">
+                    <div class="mockup-icon">🚐</div>
+                    <div class="mockup-name">Flota de Vehículos</div>
+                    <div class="mockup-desc">Unidades y GPS</div>
+                </a>
+                <a href="2-empresa/kpis.html" class="mockup-card">
+                    <div class="mockup-icon">📈</div>
+                    <div class="mockup-name">KPIs</div>
+                    <div class="mockup-desc">Indicadores operativos</div>
+                </a>
+                <a href="2-empresa/reportes.html" class="mockup-card">
+                    <div class="mockup-icon">📊</div>
+                    <div class="mockup-name">Generador de Reportes</div>
+                    <div class="mockup-desc">Reportes COFEPRIS y más</div>
+                </a>
+                <a href="2-empresa/plantillas-pdf.html" class="mockup-card">
+                    <div class="mockup-icon">📄</div>
+                    <div class="mockup-name">Plantillas PDF</div>
+                    <div class="mockup-desc">Documentos personalizados</div>
+                </a>
+                <a href="2-empresa/portal-clientes.html" class="mockup-card">
+                    <div class="mockup-icon">🌐</div>
+                    <div class="mockup-name">Portal Clientes</div>
+                    <div class="mockup-desc">Acceso para clientes</div>
+                </a>
+                <a href="2-empresa/satisfaccion.html" class="mockup-card">
+                    <div class="mockup-icon">⭐</div>
+                    <div class="mockup-name">Satisfacción</div>
+                    <div class="mockup-desc">NPS y encuestas</div>
+                </a>
+                <a href="2-empresa/facturacion.html" class="mockup-card">
+                    <div class="mockup-icon">💳</div>
+                    <div class="mockup-name">Facturación</div>
+                    <div class="mockup-desc">Emisión de facturas</div>
+                </a>
+                <a href="2-empresa/cuentas-cobrar.html" class="mockup-card">
+                    <div class="mockup-icon">💰</div>
+                    <div class="mockup-name">Cuentas por Cobrar</div>
+                    <div class="mockup-desc">Seguimiento de pagos</div>
+                </a>
+                <a href="2-empresa/configuracion.html" class="mockup-card">
+                    <div class="mockup-icon">⚙️</div>
+                    <div class="mockup-name">Configuración</div>
+                    <div class="mockup-desc">Datos y branding</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- NIVEL 3: Supervisión -->
+        <section class="level-section">
+            <div class="level-header">
+                <div class="level-icon l3">👔</div>
+                <div>
+                    <h2 class="level-title">Nivel 3: Supervisión</h2>
+                    <p class="level-subtitle">Panel para supervisores y coordinadores de equipos</p>
+                </div>
+                <div class="level-count">9 mockups</div>
+            </div>
+            <div class="mockup-grid">
+                <a href="3-supervision/dashboard.html" class="mockup-card">
+                    <div class="mockup-icon">📊</div>
+                    <div class="mockup-name">Dashboard Supervisor</div>
+                    <div class="mockup-desc">Vista del equipo y alertas</div>
+                </a>
+                <a href="3-supervision/mapa-tiempo-real.html" class="mockup-card">
+                    <div class="mockup-icon">🗺️</div>
+                    <div class="mockup-name">Mapa en Tiempo Real</div>
+                    <div class="mockup-desc">GPS de técnicos en campo</div>
+                    <span class="mockup-badge new">Live</span>
+                </a>
+                <a href="3-supervision/asignacion.html" class="mockup-card">
+                    <div class="mockup-icon">👥</div>
+                    <div class="mockup-name">Asignación Kanban</div>
+                    <div class="mockup-desc">Drag & drop de servicios</div>
+                </a>
+                <a href="3-supervision/asignaciones.html" class="mockup-card">
+                    <div class="mockup-icon">📋</div>
+                    <div class="mockup-name">Lista de Asignaciones</div>
+                    <div class="mockup-desc">Todas las asignaciones</div>
+                </a>
+                <a href="3-supervision/revision-servicios.html" class="mockup-card">
+                    <div class="mockup-icon">✅</div>
+                    <div class="mockup-name">Revisión de Servicios</div>
+                    <div class="mockup-desc">Validar reportes y fotos</div>
+                </a>
+                <a href="3-supervision/aprobaciones.html" class="mockup-card">
+                    <div class="mockup-icon">✔️</div>
+                    <div class="mockup-name">Aprobaciones</div>
+                    <div class="mockup-desc">Aprobar solicitudes</div>
+                </a>
+                <a href="3-supervision/alertas-campo.html" class="mockup-card">
+                    <div class="mockup-icon">🚨</div>
+                    <div class="mockup-name">Alertas de Campo</div>
+                    <div class="mockup-desc">Retrasos y problemas</div>
+                </a>
+                <a href="3-supervision/comunicacion.html" class="mockup-card">
+                    <div class="mockup-icon">💬</div>
+                    <div class="mockup-name">Comunicación</div>
+                    <div class="mockup-desc">Chat con técnicos</div>
+                </a>
+                <a href="3-supervision/rendimiento.html" class="mockup-card">
+                    <div class="mockup-icon">📈</div>
+                    <div class="mockup-name">Rendimiento</div>
+                    <div class="mockup-desc">Métricas de técnicos</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- NIVEL 4: Operativo -->
+        <section class="level-section">
+            <div class="level-header">
+                <div class="level-icon l4">👷</div>
+                <div>
+                    <h2 class="level-title">Nivel 4: Personal Operativo</h2>
+                    <p class="level-subtitle">App móvil para técnicos y agentes de campo</p>
+                </div>
+                <div class="level-count">9 mockups</div>
+            </div>
+            <div class="mockup-grid">
+                <a href="4-operativo/inicio.html" class="mockup-card">
+                    <div class="mockup-icon">🏠</div>
+                    <div class="mockup-name">Mi Día</div>
+                    <div class="mockup-desc">Lista de tareas del día</div>
+                </a>
+                <a href="4-operativo/check-in.html" class="mockup-card">
+                    <div class="mockup-icon">📍</div>
+                    <div class="mockup-name">Check-in GPS</div>
+                    <div class="mockup-desc">Validación de llegada</div>
+                </a>
+                <a href="4-operativo/navegacion.html" class="mockup-card">
+                    <div class="mockup-icon">🗺️</div>
+                    <div class="mockup-name">Navegación</div>
+                    <div class="mockup-desc">Integración con mapas</div>
+                </a>
+                <a href="4-operativo/fumigacion.html" class="mockup-card">
+                    <div class="mockup-icon">📝</div>
+                    <div class="mockup-name">Registrar Fumigación</div>
+                    <div class="mockup-desc">Formulario de servicio</div>
+                </a>
+                <a href="4-operativo/escaneo-qr.html" class="mockup-card">
+                    <div class="mockup-icon">📱</div>
+                    <div class="mockup-name">Escaneo QR</div>
+                    <div class="mockup-desc">Escanear estaciones</div>
+                </a>
+                <a href="4-operativo/reportar-hallazgo.html" class="mockup-card">
+                    <div class="mockup-icon">🐛</div>
+                    <div class="mockup-name">Reportar Hallazgo</div>
+                    <div class="mockup-desc">Documentar plagas</div>
+                </a>
+                <a href="4-operativo/firma.html" class="mockup-card">
+                    <div class="mockup-icon">✍️</div>
+                    <div class="mockup-name">Firma Digital</div>
+                    <div class="mockup-desc">Firma de cliente</div>
+                </a>
+                <a href="4-operativo/modo-offline.html" class="mockup-card">
+                    <div class="mockup-icon">📵</div>
+                    <div class="mockup-name">Modo Offline</div>
+                    <div class="mockup-desc">Trabajo sin conexión</div>
+                </a>
+                <a href="4-operativo/perfil.html" class="mockup-card">
+                    <div class="mockup-icon">👤</div>
+                    <div class="mockup-name">Mi Perfil</div>
+                    <div class="mockup-desc">Datos y configuración</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- NIVEL 5: Cliente Final -->
+        <section class="level-section">
+            <div class="level-header">
+                <div class="level-icon l5">🏨</div>
+                <div>
+                    <h2 class="level-title">Nivel 5: Portal del Cliente</h2>
+                    <p class="level-subtitle">Acceso para hoteles, casas y negocios contratantes</p>
+                </div>
+                <div class="level-count">9 mockups</div>
+            </div>
+            <div class="mockup-grid">
+                <a href="5-cliente-final/dashboard.html" class="mockup-card">
+                    <div class="mockup-icon">📊</div>
+                    <div class="mockup-name">Mi Dashboard</div>
+                    <div class="mockup-desc">Vista general del servicio</div>
+                </a>
+                <a href="5-cliente-final/calendario-cliente.html" class="mockup-card">
+                    <div class="mockup-icon">📅</div>
+                    <div class="mockup-name">Calendario</div>
+                    <div class="mockup-desc">Próximas visitas</div>
+                </a>
+                <a href="5-cliente-final/historial.html" class="mockup-card">
+                    <div class="mockup-icon">📜</div>
+                    <div class="mockup-name">Historial</div>
+                    <div class="mockup-desc">Servicios realizados</div>
+                </a>
+                <a href="5-cliente-final/tendencias.html" class="mockup-card">
+                    <div class="mockup-icon">📈</div>
+                    <div class="mockup-name">Tendencias</div>
+                    <div class="mockup-desc">Análisis por zona/plaga</div>
+                </a>
+                <a href="5-cliente-final/mapa-estaciones.html" class="mockup-card">
+                    <div class="mockup-icon">🗺️</div>
+                    <div class="mockup-name">Mapa de Estaciones</div>
+                    <div class="mockup-desc">Ubicación de dispositivos</div>
+                </a>
+                <a href="5-cliente-final/solicitar.html" class="mockup-card">
+                    <div class="mockup-icon">📞</div>
+                    <div class="mockup-name">Solicitar Servicio</div>
+                    <div class="mockup-desc">Pedir extra o emergencia</div>
+                </a>
+                <a href="5-cliente-final/certificados.html" class="mockup-card">
+                    <div class="mockup-icon">📜</div>
+                    <div class="mockup-name">Certificados</div>
+                    <div class="mockup-desc">Descargar para auditorías</div>
+                </a>
+                <a href="5-cliente-final/comunicacion-cliente.html" class="mockup-card">
+                    <div class="mockup-icon">📬</div>
+                    <div class="mockup-name">Comunicación</div>
+                    <div class="mockup-desc">Notificaciones y contacto</div>
+                </a>
+                <a href="5-cliente-final/encuesta.html" class="mockup-card">
+                    <div class="mockup-icon">⭐</div>
+                    <div class="mockup-name">Encuesta</div>
+                    <div class="mockup-desc">Evaluación NPS</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Pantallas Base -->
+        <section class="level-section">
+            <div class="level-header">
+                <div class="level-icon" style="background: linear-gradient(135deg, #64748b, #475569);">⚙️</div>
+                <div>
+                    <h2 class="level-title">Pantallas Base</h2>
+                    <p class="level-subtitle">Login y componentes compartidos</p>
+                </div>
+            </div>
+            <div class="mockup-grid">
+                <a href="login.html" class="mockup-card">
+                    <div class="mockup-icon">🔐</div>
+                    <div class="mockup-name">Login</div>
+                    <div class="mockup-desc">Inicio de sesión multi-nivel</div>
+                </a>
+                <a href="hotel-detail.html" class="mockup-card">
+                    <div class="mockup-icon">🏨</div>
+                    <div class="mockup-name">Detalle Hotel</div>
+                    <div class="mockup-desc">Vista detallada de locación</div>
+                </a>
+                <a href="locations.html" class="mockup-card">
+                    <div class="mockup-icon">📍</div>
+                    <div class="mockup-name">Locaciones</div>
+                    <div class="mockup-desc">Lista de sitios</div>
+                </a>
+                <a href="fumigation-form.html" class="mockup-card">
+                    <div class="mockup-icon">📋</div>
+                    <div class="mockup-name">Formulario Fumigación</div>
+                    <div class="mockup-desc">Versión desktop</div>
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

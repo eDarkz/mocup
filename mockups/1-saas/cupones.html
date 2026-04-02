@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Cupones y Trials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <a href="billing.html" class="nav-item"><span class="nav-item-icon">💳</span> Billing</a>
+                <a href="cupones.html" class="nav-item active"><span class="nav-item-icon">🎟️</span> Cupones</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🎟️ Cupones y Trials</h1><p class="page-subtitle">Gestión de descuentos, pruebas gratuitas y promociones</p></div>
+                <button class="btn btn-primary">+ Nuevo Cupón</button>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card"><div class="stat-value">12</div><div class="stat-label">Cupones Activos</div></div>
+                <div class="stat-card"><div class="stat-value">156</div><div class="stat-label">Usos Este Mes</div></div>
+                <div class="stat-card green"><div class="stat-value">$8,450</div><div class="stat-label">Valor Canjeado</div></div>
+                <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">Trials Activos</div></div>
+            </div>
+            <div class="card mb-lg">
+                <div class="card-header"><h3 class="card-title">🎟️ Cupones Activos</h3></div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Código</th><th>Descuento</th><th>Aplica a</th><th>Usos</th><th>Vigencia</th><th>Estado</th><th></th></tr></thead>
+                        <tbody>
+                            <tr><td><code style="background:var(--color-bg-tertiary);padding:4px 8px;border-radius:4px;">BLACKFRIDAY30</code></td><td>30%</td><td>Todos los planes</td><td>45/100</td><td>Nov 20 - Dic 1</td><td><span class="badge badge-success">Activo</span></td><td><button class="btn btn-ghost btn-sm">Editar</button></td></tr>
+                            <tr><td><code style="background:var(--color-bg-tertiary);padding:4px 8px;border-radius:4px;">PARTNER2026</code></td><td>20%</td><td>Enterprise</td><td>12/∞</td><td>Permanente</td><td><span class="badge badge-success">Activo</span></td><td><button class="btn btn-ghost btn-sm">Editar</button></td></tr>
+                            <tr><td><code style="background:var(--color-bg-tertiary);padding:4px 8px;border-radius:4px;">FIRST3FREE</code></td><td>3 meses gratis</td><td>Starter</td><td>23/50</td><td>Ene - Mar 2026</td><td><span class="badge badge-success">Activo</span></td><td><button class="btn btn-ghost btn-sm">Editar</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">🆓 Trials Activos</h3></div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Empresa</th><th>Plan Trial</th><th>Inicio</th><th>Días Restantes</th><th>Actividad</th><th>Probabilidad Conversión</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>FumiPro CDMX</strong></td><td>Professional</td><td>Feb 1</td><td>7 días</td><td><span class="badge badge-success">Alta</span></td><td><div style="background:var(--color-bg-tertiary);border-radius:4px;height:8px;width:100px;"><div style="background:#10b981;height:100%;width:85%;border-radius:4px;"></div></div> 85%</td></tr>
+                            <tr><td><strong>Exterminadores GDL</strong></td><td>Starter</td><td>Feb 3</td><td>9 días</td><td><span class="badge badge-warning">Media</span></td><td><div style="background:var(--color-bg-tertiary);border-radius:4px;height:8px;width:100px;"><div style="background:#f59e0b;height:100%;width:45%;border-radius:4px;"></div></div> 45%</td></tr>
+                            <tr><td><strong>Control MTY</strong></td><td>Professional</td><td>Feb 5</td><td>11 días</td><td><span class="badge badge-danger">Baja</span></td><td><div style="background:var(--color-bg-tertiary);border-radius:4px;height:8px;width:100px;"><div style="background:#ef4444;height:100%;width:15%;border-radius:4px;"></div></div> 15%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

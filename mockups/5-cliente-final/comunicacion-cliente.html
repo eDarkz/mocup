@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Portal Cliente: Comunicación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .notification-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+        .notification-card.unread { border-left: 4px solid var(--color-accent-primary); background: rgba(59,130,246,0.05); }
+        .notification-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .notification-icon.service { background: rgba(16,185,129,0.2); }
+        .notification-icon.alert { background: rgba(245,158,11,0.2); }
+        .notification-icon.info { background: rgba(59,130,246,0.2); }
+        .notification-icon.report { background: rgba(139,92,246,0.2); }
+        .quick-contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .contact-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 20px; text-align: center; cursor: pointer; }
+        .contact-card:hover { border-color: var(--color-accent-primary); }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏨</span> Hotel Marriott</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="comunicacion-cliente.html" class="nav-item active"><span class="nav-item-icon">📬</span> Comunicación</a>
+                <a href="encuesta.html" class="nav-item"><span class="nav-item-icon">⭐</span> Encuestas</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📬 Centro de Comunicación</h1><p class="page-subtitle">Notificaciones, recordatorios y contacto directo</p></div>
+            </div>
+            <h3 class="mb-md">📞 Contacto Rápido</h3>
+            <div class="quick-contact mb-xl">
+                <div class="contact-card">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">🚨</div>
+                    <strong>Emergencia</strong>
+                    <div style="font-size:0.85rem;color:var(--color-text-muted);margin-top:4px;">Plaga urgente 24/7</div>
+                    <button class="btn btn-danger btn-sm mt-md">📞 Llamar ahora</button>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">💬</div>
+                    <strong>Soporte</strong>
+                    <div style="font-size:0.85rem;color:var(--color-text-muted);margin-top:4px;">Dudas y consultas</div>
+                    <button class="btn btn-primary btn-sm mt-md">Enviar mensaje</button>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">📅</div>
+                    <strong>Reprogramar</strong>
+                    <div style="font-size:0.85rem;color:var(--color-text-muted);margin-top:4px;">Cambiar fecha visita</div>
+                    <button class="btn btn-secondary btn-sm mt-md">Solicitar</button>
+                </div>
+            </div>
+            <h3 class="mb-md">🔔 Notificaciones Recientes</h3>
+            <div class="notification-card unread">
+                <div class="notification-icon service">✅</div>
+                <div style="flex:1;">
+                    <div style="display:flex;justify-content:space-between;"><strong>Servicio Completado</strong><span style="font-size:0.8rem;color:var(--color-text-muted);">Hoy, 10:45 AM</span></div>
+                    <p style="margin:8px 0;color:var(--color-text-muted);">La fumigación semanal fue completada exitosamente. Se adjunta certificado de servicio.</p>
+                    <button class="btn btn-ghost btn-sm">Ver reporte</button>
+                    <button class="btn btn-ghost btn-sm">Descargar certificado</button>
+                </div>
+            </div>
+            <div class="notification-card unread">
+                <div class="notification-icon alert">⚠️</div>
+                <div style="flex:1;">
+                    <div style="display:flex;justify-content:space-between;"><strong>Hallazgo Reportado</strong><span style="font-size:0.8rem;color:var(--color-text-muted);">Hoy, 10:35 AM</span></div>
+                    <p style="margin:8px 0;color:var(--color-text-muted);">Se detectó actividad de cucaracha alemana en zona de cocina. Se aplicó tratamiento adicional.</p>
+                    <button class="btn btn-ghost btn-sm">Ver detalles</button>
+                </div>
+            </div>
+            <div class="notification-card">
+                <div class="notification-icon info">📅</div>
+                <div style="flex:1;">
+                    <div style="display:flex;justify-content:space-between;"><strong>Recordatorio de Servicio</strong><span style="font-size:0.8rem;color:var(--color-text-muted);">Ayer</span></div>
+                    <p style="margin:8px 0;color:var(--color-text-muted);">Su próximo servicio está programado para el lunes 9 de febrero, 8:00 AM.</p>
+                </div>
+            </div>
+            <div class="notification-card">
+                <div class="notification-icon report">📊</div>
+                <div style="flex:1;">
+                    <div style="display:flex;justify-content:space-between;"><strong>Reporte Mensual Disponible</strong><span style="font-size:0.8rem;color:var(--color-text-muted);">Feb 1</span></div>
+                    <p style="margin:8px 0;color:var(--color-text-muted);">Su reporte ejecutivo de enero 2026 está listo para descargar.</p>
+                    <button class="btn btn-ghost btn-sm">Descargar PDF</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

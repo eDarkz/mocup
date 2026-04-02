@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Alertas de Seguridad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <a href="alertas-seguridad.html" class="nav-item active"><span class="nav-item-icon">🚨</span> Alertas Seguridad</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🚨 Alertas de Seguridad</h1><p class="page-subtitle">Comportamientos sospechosos: logins anómalos, actividad inusual, intentos de acceso</p></div>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card" style="border-color:#ef4444;"><div class="stat-value" style="color:#ef4444;">3</div><div class="stat-label">Críticas</div></div>
+                <div class="stat-card yellow"><div class="stat-value">7</div><div class="stat-label">Advertencias</div></div>
+                <div class="stat-card"><div class="stat-value">24</div><div class="stat-label">Info (24h)</div></div>
+                <div class="stat-card green"><div class="stat-value">99.2%</div><div class="stat-label">Score Seguridad</div></div>
+            </div>
+            <div class="card mb-lg">
+                <div class="card-header" style="background:rgba(239,68,68,0.1);"><h3 class="card-title" style="color:#ef4444;">🔴 Alertas Críticas</h3></div>
+                <div class="card-body">
+                    <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--color-bg-tertiary);border-radius:10px;margin-bottom:12px;">
+                        <div style="font-size:2rem;">🚫</div>
+                        <div style="flex:1;"><strong>15 intentos de login fallidos</strong><p style="margin:0;font-size:0.85rem;color:var(--color-text-muted);">Usuario: admin@pestmasters.com • IP: 45.227.xx.xx (Venezuela) • Hace 23 min</p></div>
+                        <div><button class="btn btn-danger btn-sm">Bloquear IP</button><button class="btn btn-ghost btn-sm">Investigar</button></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--color-bg-tertiary);border-radius:10px;margin-bottom:12px;">
+                        <div style="font-size:2rem;">⚡</div>
+                        <div style="flex:1;"><strong>Actividad anómala: 847 firmas en 5 min</strong><p style="margin:0;font-size:0.85rem;color:var(--color-text-muted);">Técnico: Carlos R. @ López S.A. • Patrón: bot o automatización</p></div>
+                        <div><button class="btn btn-warning btn-sm">Pausar cuenta</button><button class="btn btn-ghost btn-sm">Contactar</button></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--color-bg-tertiary);border-radius:10px;">
+                        <div style="font-size:2rem;">🌍</div>
+                        <div style="flex:1;"><strong>Login desde nueva ubicación</strong><p style="margin:0;font-size:0.85rem;color:var(--color-text-muted);">Admin: Juan López • Ubicación: Rusia (primera vez) • Hace 2 hrs</p></div>
+                        <div><button class="btn btn-secondary btn-sm">Verificar</button><button class="btn btn-ghost btn-sm">Ignorar</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" style="background:rgba(245,158,11,0.1);"><h3 class="card-title" style="color:#f59e0b;">⚠️ Advertencias</h3></div>
+                <div class="card-body">
+                    <div style="display:flex;align-items:center;gap:16px;padding:12px;border-bottom:1px solid var(--color-border);">
+                        <span>🔑</span><div style="flex:1;"><strong>Contraseña débil detectada</strong> - 3 usuarios de Control Total MX</div><span class="badge badge-warning">Media</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:12px;border-bottom:1px solid var(--color-border);">
+                        <span>📱</span><div style="flex:1;"><strong>2FA desactivado</strong> - Admin Pedro Vega (interno)</div><span class="badge badge-warning">Media</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:12px;">
+                        <span>🕐</span><div style="flex:1;"><strong>Sesión activa por 48+ horas</strong> - Usuario María S. @ Pest Masters</div><span class="badge badge-info">Baja</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

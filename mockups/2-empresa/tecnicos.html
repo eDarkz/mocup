@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Gestión de Técnicos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .tech-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; padding: 20px; }
+        .tech-avatar { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; margin: 0 auto 12px; }
+        .tech-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; text-align: center; padding-top: 12px; border-top: 1px solid var(--color-border); }
+        .tech-stat-value { font-size: 1.2rem; font-weight: 700; }
+        .tech-stat-label { font-size: 0.7rem; color: var(--color-text-muted); }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="tecnicos.html" class="nav-item active"><span class="nav-item-icon">👷</span> Técnicos</a>
+                <a href="vehiculos.html" class="nav-item"><span class="nav-item-icon">🚐</span> Vehículos</a>
+                <a href="inventario.html" class="nav-item"><span class="nav-item-icon">📦</span> Inventario</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">👷 Gestión de Técnicos</h1><p class="page-subtitle">Equipo operativo, certificaciones y rendimiento</p></div>
+                <button class="btn btn-primary">+ Nuevo Técnico</button>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card green"><div class="stat-value">8</div><div class="stat-label">Técnicos Activos</div></div>
+                <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">En Campo Hoy</div></div>
+                <div class="stat-card"><div class="stat-value">4.7</div><div class="stat-label">Rating Promedio ⭐</div></div>
+                <div class="stat-card" style="border-color:#f59e0b;"><div class="stat-value" style="color:#f59e0b;">2</div><div class="stat-label">Certif. por Vencer</div></div>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">CR</div>
+                    <div style="text-align:center;">
+                        <strong>Carlos Ramírez</strong>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">Técnico Senior</div>
+                        <span class="badge badge-success mt-sm">🟢 Activo - En campo</span>
+                    </div>
+                    <div class="tech-stats">
+                        <div><div class="tech-stat-value">156</div><div class="tech-stat-label">Servicios</div></div>
+                        <div><div class="tech-stat-value">4.9</div><div class="tech-stat-label">Rating</div></div>
+                        <div><div class="tech-stat-value">3</div><div class="tech-stat-label">Años</div></div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm mt-md" style="width:100%;">Ver Perfil</button>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">MS</div>
+                    <div style="text-align:center;">
+                        <strong>María Sánchez</strong>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">Técnico Senior</div>
+                        <span class="badge badge-success mt-sm">🟢 Activo - En campo</span>
+                    </div>
+                    <div class="tech-stats">
+                        <div><div class="tech-stat-value">142</div><div class="tech-stat-label">Servicios</div></div>
+                        <div><div class="tech-stat-value">4.8</div><div class="tech-stat-label">Rating</div></div>
+                        <div><div class="tech-stat-value">2</div><div class="tech-stat-label">Años</div></div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm mt-md" style="width:100%;">Ver Perfil</button>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">JP</div>
+                    <div style="text-align:center;">
+                        <strong>Juan Pérez</strong>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">Técnico</div>
+                        <span class="badge badge-success mt-sm">🟢 Activo - En campo</span>
+                    </div>
+                    <div class="tech-stats">
+                        <div><div class="tech-stat-value">98</div><div class="tech-stat-label">Servicios</div></div>
+                        <div><div class="tech-stat-value">4.6</div><div class="tech-stat-label">Rating</div></div>
+                        <div><div class="tech-stat-value">1</div><div class="tech-stat-label">Años</div></div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm mt-md" style="width:100%;">Ver Perfil</button>
+                </div>
+                <div class="tech-card" style="border-color:#f59e0b;">
+                    <div class="tech-avatar" style="background:#6b7280;">RL</div>
+                    <div style="text-align:center;">
+                        <strong>Roberto López</strong>
+                        <div style="font-size:0.85rem;color:var(--color-text-muted);">Técnico</div>
+                        <span class="badge mt-sm">📅 Día libre</span>
+                    </div>
+                    <div style="background:rgba(245,158,11,0.1);padding:8px;border-radius:8px;margin-top:12px;font-size:0.8rem;text-align:center;">
+                        ⚠️ Certificación COFEPRIS vence en 15 días
+                    </div>
+                    <button class="btn btn-ghost btn-sm mt-md" style="width:100%;">Ver Perfil</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

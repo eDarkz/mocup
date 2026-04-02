@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Asignación de Servicios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .kanban-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .kanban-column { background: var(--color-bg-tertiary); border-radius: 12px; padding: 16px; min-height: 400px; }
+        .kanban-header { font-weight: 600; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .kanban-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; margin-bottom: 8px; cursor: grab; }
+        .kanban-card:hover { border-color: var(--color-accent-primary); }
+        .tech-availability { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+        .tech-chip { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; cursor: pointer; }
+        .tech-chip.selected { border-color: var(--color-accent-primary); background: rgba(59,130,246,0.1); }
+        .tech-chip-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>👷</span> Supervisión</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="asignacion.html" class="nav-item active"><span class="nav-item-icon">👥</span> Asignación</a>
+                <a href="reasignacion.html" class="nav-item"><span class="nav-item-icon">🔄</span> Reasignación</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">👥 Asignación de Servicios</h1><p class="page-subtitle">Drag & drop para asignar servicios a técnicos disponibles</p></div>
+                <select class="form-input form-select" style="width:150px;"><option>Hoy - Feb 7</option><option>Mañana - Feb 8</option></select>
+            </div>
+            <h4 class="mb-md">Técnicos Disponibles (Arrastrar para asignar)</h4>
+            <div class="tech-availability mb-lg">
+                <div class="tech-chip selected">
+                    <div class="tech-chip-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">CR</div>
+                    <span>Carlos R.</span>
+                    <span class="badge badge-success" style="font-size:0.7rem;">3/4</span>
+                </div>
+                <div class="tech-chip">
+                    <div class="tech-chip-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">MS</div>
+                    <span>María S.</span>
+                    <span class="badge" style="font-size:0.7rem;">2/4</span>
+                </div>
+                <div class="tech-chip">
+                    <div class="tech-chip-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">JP</div>
+                    <span>Juan P.</span>
+                    <span class="badge" style="font-size:0.7rem;">2/4</span>
+                </div>
+                <div class="tech-chip" style="opacity:0.5;">
+                    <div class="tech-chip-avatar" style="background:#6b7280;">RL</div>
+                    <span>Roberto L.</span>
+                    <span class="badge badge-danger" style="font-size:0.7rem;">Día libre</span>
+                </div>
+            </div>
+            <div class="kanban-board">
+                <div class="kanban-column">
+                    <div class="kanban-header">📋 Sin Asignar <span class="badge">2</span></div>
+                    <div class="kanban-card" style="border-left:3px solid #ef4444;">
+                        <div style="font-size:0.75rem;color:#ef4444;margin-bottom:4px;">🚨 EMERGENCIA</div>
+                        <strong>Rest. La Capital</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Fumigación urgente - cucarachas</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">📍 Polanco • ⏱️ ~45 min</div>
+                    </div>
+                    <div class="kanban-card">
+                        <div style="font-size:0.75rem;color:var(--color-text-muted);margin-bottom:4px;">SERVICIO EXTRA</div>
+                        <strong>Marriott - Bodega</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Fumigación adicional solicitada</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">📍 Reforma • ⏱️ ~30 min</div>
+                    </div>
+                </div>
+                <div class="kanban-column">
+                    <div class="kanban-header">👤 Carlos R. <span class="badge badge-success">3</span></div>
+                    <div class="kanban-card">
+                        <strong>Hotel Marriott</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Fumigación semanal</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">🕐 8:00 - 10:00 • ✅ Completado</div>
+                    </div>
+                    <div class="kanban-card" style="border-left:3px solid #3b82f6;">
+                        <strong>Oficinas ABC</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Inspección mensual</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">🕐 10:30 - 12:00 • 🔵 En proceso</div>
+                    </div>
+                    <div class="kanban-card">
+                        <strong>Casa Pérez - Lomas</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Fumigación residencial</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">🕐 14:00 - 15:30 • ⏳ Pendiente</div>
+                    </div>
+                </div>
+                <div class="kanban-column">
+                    <div class="kanban-header">👤 María S. <span class="badge">2</span></div>
+                    <div class="kanban-card">
+                        <strong>Hilton Santa Fe</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Inspección trampas</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">🕐 9:00 - 11:00 • ✅ Completado</div>
+                    </div>
+                    <div class="kanban-card">
+                        <strong>Westin Reforma</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Fumigación quincenal</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">🕐 12:00 - 14:00 • 🔵 En traslado</div>
+                    </div>
+                </div>
+                <div class="kanban-column">
+                    <div class="kanban-header">👤 Juan P. <span class="badge">2</span></div>
+                    <div class="kanban-card" style="border-left:3px solid #f59e0b;">
+                        <strong>Restaurante El Sol</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Fumigación mensual</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">🕐 14:00 - 15:00 • ⚠️ Retrasado</div>
+                    </div>
+                    <div class="kanban-card">
+                        <strong>Residencial Santa Fe</strong>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">Jardín y perímetro</div>
+                        <div style="font-size:0.75rem;margin-top:8px;">🕐 16:00 - 17:30 • ⏳ Pendiente</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

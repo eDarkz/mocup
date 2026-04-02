@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Aprobaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .approvals-layout { display: grid; grid-template-columns: 1fr 450px; gap: 24px; }
+        .approval-list { display: flex; flex-direction: column; gap: 12px; }
+        .approval-item { padding: 16px; background: var(--color-bg-card); border: 2px solid var(--color-border); border-radius: 12px; cursor: pointer; transition: all 0.2s; }
+        .approval-item:hover, .approval-item.selected { border-color: var(--color-accent-primary); }
+        .approval-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .approval-type { font-size: 0.8rem; padding: 2px 8px; border-radius: 4px; }
+        .approval-type.report { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .approval-type.material { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+        .approval-type.expense { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+        .approval-title { font-weight: 600; margin-bottom: 4px; }
+        .approval-meta { font-size: 0.85rem; color: var(--color-text-muted); }
+        .detail-card { position: sticky; top: 24px; }
+        .report-preview { background: var(--color-bg-tertiary); border-radius: 12px; padding: 20px; margin: 16px 0; }
+        .report-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+        .report-row:last-child { border-bottom: none; }
+        .photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+        .photo-thumb { aspect-ratio: 1; background: var(--color-bg-secondary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .approval-actions { display: flex; gap: 12px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Supervisor</span>Ana García</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Control</div>
+                    <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="aprobaciones.html" class="nav-item active"><span class="nav-item-icon">✅</span> Aprobaciones</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">✅ Aprobaciones Pendientes</h1>
+                    <p class="page-subtitle">Revisa y aprueba reportes, solicitudes de material y gastos</p>
+                </div>
+            </div>
+            <div class="tabs mb-lg">
+                <button class="tab active">Todos (8)</button>
+                <button class="tab">📄 Reportes (5)</button>
+                <button class="tab">📦 Material (2)</button>
+                <button class="tab">💳 Gastos (1)</button>
+            </div>
+            <div class="approvals-layout">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">📋 Pendientes</h3></div>
+                    <div class="card-body">
+                        <div class="approval-list">
+                            <div class="approval-item selected">
+                                <div class="approval-header">
+                                    <span class="approval-type report">📄 Reporte</span>
+                                    <span style="font-size: 0.8rem; color: var(--color-text-muted);">Hace 30 min</span>
+                                </div>
+                                <div class="approval-title">Fumigación Hotel Marriott - Pisos 1-3</div>
+                                <div class="approval-meta">👤 Carlos Ramírez • 60 habitaciones</div>
+                            </div>
+                            <div class="approval-item">
+                                <div class="approval-header">
+                                    <span class="approval-type report">📄 Reporte</span>
+                                    <span style="font-size: 0.8rem; color: var(--color-text-muted);">Hace 1 hora</span>
+                                </div>
+                                <div class="approval-title">Fumigación Casa Fernández</div>
+                                <div class="approval-meta">👤 María Sánchez • Casa completa</div>
+                            </div>
+                            <div class="approval-item">
+                                <div class="approval-header">
+                                    <span class="approval-type material">📦 Material</span>
+                                    <span style="font-size: 0.8rem; color: var(--color-text-muted);">Hace 2 horas</span>
+                                </div>
+                                <div class="approval-title">Solicitud de Gel + Cebos</div>
+                                <div class="approval-meta">👤 Pedro Martínez • $450 estimado</div>
+                            </div>
+                            <div class="approval-item">
+                                <div class="approval-header">
+                                    <span class="approval-type expense">💳 Gasto</span>
+                                    <span style="font-size: 0.8rem; color: var(--color-text-muted);">Ayer</span>
+                                </div>
+                                <div class="approval-title">Gasolina Unidad 02</div>
+                                <div class="approval-meta">👤 María Sánchez • $800</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">📄 Detalle del Reporte</h3>
+                            <span class="badge badge-warning">Pendiente</span>
+                        </div>
+                        <div class="card-body">
+                            <h4 style="margin-bottom: 4px;">Fumigación Hotel Marriott - Pisos 1-3</h4>
+                            <p style="color: var(--color-text-muted); font-size: 0.9rem;">Carlos Ramírez • 07/02/2026 08:00-10:00</p>
+                            <div class="report-preview">
+                                <div class="report-row"><span>Locación:</span><strong>Hotel Marriott Centro</strong></div>
+                                <div class="report-row"><span>Áreas:</span><strong>Pisos 1, 2, 3 (60 habs)</strong></div>
+                                <div class="report-row"><span>Plaga:</span><strong>Cucarachas</strong></div>
+                                <div class="report-row"><span>Tratamiento:</span><strong>Aspersión + Gel</strong></div>
+                                <div class="report-row"><span>Productos:</span><strong>Insecticida Pro, Gel Max</strong></div>
+                                <div class="report-row"><span>Duración:</span><strong>2 horas</strong></div>
+                            </div>
+                            <h5>📸 Evidencia Fotográfica</h5>
+                            <div class="photos-grid">
+                                <div class="photo-thumb">🖼️</div>
+                                <div class="photo-thumb">🖼️</div>
+                                <div class="photo-thumb">🖼️</div>
+                            </div>
+                            <h5 style="margin-top: 16px;">📝 Observaciones</h5>
+                            <p style="font-size: 0.9rem; color: var(--color-text-secondary);">"Se detectó actividad moderada en área de basura. Se recomienda reforzar cebaderas. Cliente satisfecho."</p>
+                            <div class="approval-actions">
+                                <button class="btn btn-primary" style="flex: 1;">✓ Aprobar y Firmar</button>
+                                <button class="btn btn-secondary">✏️ Solicitar Corrección</button>
+                                <button class="btn btn-ghost">❌</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FumiControl - App Móvil: Mi Perfil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { background: var(--color-bg-primary); }
+        .mobile-frame { max-width: 390px; margin: 20px auto; background: var(--color-bg-secondary); border-radius: 40px; padding: 20px; min-height: 800px; box-shadow: 0 0 0 12px #1a1a2e, 0 20px 60px rgba(0,0,0,0.5); }
+        .profile-header { text-align: center; padding: 20px 0; }
+        .profile-avatar { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 700; margin: 0 auto 16px; }
+        .stat-row { display: flex; justify-content: space-around; padding: 16px; background: var(--color-bg-tertiary); border-radius: 12px; margin-bottom: 16px; }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; }
+        .menu-item { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 8px; cursor: pointer; }
+        .menu-item:hover { border-color: var(--color-accent-primary); }
+        .menu-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <div class="mobile-frame">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0 16px;">
+            <span style="font-weight:600;">10:58</span>
+            <div style="display:flex;gap:6px;"><span>📶</span><span>🔋</span></div>
+        </div>
+        <div class="profile-header">
+            <div class="profile-avatar">CR</div>
+            <h2>Carlos Ramírez</h2>
+            <p style="color:var(--color-text-muted);">Técnico Senior</p>
+            <div style="display:flex;justify-content:center;gap:8px;margin-top:8px;">
+                <span class="badge badge-success">🟢 En servicio</span>
+                <span class="badge badge-primary">⭐ 4.9</span>
+            </div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-item"><div class="stat-value" style="color:#10b981;">156</div><div style="font-size:0.8rem;color:var(--color-text-muted);">Servicios</div></div>
+            <div class="stat-item"><div class="stat-value">98%</div><div style="font-size:0.8rem;color:var(--color-text-muted);">Puntualidad</div></div>
+            <div class="stat-item"><div class="stat-value" style="color:#f59e0b;">🏆 1°</div><div style="font-size:0.8rem;color:var(--color-text-muted);">Ranking</div></div>
+        </div>
+        <h4 style="margin-bottom:12px;">⚙️ Configuración</h4>
+        <div class="menu-item">
+            <div class="menu-icon" style="background:rgba(59,130,246,0.2);">👤</div>
+            <div style="flex:1;"><strong>Datos Personales</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">Nombre, email, teléfono</div></div>
+            <span>→</span>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon" style="background:rgba(16,185,129,0.2);">📜</div>
+            <div style="flex:1;"><strong>Mis Certificaciones</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">COFEPRIS, fumigación</div></div>
+            <span class="badge badge-success">Vigentes</span>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon" style="background:rgba(139,92,246,0.2);">📊</div>
+            <div style="flex:1;"><strong>Mi Rendimiento</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">Estadísticas y metas</div></div>
+            <span>→</span>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon" style="background:rgba(245,158,11,0.2);">🔔</div>
+            <div style="flex:1;"><strong>Notificaciones</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">Alertas y recordatorios</div></div>
+            <span>→</span>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon" style="background:rgba(239,68,68,0.2);">🚪</div>
+            <div style="flex:1;"><strong>Cerrar Sesión</strong></div>
+            <span>→</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FumiControl - App Móvil: Check-in GPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { background: var(--color-bg-primary); }
+        .mobile-frame { max-width: 390px; margin: 20px auto; background: var(--color-bg-secondary); border-radius: 40px; padding: 20px; min-height: 800px; box-shadow: 0 0 0 12px #1a1a2e, 0 20px 60px rgba(0,0,0,0.5); }
+        .mobile-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 0 16px; }
+        .mobile-time { font-weight: 600; }
+        .mobile-icons { display: flex; gap: 6px; }
+        .gps-circle { width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.05)); border: 3px solid #10b981; margin: 0 auto 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+        .gps-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #10b981; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.3); opacity: 0; } }
+        .gps-icon { font-size: 3rem; margin-bottom: 8px; }
+        .gps-status { font-weight: 600; color: #10b981; }
+        .check-in-btn { width: 100%; padding: 18px; font-size: 1.1rem; font-weight: 600; border-radius: 12px; border: none; cursor: pointer; }
+        .service-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+        .verification-list { margin-top: 16px; }
+        .verification-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--color-border); }
+        .verification-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .verification-icon.ok { background: rgba(16,185,129,0.2); color: #10b981; }
+        .verification-icon.pending { background: rgba(245,158,11,0.2); color: #f59e0b; }
+    </style>
+</head>
+<body>
+    <div class="mobile-frame">
+        <div class="mobile-header">
+            <span class="mobile-time">10:58</span>
+            <div class="mobile-icons"><span>📶</span><span>🔋</span></div>
+        </div>
+        <h2 style="text-align:center;margin-bottom:8px;">📍 Check-in de Llegada</h2>
+        <p style="text-align:center;color:var(--color-text-muted);margin-bottom:24px;">Verifica tu ubicación para iniciar</p>
+        <div class="gps-circle">
+            <div class="gps-pulse"></div>
+            <span class="gps-icon">📍</span>
+            <span class="gps-status">GPS Activo</span>
+            <span style="font-size:0.8rem;color:var(--color-text-muted);">Precisión: 5m</span>
+        </div>
+        <div class="service-card">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                <strong>🏨 Hotel Marriott Reforma</strong>
+                <span class="badge badge-success">En destino</span>
+            </div>
+            <div style="font-size:0.85rem;color:var(--color-text-muted);">Paseo de la Reforma 325, Cuauhtémoc</div>
+            <div style="font-size:0.85rem;color:var(--color-text-muted);margin-top:4px;">Distancia: <strong style="color:#10b981;">12m del punto</strong></div>
+        </div>
+        <div class="verification-list">
+            <div class="verification-item">
+                <div class="verification-icon ok">✓</div>
+                <div style="flex:1;"><strong>GPS validado</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">Estás dentro del radio permitido (50m)</div></div>
+            </div>
+            <div class="verification-item">
+                <div class="verification-icon ok">✓</div>
+                <div style="flex:1;"><strong>Hora correcta</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">Ventana: 10:00 - 11:00 AM</div></div>
+            </div>
+            <div class="verification-item">
+                <div class="verification-icon ok">✓</div>
+                <div style="flex:1;"><strong>Equipo completo</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">Inventario verificado</div></div>
+            </div>
+        </div>
+        <button class="check-in-btn btn btn-success" style="margin-top:24px;">✓ Confirmar Llegada e Iniciar</button>
+        <button class="btn btn-ghost" style="width:100%;margin-top:8px;">🗺️ Ver instrucciones de acceso</button>
+    </div>
+</body>
+</html>

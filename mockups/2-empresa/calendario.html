@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Calendario y Programación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; background: var(--color-border); border-radius: 12px; overflow: hidden; }
+        .calendar-header { background: var(--color-bg-tertiary); padding: 12px; text-align: center; font-weight: 600; font-size: 0.85rem; }
+        .calendar-day { background: var(--color-bg-card); min-height: 120px; padding: 8px; }
+        .calendar-day.other-month { opacity: 0.4; }
+        .calendar-day.today { background: rgba(59, 130, 246, 0.1); }
+        .day-number { font-weight: 600; margin-bottom: 8px; }
+        .day-event { font-size: 0.7rem; padding: 4px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; }
+        .day-event.fumigation { background: rgba(16, 185, 129, 0.2); color: #10b981; border-left: 3px solid #10b981; }
+        .day-event.inspection { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border-left: 3px solid #3b82f6; }
+        .day-event.maintenance { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-left: 3px solid #f59e0b; }
+        .technician-column { display: flex; flex-direction: column; gap: 8px; }
+        .tech-schedule { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 12px; }
+        .tech-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .tech-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                <a href="calendario.html" class="nav-item active"><span class="nav-item-icon">📅</span> Calendario</a>
+                <a href="rutas.html" class="nav-item"><span class="nav-item-icon">🛣️</span> Rutas</a>
+                <a href="cotizaciones.html" class="nav-item"><span class="nav-item-icon">📋</span> Cotizaciones</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📅 Calendario de Servicios</h1><p class="page-subtitle">Programación por técnico, cliente y zona</p></div>
+                <div class="page-actions">
+                    <div class="tabs" style="margin:0;"><button class="tab active">Mes</button><button class="tab">Semana</button><button class="tab">Día</button><button class="tab">Por Técnico</button></div>
+                    <button class="btn btn-primary">+ Programar Servicio</button>
+                </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <div style="display:flex;gap:8px;align-items:center;">
+                    <button class="btn btn-ghost">←</button>
+                    <h2 style="margin:0;">Febrero 2026</h2>
+                    <button class="btn btn-ghost">→</button>
+                </div>
+                <div style="display:flex;gap:16px;font-size:0.85rem;">
+                    <span><span style="display:inline-block;width:12px;height:12px;background:#10b981;border-radius:2px;margin-right:4px;"></span>Fumigación</span>
+                    <span><span style="display:inline-block;width:12px;height:12px;background:#3b82f6;border-radius:2px;margin-right:4px;"></span>Inspección</span>
+                    <span><span style="display:inline-block;width:12px;height:12px;background:#f59e0b;border-radius:2px;margin-right:4px;"></span>Mantenimiento</span>
+                </div>
+            </div>
+            <div class="calendar-grid mb-lg">
+                <div class="calendar-header">Dom</div><div class="calendar-header">Lun</div><div class="calendar-header">Mar</div><div class="calendar-header">Mié</div><div class="calendar-header">Jue</div><div class="calendar-header">Vie</div><div class="calendar-header">Sáb</div>
+                <div class="calendar-day other-month"><div class="day-number">26</div></div>
+                <div class="calendar-day other-month"><div class="day-number">27</div></div>
+                <div class="calendar-day other-month"><div class="day-number">28</div></div>
+                <div class="calendar-day other-month"><div class="day-number">29</div></div>
+                <div class="calendar-day other-month"><div class="day-number">30</div></div>
+                <div class="calendar-day other-month"><div class="day-number">31</div></div>
+                <div class="calendar-day"><div class="day-number">1</div></div>
+                <div class="calendar-day"><div class="day-number">2</div><div class="day-event fumigation">🏨 Marriott - Carlos</div></div>
+                <div class="calendar-day"><div class="day-number">3</div><div class="day-event inspection">🏠 Casa López</div></div>
+                <div class="calendar-day"><div class="day-number">4</div></div>
+                <div class="calendar-day"><div class="day-number">5</div><div class="day-event fumigation">🏨 Hilton - María</div><div class="day-event fumigation">🍽️ Rest. El Sol</div></div>
+                <div class="calendar-day"><div class="day-number">6</div></div>
+                <div class="calendar-day today"><div class="day-number">7</div><div class="day-event fumigation">🏨 Marriott</div><div class="day-event inspection">🏢 Oficinas ABC</div><div class="day-event maintenance">🔧 Cambio trampas</div></div>
+                <div class="calendar-day"><div class="day-number">8</div></div>
+                <div class="calendar-day"><div class="day-number">9</div><div class="day-event fumigation">🏨 Westin (Recurrente)</div></div>
+                <div class="calendar-day"><div class="day-number">10</div><div class="day-event fumigation">🏠 Res. Las Lomas</div></div>
+                <div class="calendar-day"><div class="day-number">11</div></div>
+                <div class="calendar-day"><div class="day-number">12</div><div class="day-event inspection">🏨 Marriott - Quincenal</div></div>
+                <div class="calendar-day"><div class="day-number">13</div></div>
+                <div class="calendar-day"><div class="day-number">14</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">🔄 Servicios Recurrentes Activos</h3></div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Cliente</th><th>Tipo</th><th>Frecuencia</th><th>Próximo</th><th>Técnico Asignado</th><th>SLA</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Hotel Marriott</strong></td><td>Fumigación General</td><td>Semanal (Lunes)</td><td>Feb 10</td><td>Carlos R.</td><td><span class="badge badge-success">Cumple</span></td></tr>
+                            <tr><td><strong>Hotel Hilton</strong></td><td>Inspección Trampas</td><td>Quincenal</td><td>Feb 12</td><td>María S.</td><td><span class="badge badge-success">Cumple</span></td></tr>
+                            <tr><td><strong>Rest. El Sol</strong></td><td>Fumigación Cocina</td><td>Mensual</td><td>Mar 5</td><td>Juan P.</td><td><span class="badge badge-warning">En riesgo</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

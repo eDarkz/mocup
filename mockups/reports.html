@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Reportes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="reports.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="company-dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="map.html" class="nav-item"><span class="nav-item-icon">🗺️</span> Mapa GPS</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="personnel.html" class="nav-item"><span class="nav-item-icon">👥</span> Personal</a>
+                    <a href="#" class="nav-item active"><span class="nav-item-icon">📈</span> Reportes</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar">JL</div>
+                    <div class="user-info"><div class="user-name">Juan López</div><div class="user-role">Administrador</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">📄 Reportes de Fumigación</h1>
+                    <p class="page-subtitle">Genera y gestiona reportes profesionales para tus clientes</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-primary">+ Nuevo Reporte</button>
+                </div>
+            </div>
+            <div class="tabs">
+                <button class="tab active">Todos (48)</button>
+                <button class="tab">🏨 Hoteles (24)</button>
+                <button class="tab">🏠 Casas (15)</button>
+                <button class="tab">🏪 Negocios (9)</button>
+                <button class="tab">⏳ Pendientes (5)</button>
+            </div>
+            <div class="reports-layout">
+                <div class="reports-main">
+                    <!-- Tipo de Reporte Selector -->
+                    <div class="report-types">
+                        <div class="report-type-card active">
+                            <span class="report-type-icon">🏨</span>
+                            <h4>Reporte de Hotel</h4>
+                            <p>Áreas, habitaciones, restaurantes, cocinas</p>
+                        </div>
+                        <div class="report-type-card">
+                            <span class="report-type-icon">🛏️</span>
+                            <h4>Reporte por Habitación</h4>
+                            <p>Detalle individual de habitaciones</p>
+                        </div>
+                        <div class="report-type-card">
+                            <span class="report-type-icon">🍳</span>
+                            <h4>Reporte de Área</h4>
+                            <p>Cocinas, restaurantes, áreas comunes</p>
+                        </div>
+                        <div class="report-type-card">
+                            <span class="report-type-icon">🏠</span>
+                            <h4>Reporte de Casa</h4>
+                            <p>Fumigación residencial completa</p>
+                        </div>
+                        <div class="report-type-card">
+                            <span class="report-type-icon">🏪</span>
+                            <h4>Reporte de Negocio</h4>
+                            <p>Comercios y restaurantes</p>
+                        </div>
+                        <div class="report-type-card">
+                            <span class="report-type-icon">🪤</span>
+                            <h4>Reporte de Cebaderas</h4>
+                            <p>Estado y consumo de cebos</p>
+                        </div>
+                    </div>
+                    <!-- Recent Reports -->
+                    <div class="card mt-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">Reportes Recientes</h3>
+                            <div class="card-filters">
+                                <input type="text" class="form-input" placeholder="🔍 Buscar..." style="width: 200px;">
+                                <select class="form-input form-select" style="width: 150px;">
+                                    <option>Este mes</option>
+                                    <option>Última semana</option>
+                                    <option>Últimos 3 meses</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Reporte</th><th>Locación</th><th>Tipo</th><th>Agente</th><th>Fecha</th><th>Estado</th><th>Acciones</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>RPT-2026-0156</strong></td>
+                                            <td>Hotel Marriott Centro</td>
+                                            <td><span class="badge badge-primary">Hotel Completo</span></td>
+                                            <td>Carlos R.</td>
+                                            <td>07/02/2026</td>
+                                            <td><span class="badge badge-success">✓ Firmado</span></td>
+                                            <td><button class="btn btn-ghost btn-sm">📄 Ver</button><button class="btn btn-ghost btn-sm">📥 PDF</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>RPT-2026-0155</strong></td>
+                                            <td>Hotel Marriott - Hab. 501-510</td>
+                                            <td><span class="badge badge-info">Habitaciones</span></td>
+                                            <td>Carlos R.</td>
+                                            <td>06/02/2026</td>
+                                            <td><span class="badge badge-success">✓ Firmado</span></td>
+                                            <td><button class="btn btn-ghost btn-sm">📄 Ver</button><button class="btn btn-ghost btn-sm">📥 PDF</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>RPT-2026-0154</strong></td>
+                                            <td>Casa González</td>
+                                            <td><span class="badge badge-success">Casa</span></td>
+                                            <td>Pedro M.</td>
+                                            <td>06/02/2026</td>
+                                            <td><span class="badge badge-warning">⏳ Pendiente</span></td>
+                                            <td><button class="btn btn-ghost btn-sm">📄 Ver</button><button class="btn btn-primary btn-sm">Firmar</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>RPT-2026-0153</strong></td>
+                                            <td>Rest. La Parilla - Cocina</td>
+                                            <td><span class="badge badge-warning">Área</span></td>
+                                            <td>María S.</td>
+                                            <td>05/02/2026</td>
+                                            <td><span class="badge badge-success">✓ Firmado</span></td>
+                                            <td><button class="btn btn-ghost btn-sm">📄 Ver</button><button class="btn btn-ghost btn-sm">📥 PDF</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reports-sidebar">
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">📊 Estadísticas</h3></div>
+                        <div class="card-body">
+                            <div class="stats-list">
+                                <div class="stats-item"><span class="stats-label">Este mes</span><span class="stats-value">48</span></div>
+                                <div class="stats-item"><span class="stats-label">Firmados</span><span class="stats-value text-success">43</span></div>
+                                <div class="stats-item"><span class="stats-label">Pendientes</span><span class="stats-value text-warning">5</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-lg">
+                        <div class="card-header"><h3 class="card-title">⏳ Pendientes de Firma</h3></div>
+                        <div class="card-body">
+                            <div class="pending-list">
+                                <div class="pending-item">
+                                    <div class="pending-info"><strong>Casa González</strong><p>Pedro M. - 06/02</p></div>
+                                    <button class="btn btn-primary btn-sm">Firmar</button>
+                                </div>
+                                <div class="pending-item">
+                                    <div class="pending-info"><strong>Hotel Hilton - Cocina</strong><p>María S. - 05/02</p></div>
+                                    <button class="btn btn-primary btn-sm">Firmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-lg">
+                        <div class="card-header"><h3 class="card-title">🖨️ Exportar</h3></div>
+                        <div class="card-body">
+                            <button class="btn btn-secondary w-full mb-sm">📄 Exportar a PDF</button>
+                            <button class="btn btn-secondary w-full mb-sm">📊 Exportar a Excel</button>
+                            <button class="btn btn-secondary w-full">📧 Enviar por Email</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

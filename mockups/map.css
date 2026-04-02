@@ -1,0 +1,41 @@
+.map-page { overflow: hidden; }
+.map-layout { display: grid; grid-template-columns: 1fr 380px; gap: var(--spacing-lg); height: calc(100vh - 180px); }
+.map-container { position: relative; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--glass-border); }
+.map-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #1a2332 0%, #0d1421 100%); position: relative; overflow: hidden; }
+.map-placeholder::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23ffffff08' stroke-width='1'/%3E%3C/svg%3E"); }
+.map-grid { position: absolute; inset: 0; }
+.map-marker { position: absolute; transform: translate(-50%, -50%); cursor: pointer; z-index: 10; }
+.marker-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--color-bg-card); border: 2px solid var(--color-accent-primary); border-radius: var(--radius-full); font-size: 1.2rem; transition: all var(--transition-fast); box-shadow: var(--shadow-lg); }
+.map-marker:hover .marker-icon { transform: scale(1.2); box-shadow: var(--shadow-xl), 0 0 20px rgba(59, 130, 246, 0.5); }
+.map-marker.hotel .marker-icon { border-color: #3b82f6; }
+.map-marker.house .marker-icon { border-color: #10b981; }
+.map-marker.business .marker-icon { border-color: #f59e0b; }
+.map-marker.trap .marker-icon { border-color: #8b5cf6; width: 32px; height: 32px; font-size: 1rem; }
+.map-marker.light-trap .marker-icon { border-color: #eab308; width: 32px; height: 32px; font-size: 1rem; }
+.map-marker.vehicle .marker-icon { border-color: #06b6d4; background: rgba(6, 182, 212, 0.2); }
+.marker-pulse { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; border-radius: var(--radius-full); background: rgba(59, 130, 246, 0.3); animation: pulse-ring 2s infinite; pointer-events: none; }
+.map-marker.vehicle .marker-pulse { background: rgba(6, 182, 212, 0.3); }
+@keyframes pulse-ring { 0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; } }
+.map-controls { position: absolute; bottom: var(--spacing-lg); right: var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.map-control-btn { width: 40px; height: 40px; background: var(--color-bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); color: var(--color-text-primary); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: all var(--transition-fast); }
+.map-control-btn:hover { background: var(--color-bg-tertiary); }
+.map-sidebar { display: flex; flex-direction: column; gap: var(--spacing-lg); overflow-y: auto; }
+.filter-group { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.filter-divider { height: 1px; background: var(--color-border); margin: var(--spacing-sm) 0; }
+.vehicle-list { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.vehicle-item { display: flex; align-items: center; gap: var(--spacing-md); padding: var(--spacing-sm); border-radius: var(--radius-md); transition: background var(--transition-fast); }
+.vehicle-item:hover { background: var(--color-bg-tertiary); }
+.vehicle-status { flex-shrink: 0; }
+.vehicle-info { flex: 1; min-width: 0; }
+.vehicle-info strong { font-size: var(--font-size-sm); display: block; }
+.vehicle-info p { font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0; }
+.vehicle-location { font-size: var(--font-size-xs); color: var(--color-accent-secondary); display: block; margin-top: var(--spacing-xs); }
+.vehicle-speed { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-success); }
+.vehicle-item.offline .vehicle-speed { color: var(--color-text-muted); }
+.alert-list { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.alert-item { display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-sm); border-radius: var(--radius-md); }
+.alert-item.warning { background: var(--color-warning-bg); }
+.alert-item.danger { background: var(--color-danger-bg); }
+.alert-icon { font-size: 1.2rem; }
+.alert-content strong { font-size: var(--font-size-sm); display: block; }
+.alert-content p { font-size: var(--font-size-xs); color: var(--color-text-secondary); margin: 0; }

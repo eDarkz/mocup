@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - Auditoría Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <a href="auditoria.html" class="nav-item active"><span class="nav-item-icon">📜</span> Auditoría Global</a>
+                    <a href="roles-internos.html" class="nav-item"><span class="nav-item-icon">👥</span> Roles Internos</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📜 Auditoría Global</h1><p class="page-subtitle">Registro completo de cambios: quién, qué, cuándo, desde dónde</p></div>
+                <div class="page-actions">
+                    <input type="date" class="form-input" style="width:150px;">
+                    <select class="form-input form-select" style="width:150px;"><option>Todos los admins</option><option>Admin Carlos</option><option>Admin Laura</option></select>
+                    <button class="btn btn-secondary">📥 Exportar Log</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-lg">
+                <div class="stat-card"><div class="stat-value">2,847</div><div class="stat-label">Eventos Hoy</div></div>
+                <div class="stat-card"><div class="stat-value">156</div><div class="stat-label">Cambios Config</div></div>
+                <div class="stat-card yellow"><div class="stat-value">12</div><div class="stat-label">Accesos Sensibles</div></div>
+                <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">Admins Activos</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">📋 Log de Auditoría</h3>
+                    <div class="tabs" style="margin:0;"><button class="tab active">Todos</button><button class="tab">Cambios</button><button class="tab">Accesos</button><button class="tab">Seguridad</button></div>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead><tr><th>Fecha/Hora</th><th>Admin</th><th>Acción</th><th>Entidad</th><th>Detalles</th><th>IP/Ubicación</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>14:05:23</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Hoy</span></td><td>Admin Carlos</td><td><span class="badge badge-warning">Impersonación</span></td><td>Usuario: Juan López</td><td>Entró como admin de Fumigaciones López</td><td>189.203.xx.xx<br><span style="font-size:0.7rem;">CDMX, MX</span></td></tr>
+                            <tr><td><strong>13:45:12</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Hoy</span></td><td>Admin Laura</td><td><span class="badge badge-primary">Modificación</span></td><td>Feature Flag</td><td>Activó "White Label" para Pest Masters</td><td>201.175.xx.xx<br><span style="font-size:0.7rem;">GDL, MX</span></td></tr>
+                            <tr><td><strong>12:30:45</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Hoy</span></td><td>Sistema</td><td><span class="badge badge-success">Automático</span></td><td>Backup</td><td>Backup diario completado (24 tenants)</td><td>AWS us-east-1</td></tr>
+                            <tr><td><strong>11:20:33</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Hoy</span></td><td>Admin Carlos</td><td><span class="badge badge-danger">Eliminación</span></td><td>Empresa</td><td>Eliminó empresa "Test Company" (trial expirado)</td><td>189.203.xx.xx</td></tr>
+                            <tr><td><strong>10:15:22</strong><br><span style="font-size:0.75rem;color:var(--color-text-muted);">Hoy</span></td><td>Admin Laura</td><td><span class="badge badge-primary">Creación</span></td><td>Cupón</td><td>Creó cupón "BLACKFRIDAY30" (30% desc)</td><td>201.175.xx.xx</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

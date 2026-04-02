@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Escanear QR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { background: var(--color-bg-primary); }
+        .mobile-app { max-width: 420px; margin: 0 auto; min-height: 100vh; background: var(--color-bg-secondary); }
+        .mobile-header-simple { padding: 16px 20px; background: var(--color-bg-card); border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: 12px; }
+        .back-btn { width: 40px; height: 40px; border-radius: 10px; background: var(--color-bg-tertiary); border: none; color: var(--color-text-primary); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .header-title { font-size: 1.1rem; font-weight: 600; }
+        .scanner-area { padding: 20px; }
+        .scanner-frame { aspect-ratio: 1; background: #000; border-radius: 20px; position: relative; overflow: hidden; margin-bottom: 20px; }
+        .scanner-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+        .scanner-target { width: 200px; height: 200px; border: 3px solid var(--color-accent-primary); border-radius: 20px; position: relative; }
+        .scanner-corner { position: absolute; width: 30px; height: 30px; border-color: var(--color-accent-primary); border-style: solid; }
+        .scanner-corner.tl { top: -3px; left: -3px; border-width: 4px 0 0 4px; border-radius: 10px 0 0 0; }
+        .scanner-corner.tr { top: -3px; right: -3px; border-width: 4px 4px 0 0; border-radius: 0 10px 0 0; }
+        .scanner-corner.bl { bottom: -3px; left: -3px; border-width: 0 0 4px 4px; border-radius: 0 0 0 10px; }
+        .scanner-corner.br { bottom: -3px; right: -3px; border-width: 0 4px 4px 0; border-radius: 0 0 10px 0; }
+        .scanner-line { position: absolute; left: 10px; right: 10px; height: 2px; background: linear-gradient(90deg, transparent, var(--color-accent-primary), transparent); animation: scan 2s linear infinite; }
+        @keyframes scan { 0% { top: 10px; } 100% { top: calc(100% - 10px); } }
+        .scanner-hint { text-align: center; color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+        .recent-scans { background: var(--color-bg-card); border-radius: 16px; padding: 16px; }
+        .recent-title { font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .scan-list { display: flex; flex-direction: column; gap: 8px; }
+        .scan-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--color-bg-tertiary); border-radius: 10px; }
+        .scan-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .scan-icon.trap { background: rgba(139, 92, 246, 0.15); }
+        .scan-icon.bait { background: rgba(245, 158, 11, 0.15); }
+        .scan-info { flex: 1; }
+        .scan-info strong { display: block; font-size: 0.9rem; }
+        .scan-info span { font-size: 0.75rem; color: var(--color-text-muted); }
+        .scan-status { font-size: 0.8rem; padding: 4px 8px; border-radius: 6px; }
+        .scan-status.ok { background: var(--color-success-bg); color: var(--color-success); }
+        .scan-status.alert { background: var(--color-warning-bg); color: var(--color-warning); }
+        .mobile-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 420px; background: var(--color-bg-card); border-top: 1px solid var(--color-border); padding: 12px 20px; display: flex; justify-content: space-around; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 0.7rem; color: var(--color-text-muted); text-decoration: none; }
+        .nav-item.active { color: var(--color-accent-primary); }
+        .nav-icon { font-size: 1.3rem; }
+    </style>
+</head>
+<body>
+    <div class="mobile-app">
+        <div class="mobile-header-simple">
+            <a href="inicio.html" class="back-btn">←</a>
+            <div class="header-title">📱 Escanear QR</div>
+        </div>
+        <div class="scanner-area">
+            <div class="scanner-frame">
+                <div class="scanner-overlay">
+                    <div class="scanner-target">
+                        <div class="scanner-corner tl"></div>
+                        <div class="scanner-corner tr"></div>
+                        <div class="scanner-corner bl"></div>
+                        <div class="scanner-corner br"></div>
+                        <div class="scanner-line"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="scanner-hint">Apunta la cámara al código QR de la cebadera o trampa</p>
+            <div class="recent-scans">
+                <div class="recent-title">📋 Escaneados Hoy</div>
+                <div class="scan-list">
+                    <div class="scan-item">
+                        <div class="scan-icon bait">🪤</div>
+                        <div class="scan-info">
+                            <strong>Cebadera C-001</strong>
+                            <span>Hotel Marriott - Cocina • 09:45</span>
+                        </div>
+                        <div class="scan-status ok">✓ OK</div>
+                    </div>
+                    <div class="scan-item">
+                        <div class="scan-icon bait">🪤</div>
+                        <div class="scan-info">
+                            <strong>Cebadera C-002</strong>
+                            <span>Hotel Marriott - Almacén • 09:48</span>
+                        </div>
+                        <div class="scan-status alert">⚠️ Consumo</div>
+                    </div>
+                    <div class="scan-item">
+                        <div class="scan-icon trap">💡</div>
+                        <div class="scan-info">
+                            <strong>Trampa T-005</strong>
+                            <span>Hotel Marriott - Entrada • 09:52</span>
+                        </div>
+                        <div class="scan-status ok">✓ OK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 80px;"></div>
+        <nav class="mobile-nav">
+            <a href="inicio.html" class="nav-item"><span class="nav-icon">🏠</span>Inicio</a>
+            <a href="fumigacion.html" class="nav-item"><span class="nav-icon">📝</span>Registrar</a>
+            <a href="escaneo-qr.html" class="nav-item active"><span class="nav-icon">📱</span>Escanear</a>
+            <a href="historial.html" class="nav-item"><span class="nav-icon">📜</span>Historial</a>
+        </nav>
+    </div>
+</body>
+</html>

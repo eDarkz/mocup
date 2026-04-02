@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Satisfacción de Clientes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .nps-gauge { width: 200px; height: 100px; position: relative; margin: 0 auto 16px; }
+        .nps-arc { width: 200px; height: 100px; border-radius: 100px 100px 0 0; background: conic-gradient(from 180deg, #ef4444 0deg, #f59e0b 90deg, #10b981 180deg); }
+        .nps-inner { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 140px; height: 70px; background: var(--color-bg-card); border-radius: 70px 70px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .feedback-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .star-display { color: #f59e0b; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🏢</span> López S.A.</div></div>
+            <nav class="sidebar-nav">
+                <a href="portal-clientes.html" class="nav-item"><span class="nav-item-icon">🌐</span> Portal Clientes</a>
+                <a href="satisfaccion.html" class="nav-item active"><span class="nav-item-icon">⭐</span> Satisfacción</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">⭐ Satisfacción de Clientes</h1><p class="page-subtitle">Resultados de encuestas y Net Promoter Score (NPS)</p></div>
+                <select class="form-input form-select" style="width:150px;"><option>Feb 2026</option><option>Ene 2026</option><option>Q4 2025</option></select>
+            </div>
+            <div class="grid grid-3 mb-lg">
+                <div class="card" style="text-align:center;padding:24px;">
+                    <div class="nps-gauge">
+                        <div class="nps-arc"></div>
+                        <div class="nps-inner"><span style="font-size:2rem;font-weight:700;color:#10b981;">72</span><span style="font-size:0.8rem;color:var(--color-text-muted);">NPS Score</span></div>
+                    </div>
+                    <span class="badge badge-success">Excelente</span>
+                </div>
+                <div class="stat-card green" style="text-align:center;">
+                    <div class="stat-value">4.8</div>
+                    <div class="stat-label">Calificación Promedio</div>
+                    <div class="star-display mt-sm">★★★★★</div>
+                </div>
+                <div class="stat-card" style="text-align:center;">
+                    <div class="stat-value">156</div>
+                    <div class="stat-label">Encuestas Respondidas</div>
+                    <div style="font-size:0.85rem;color:var(--color-success);margin-top:8px;">↑ 23% vs mes anterior</div>
+                </div>
+            </div>
+            <div class="grid grid-2 mb-lg">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">📊 Distribución NPS</h3></div>
+                    <div class="card-body">
+                        <div style="margin-bottom:16px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="color:#10b981;">😊 Promotores (9-10)</span><strong>68%</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:20px;border-radius:10px;"><div style="background:#10b981;height:100%;width:68%;border-radius:10px;"></div></div>
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="color:#6b7280;">😐 Pasivos (7-8)</span><strong>24%</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:20px;border-radius:10px;"><div style="background:#6b7280;height:100%;width:24%;border-radius:10px;"></div></div>
+                        </div>
+                        <div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="color:#ef4444;">😞 Detractores (0-6)</span><strong>8%</strong></div>
+                            <div style="background:var(--color-bg-tertiary);height:20px;border-radius:10px;"><div style="background:#ef4444;height:100%;width:8%;border-radius:10px;"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">👤 Ranking Técnicos</h3></div>
+                    <div class="card-body">
+                        <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-border);">
+                            <span style="font-size:1.5rem;">🥇</span>
+                            <div style="flex:1;"><strong>Carlos Ramírez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">52 evaluaciones</div></div>
+                            <div style="text-align:right;"><strong>4.9</strong> <span class="star-display">★</span></div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-border);">
+                            <span style="font-size:1.5rem;">🥈</span>
+                            <div style="flex:1;"><strong>María Sánchez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">48 evaluaciones</div></div>
+                            <div style="text-align:right;"><strong>4.8</strong> <span class="star-display">★</span></div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px;padding:12px 0;">
+                            <span style="font-size:1.5rem;">🥉</span>
+                            <div style="flex:1;"><strong>Juan Pérez</strong><div style="font-size:0.8rem;color:var(--color-text-muted);">45 evaluaciones</div></div>
+                            <div style="text-align:right;"><strong>4.6</strong> <span class="star-display">★</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">💬 Comentarios Recientes</h3></div>
+                <div class="card-body">
+                    <div class="feedback-card">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                            <strong>Hotel Marriott Reforma</strong>
+                            <span class="star-display">★★★★★</span>
+                        </div>
+                        <p style="color:var(--color-text-muted);margin-bottom:8px;">"Excelente servicio, el técnico Carlos fue muy profesional y explicó todo el proceso. Muy recomendable."</p>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">👤 Juan García • Feb 7, 2026</div>
+                    </div>
+                    <div class="feedback-card">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                            <strong>Hilton Santa Fe</strong>
+                            <span class="star-display">★★★★☆</span>
+                        </div>
+                        <p style="color:var(--color-text-muted);margin-bottom:8px;">"Buen servicio en general, solo hubo un pequeño retraso en la llegada pero el trabajo fue de calidad."</p>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">👤 Ana Martínez • Feb 6, 2026</div>
+                    </div>
+                    <div class="feedback-card" style="border-color:#f59e0b;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                            <strong>Restaurante El Sol</strong>
+                            <span class="star-display">★★★☆☆</span>
+                        </div>
+                        <p style="color:var(--color-text-muted);margin-bottom:8px;">"El servicio fue bueno pero hubo confusión con el horario. Espero mejor coordinación la próxima vez."</p>
+                        <div style="font-size:0.8rem;color:var(--color-text-muted);">👤 Pedro López • Feb 5, 2026</div>
+                        <button class="btn btn-warning btn-sm mt-sm">📞 Seguimiento pendiente</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

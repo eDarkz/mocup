@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl SaaS - White Label</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .preview-frame { background: #1a1a2e; border-radius: 12px; padding: 20px; }
+        .preview-browser { background: var(--color-bg-card); border-radius: 8px; overflow: hidden; }
+        .preview-bar { background: var(--color-bg-tertiary); padding: 8px 12px; display: flex; align-items: center; gap: 8px; }
+        .preview-dots { display: flex; gap: 6px; }
+        .preview-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .preview-url { flex: 1; background: var(--color-bg-card); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; color: var(--color-text-muted); }
+        .color-picker { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--color-bg-tertiary); border-radius: 8px; margin-bottom: 12px; }
+        .color-swatch { width: 40px; height: 40px; border-radius: 8px; border: 2px solid var(--color-border); cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <a href="white-label.html" class="nav-item active"><span class="nav-item-icon">🏷️</span> White Label</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">🏷️ White Label</h1><p class="page-subtitle">Dominio propio, logo y colores personalizados para clientes Enterprise</p></div>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">⚙️ Configuración White Label</h3></div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">Empresa</label>
+                            <select class="form-input form-select"><option>Fumigaciones López S.A.</option><option>Pest Masters MX</option></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Dominio Personalizado</label>
+                            <input type="text" class="form-input" value="app.fumigacioneslopez.com">
+                            <p style="font-size:0.8rem;color:var(--color-text-muted);margin-top:4px;">CNAME apuntando a: custom.fumicontrol.app</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Logo (PNG transparente)</label>
+                            <div style="border:2px dashed var(--color-border);border-radius:8px;padding:20px;text-align:center;">
+                                <div style="font-size:2rem;margin-bottom:8px;">📤</div>
+                                <p style="font-size:0.85rem;color:var(--color-text-muted);">Arrastra imagen o haz clic</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Colores de Marca</label>
+                            <div class="color-picker"><div class="color-swatch" style="background:#1e40af;"></div><span>Color Primario</span><input type="text" class="form-input" value="#1e40af" style="width:100px;"></div>
+                            <div class="color-picker"><div class="color-swatch" style="background:#10b981;"></div><span>Color Secundario</span><input type="text" class="form-input" value="#10b981" style="width:100px;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Favicon</label>
+                            <input type="file" class="form-input">
+                        </div>
+                        <button class="btn btn-primary">💾 Guardar Configuración</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">👁️ Vista Previa</h3></div>
+                    <div class="card-body">
+                        <div class="preview-frame">
+                            <div class="preview-browser">
+                                <div class="preview-bar">
+                                    <div class="preview-dots"><div class="preview-dot" style="background:#ef4444;"></div><div class="preview-dot" style="background:#f59e0b;"></div><div class="preview-dot" style="background:#10b981;"></div></div>
+                                    <div class="preview-url">🔒 https://app.fumigacioneslopez.com/dashboard</div>
+                                </div>
+                                <div style="padding:20px;background:#0a0e1a;">
+                                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                                        <div style="width:40px;height:40px;background:linear-gradient(135deg,#1e40af,#3b82f6);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;">FL</div>
+                                        <div><div style="font-weight:700;color:white;">Fumigaciones López</div><div style="font-size:0.8rem;color:#94a3b8;">Sistema de Control</div></div>
+                                    </div>
+                                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+                                        <div style="background:rgba(30,64,175,0.2);border:1px solid rgba(30,64,175,0.3);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:1.25rem;font-weight:700;color:#60a5fa;">156</div><div style="font-size:0.7rem;color:#94a3b8;">Clientes</div></div>
+                                        <div style="background:rgba(16,185,129,0.2);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:1.25rem;font-weight:700;color:#34d399;">24</div><div style="font-size:0.7rem;color:#94a3b8;">Técnicos</div></div>
+                                        <div style="background:rgba(139,92,246,0.2);border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:1.25rem;font-weight:700;color:#a78bfa;">8</div><div style="font-size:0.7rem;color:#94a3b8;">Vehículos</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

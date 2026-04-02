@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Status Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-brand"><span>🛡️</span> FumiControl</div></div>
+            <nav class="sidebar-nav">
+                <a href="backups.html" class="nav-item"><span class="nav-item-icon">💾</span> Backups</a>
+                <a href="status-page.html" class="nav-item active"><span class="nav-item-icon">📡</span> Status Page</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div><h1 class="page-title">📡 Status Page / Incidentes</h1><p class="page-subtitle">Estado de servicios y gestión de incidentes públicos</p></div>
+                <button class="btn btn-warning">🚨 Reportar Incidente</button>
+            </div>
+            <div style="background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(16,185,129,0.05));border:1px solid rgba(16,185,129,0.3);border-radius:16px;padding:24px;margin-bottom:24px;text-align:center;">
+                <div style="font-size:3rem;margin-bottom:8px;">✅</div>
+                <div style="font-size:1.5rem;font-weight:700;color:#10b981;">Todos los sistemas operativos</div>
+                <div style="color:var(--color-text-muted);">Última verificación: hace 2 minutos</div>
+            </div>
+            <div class="card mb-lg">
+                <div class="card-header"><h3 class="card-title">🔧 Estado de Servicios</h3></div>
+                <div class="card-body">
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--color-border);">
+                        <div><strong>API Principal</strong><p style="margin:0;font-size:0.8rem;color:var(--color-text-muted);">api.fumicontrol.app</p></div>
+                        <div style="display:flex;gap:4px;">
+                            <div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div>
+                        </div>
+                        <span class="badge badge-success">Operativo</span>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--color-border);">
+                        <div><strong>App Web</strong><p style="margin:0;font-size:0.8rem;color:var(--color-text-muted);">app.fumicontrol.app</p></div>
+                        <div style="display:flex;gap:4px;">
+                            <div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div>
+                        </div>
+                        <span class="badge badge-success">Operativo</span>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--color-border);">
+                        <div><strong>App Móvil (Sync)</strong><p style="margin:0;font-size:0.8rem;color:var(--color-text-muted);">sync.fumicontrol.app</p></div>
+                        <div style="display:flex;gap:4px;">
+                            <div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#f59e0b;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div>
+                        </div>
+                        <span class="badge badge-success">Operativo</span>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;">
+                        <div><strong>Base de Datos</strong><p style="margin:0;font-size:0.8rem;color:var(--color-text-muted);">PostgreSQL Cluster</p></div>
+                        <div style="display:flex;gap:4px;">
+                            <div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div><div style="width:8px;height:24px;background:#10b981;border-radius:2px;"></div>
+                        </div>
+                        <span class="badge badge-success">Operativo</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3 class="card-title">📜 Historial de Incidentes</h3></div>
+                <div class="card-body">
+                    <div style="padding:16px;background:var(--color-bg-tertiary);border-radius:8px;margin-bottom:12px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><strong>Lentitud en sincronización móvil</strong><span class="badge badge-success">Resuelto</span></div>
+                        <p style="font-size:0.85rem;color:var(--color-text-muted);margin:0;">Feb 3, 2026 • Duración: 45 min • Afectados: App móvil</p>
+                    </div>
+                    <div style="padding:16px;background:var(--color-bg-tertiary);border-radius:8px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><strong>Mantenimiento programado BD</strong><span class="badge badge-info">Completado</span></div>
+                        <p style="font-size:0.85rem;color:var(--color-text-muted);margin:0;">Ene 28, 2026 • Duración: 2 hrs • Programado</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

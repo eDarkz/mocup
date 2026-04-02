@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FumiControl - Dashboard Supervisor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+        .team-member { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; text-align: center; }
+        .team-avatar { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 12px; overflow: hidden; border: 3px solid var(--color-accent-primary); }
+        .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .team-name { font-weight: 600; margin-bottom: 4px; }
+        .team-status { font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 12px; }
+        .team-status.working { background: var(--color-success-bg); color: var(--color-success); }
+        .team-status.traveling { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .team-status.break { background: var(--color-warning-bg); color: var(--color-warning); }
+        .team-location { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 8px; }
+        .team-tasks { font-size: 0.85rem; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Supervisor</span>Ana García</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Mi Equipo</div>
+                    <a href="dashboard.html" class="nav-item active"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="mapa-gps.html" class="nav-item"><span class="nav-item-icon">🗺️</span> Mapa GPS</a>
+                    <a href="asignaciones.html" class="nav-item"><span class="nav-item-icon">📋</span> Asignaciones</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Control</div>
+                    <a href="aprobaciones.html" class="nav-item"><span class="nav-item-icon">✅</span> Aprobaciones <span class="badge badge-danger" style="margin-left: auto;">5</span></a>
+                    <a href="calendario.html" class="nav-item"><span class="nav-item-icon">📅</span> Calendario</a>
+                    <a href="metricas.html" class="nav-item"><span class="nav-item-icon">📈</span> Métricas</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">AG</div>
+                    <div class="user-info"><div class="user-name">Ana García</div><div class="user-role">Supervisora Zona Norte</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">👔 Mi Equipo Hoy</h1>
+                    <p class="page-subtitle">Viernes 7 de Febrero, 2026 • Zona Norte</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📞 Contactar Equipo</button>
+                    <button class="btn btn-primary">+ Asignar Tarea</button>
+                </div>
+            </div>
+            <div class="grid grid-4 mb-xl">
+                <div class="stat-card green"><div class="stat-icon">👥</div><div class="stat-value">6</div><div class="stat-label">Agentes Activos</div></div>
+                <div class="stat-card blue"><div class="stat-icon">📋</div><div class="stat-value">18</div><div class="stat-label">Tareas Programadas</div></div>
+                <div class="stat-card yellow"><div class="stat-icon">✓</div><div class="stat-value">11</div><div class="stat-label">Completadas</div></div>
+                <div class="stat-card red"><div class="stat-icon">⏳</div><div class="stat-value">7</div><div class="stat-label">Pendientes</div></div>
+            </div>
+            <!-- Team Status -->
+            <div class="card mb-lg">
+                <div class="card-header">
+                    <h3 class="card-title">👥 Estado del Equipo</h3>
+                    <a href="mapa-gps.html" class="btn btn-ghost btn-sm">🗺️ Ver en Mapa</a>
+                </div>
+                <div class="card-body">
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="team-avatar"><img src="https://i.pravatar.cc/60?img=12" alt=""></div>
+                            <div class="team-name">Carlos Ramírez</div>
+                            <div class="team-status working">🔧 Trabajando</div>
+                            <div class="team-location">📍 Hotel Marriott</div>
+                            <div class="team-tasks">✓ 3/4 tareas</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar"><img src="https://i.pravatar.cc/60?img=5" alt=""></div>
+                            <div class="team-name">María Sánchez</div>
+                            <div class="team-status traveling">🚐 En camino</div>
+                            <div class="team-location">📍 → Casa González</div>
+                            <div class="team-tasks">✓ 2/3 tareas</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar"><img src="https://i.pravatar.cc/60?img=8" alt=""></div>
+                            <div class="team-name">Pedro Martínez</div>
+                            <div class="team-status working">🔧 Trabajando</div>
+                            <div class="team-location">📍 Rest. La Parilla</div>
+                            <div class="team-tasks">✓ 1/3 tareas</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar"><img src="https://i.pravatar.cc/60?img=15" alt=""></div>
+                            <div class="team-name">Luis Torres</div>
+                            <div class="team-status break">☕ Descanso</div>
+                            <div class="team-location">📍 Base</div>
+                            <div class="team-tasks">⏳ 0/4 tareas</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar"><img src="https://i.pravatar.cc/60?img=20" alt=""></div>
+                            <div class="team-name">Roberto Díaz</div>
+                            <div class="team-status working">🔧 Trabajando</div>
+                            <div class="team-location">📍 Hotel Hilton</div>
+                            <div class="team-tasks">✓ 2/2 tareas</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar"><img src="https://i.pravatar.cc/60?img=25" alt=""></div>
+                            <div class="team-name">Jorge Vega</div>
+                            <div class="team-status traveling">🚐 En camino</div>
+                            <div class="team-location">📍 → Fracc. Los Pinos</div>
+                            <div class="team-tasks">✓ 3/5 tareas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-2">
+                <!-- Pending Approvals -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">✅ Pendientes de Aprobación</h3>
+                        <span class="badge badge-danger">5 nuevos</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon blue">📄</div>
+                                <div class="activity-content"><strong>Reporte de Fumigación</strong><p>Carlos R. - Hotel Marriott Pisos 1-3</p></div>
+                                <button class="btn btn-primary btn-sm">Revisar</button>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon blue">📄</div>
+                                <div class="activity-content"><strong>Reporte de Fumigación</strong><p>María S. - Casa Fernández</p></div>
+                                <button class="btn btn-primary btn-sm">Revisar</button>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon yellow">📦</div>
+                                <div class="activity-content"><strong>Solicitud de Material</strong><p>Pedro M. - Gel + Cebos</p></div>
+                                <button class="btn btn-primary btn-sm">Revisar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Alerts -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">⚠️ Alertas</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon red">⏰</div>
+                                <div class="activity-content"><strong>Retraso en servicio</strong><p>Luis T. - Hotel Fiesta Inn (30 min)</p></div>
+                                <button class="btn btn-ghost btn-sm">📞</button>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon yellow">🪤</div>
+                                <div class="activity-content"><strong>Consumo detectado</strong><p>Cebadera C-015 - Hotel Marriott</p></div>
+                                <button class="btn btn-ghost btn-sm">Asignar</button>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon blue">📅</div>
+                                <div class="activity-content"><strong>Cliente solicitó cambio</strong><p>Casa González - Reagendar lunes</p></div>
+                                <button class="btn btn-ghost btn-sm">Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

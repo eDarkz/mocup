@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fumigaciones López - Locaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="locations.css">
+</head>
+<body>
+    <div class="layout-with-sidebar">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand"><span>🛡️</span> FumiControl</div>
+                <div class="sidebar-company"><span>Empresa</span>Fumigaciones López S.A.</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="company-dashboard.html" class="nav-item"><span class="nav-item-icon">📊</span> Dashboard</a>
+                    <a href="fumigation-form.html" class="nav-item"><span class="nav-item-icon">🔫</span> Fumigaciones</a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Locaciones</div>
+                    <a href="#" class="nav-item active"><span class="nav-item-icon">🏨</span> Hoteles <span class="nav-item-badge">12</span></a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">🏠</span> Casas <span class="nav-item-badge">45</span></a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">🏪</span> Negocios <span class="nav-item-badge">23</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Gestión</div>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">👥</span> Usuarios</a>
+                    <a href="#" class="nav-item"><span class="nav-item-icon">📈</span> Reportes</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="user-avatar">JL</div>
+                    <div class="user-info"><div class="user-name">Juan López</div><div class="user-role">Administrador</div></div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Hoteles</h1>
+                    <p class="page-subtitle">Gestiona todos tus hoteles y sus áreas</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary">📥 Exportar</button>
+                    <button class="btn btn-primary">+ Nuevo Hotel</button>
+                </div>
+            </div>
+            <div class="tabs">
+                <button class="tab active">🏨 Hoteles (12)</button>
+                <button class="tab">🏠 Casas (45)</button>
+                <button class="tab">🏪 Negocios (23)</button>
+            </div>
+            <div class="filters-bar">
+                <input type="text" class="form-input search-input" placeholder="🔍 Buscar hotel...">
+                <select class="form-input form-select filter-select">
+                    <option>Todos los estados</option>
+                    <option>Al día</option>
+                    <option>Próximo a vencer</option>
+                    <option>Vencido</option>
+                </select>
+            </div>
+            <div class="locations-grid">
+                <a href="hotel-detail.html" class="location-card">
+                    <div class="location-header">
+                        <div class="location-icon hotel">🏨</div>
+                        <span class="location-status success">Al día</span>
+                    </div>
+                    <h3 class="location-name">Hotel Marriott Centro</h3>
+                    <p class="location-address">Av. Reforma 123, Col. Centro</p>
+                    <div class="location-stats">
+                        <div class="location-stat"><span class="stat-number">24</span><span class="stat-text">Áreas</span></div>
+                        <div class="location-stat"><span class="stat-number">45</span><span class="stat-text">Cebaderas</span></div>
+                        <div class="location-stat"><span class="stat-number">12</span><span class="stat-text">Trampas</span></div>
+                    </div>
+                    <div class="location-footer"><span class="location-date">Última: hace 5 días</span><span class="location-arrow">→</span></div>
+                </a>
+                <a href="hotel-detail.html" class="location-card">
+                    <div class="location-header">
+                        <div class="location-icon hotel">🏨</div>
+                        <span class="location-status warning">Próximo</span>
+                    </div>
+                    <h3 class="location-name">Hotel Hilton</h3>
+                    <p class="location-address">Blvd. Kukulcán Km 12</p>
+                    <div class="location-stats">
+                        <div class="location-stat"><span class="stat-number">32</span><span class="stat-text">Áreas</span></div>
+                        <div class="location-stat"><span class="stat-number">68</span><span class="stat-text">Cebaderas</span></div>
+                        <div class="location-stat"><span class="stat-number">18</span><span class="stat-text">Trampas</span></div>
+                    </div>
+                    <div class="location-footer"><span class="location-date">Última: hace 12 días</span><span class="location-arrow">→</span></div>
+                </a>
+                <a href="hotel-detail.html" class="location-card">
+                    <div class="location-header">
+                        <div class="location-icon hotel">🏨</div>
+                        <span class="location-status danger">Vencido</span>
+                    </div>
+                    <h3 class="location-name">Hotel Fiesta Inn</h3>
+                    <p class="location-address">Av. Insurgentes 456</p>
+                    <div class="location-stats">
+                        <div class="location-stat"><span class="stat-number">18</span><span class="stat-text">Áreas</span></div>
+                        <div class="location-stat"><span class="stat-number">32</span><span class="stat-text">Cebaderas</span></div>
+                        <div class="location-stat"><span class="stat-number">8</span><span class="stat-text">Trampas</span></div>
+                    </div>
+                    <div class="location-footer"><span class="location-date">Última: hace 18 días</span><span class="location-arrow">→</span></div>
+                </a>
+                <a href="hotel-detail.html" class="location-card">
+                    <div class="location-header">
+                        <div class="location-icon hotel">🏨</div>
+                        <span class="location-status success">Al día</span>
+                    </div>
+                    <h3 class="location-name">Hotel Presidente</h3>
+                    <p class="location-address">Paseo de la Reforma 500</p>
+                    <div class="location-stats">
+                        <div class="location-stat"><span class="stat-number">28</span><span class="stat-text">Áreas</span></div>
+                        <div class="location-stat"><span class="stat-number">52</span><span class="stat-text">Cebaderas</span></div>
+                        <div class="location-stat"><span class="stat-number">15</span><span class="stat-text">Trampas</span></div>
+                    </div>
+                    <div class="location-footer"><span class="location-date">Última: hace 3 días</span><span class="location-arrow">→</span></div>
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
