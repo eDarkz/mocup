@@ -124,8 +124,8 @@ cliente@demo.com     demo        Cliente
 app/
 ├── .env.example
 ├── SUPABASE_SETUP.md          ✅ Guía de configuración
-├── prisma/
-│   ├── schema.prisma          ✅ Modelo completo (30+ tablas)
+├── bd/
+│   ├── bd         ✅ Modelo completo (30+ tablas)
 │   └── seed.ts                ✅ Datos de demo
 ├── src/
 │   ├── app/
